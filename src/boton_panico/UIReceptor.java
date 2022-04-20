@@ -1,4 +1,4 @@
-UIpackage boton_panico;
+package boton_panico;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
