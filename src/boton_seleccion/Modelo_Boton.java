@@ -7,6 +7,7 @@ public class Modelo_Boton {
 	
 	public Modelo_Boton(String id) {
 		this.activado=false;
+		this.id=id;
 	}
 	
 	public boolean estaActivado() {

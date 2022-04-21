@@ -14,9 +14,9 @@ public class Controlador_Boton extends Observable implements MouseListener {
 	private Color colorInicial;
 	private Observer observer;
 	
-	public Controlador_Boton(Vista_Boton vista,Modelo_Boton modelo) {
+	public Controlador_Boton(Vista_Boton vista,String id) {
 		this.vista=vista;
-		this.modelo=modelo;
+		this.modelo= new Modelo_Boton(id);
 		this.vista.addMouseListener(this);
 		this.colorInicial= this.vista.getBackground();
 	}

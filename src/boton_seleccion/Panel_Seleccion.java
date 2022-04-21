@@ -19,9 +19,9 @@ public class Panel_Seleccion extends JPanel implements Observer {
 	
 	public Panel_Seleccion() {
 		
-		this.boton1=new Controlador_Boton(new Vista_Boton("/Iconos/policia.png",this.widhtBoton,this.heightBoton), new Modelo_Boton("Personal de Seguridad"));
-		this.boton2=new Controlador_Boton(new Vista_Boton("/Iconos/bombero.png",this.widhtBoton,this.heightBoton), new Modelo_Boton("Bomberos"));
-		this.boton3=new Controlador_Boton(new Vista_Boton("/Iconos/doctor.png",this.widhtBoton,this.heightBoton), new Modelo_Boton("Asistencia Medica"));
+		this.boton1=new Controlador_Boton(new Vista_Boton("/Iconos/policia.png",this.widhtBoton,this.heightBoton), "Personal de Seguridad");
+		this.boton2=new Controlador_Boton(new Vista_Boton("/Iconos/bombero.png",this.widhtBoton,this.heightBoton), "Bomberos");
+		this.boton3=new Controlador_Boton(new Vista_Boton("/Iconos/doctor.png",this.widhtBoton,this.heightBoton),"Asistencia Medica");
 		this.boton1.addObserver(this);
 		this.boton2.addObserver(this);
 		this.boton3.addObserver(this);
@@ -81,14 +81,17 @@ public class Panel_Seleccion extends JPanel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		if(o!=null) {
-				String mensaje= arg.toString();
-				if(mensaje.equals("Personal de Seguridad")) {
+				String mensaje= (String) arg;
+				if(o==this.boton1) {
+					System.out.println("Selecciono " + this.boton1.getID() );
 					this.boton2.desactivar();
 					this.boton3.desactivar();
-				}else if(mensaje.equals("Bomberos")) {
+				}else if(o==this.boton2) {
+					System.out.println("Selecciono " + this.boton2.getID() );
 					this.boton1.desactivar();
 					this.boton3.desactivar();
-				}else if(mensaje.equals("Asistencia Medica")) {
+				}else if(o==this.boton3) {
+					System.out.println("Selecciono " + this.boton3.getID() );
 					this.boton1.desactivar();
 					this.boton2.desactivar();
 				}
