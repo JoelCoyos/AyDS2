@@ -1,17 +1,35 @@
 package MVCEmisor;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
+
 import boton_panico.TipoEmergencia;
 
-public class ControladorEmisor {
-	
+@SuppressWarnings("deprecation")
+public class ControladorEmisor implements ActionListener,Observer
+{
+	VistaEmisor uiEmisor;
 	public ControladorEmisor()
 	{
-		//Iniciar Ventana
-		//Iniciar los listeners
+		uiEmisor = new VistaEmisor();
+		uiEmisor.setActionListener(this);
 	}
 	
-	public void EnviarSolicitud(TipoEmergencia tipoEmergencia)
-	{
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String comando = e.getActionCommand();
+		if(comando == "Enviar Emergencia")
+		{
+			System.out.print("Emergencia " + uiEmisor.tipoEmergencia()+"\n");
+		}
 		
 	}
 }
