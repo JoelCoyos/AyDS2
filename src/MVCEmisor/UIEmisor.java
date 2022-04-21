@@ -1,4 +1,4 @@
-package boton_panico;
+package MVCEmisor;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

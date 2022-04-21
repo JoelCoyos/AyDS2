@@ -1,4 +1,6 @@
-package boton_panico;
+package MVCEmisor;
+
+import boton_panico.TipoEmergencia;
 
 public class ControladorEmisor {
 	
