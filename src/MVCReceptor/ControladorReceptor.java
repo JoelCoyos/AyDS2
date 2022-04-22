@@ -1,20 +1,42 @@
 package MVCReceptor;
 
 import boton_panico.Emergencia;
-import MVCReceptor.VistaReceptor;
+import boton_panico.RedEmisor;
 
-public class ControladorReceptor {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
+
+
+@SuppressWarnings("deprecation")
+public class ControladorReceptor implements ActionListener,Observer{
 	
-	private VistaReceptor vista;
-	private ModeloReceptor modelo;
+	private VistaReceptor vistaReceptor;
+	private RedReceptor redReceptor;
 	
-	public ControladorReceptor(VistaReceptor vista, ModeloReceptor modelo) {
-		this.vista=vista;
-		this.modelo=modelo;
+	public ControladorReceptor() {
+		vistaReceptor = new VistaReceptor();
+		redReceptor = new RedReceptor();
+		redReceptor.addObserver(this);
+		redReceptor.Escuchar();
 	}
-	
-	public void agregarEmergencia(Emergencia emergencia) {
+
+	@Override
+	public void update(Observable o, Object arg) {
+		System.out.println("Llego");
+		if(arg.equals("Emergencia"))
+		{
+			Emergencia emergencia = redReceptor.recibirEmergencia();
+			vistaReceptor.agregarEmergencia(emergencia.fecha, emergencia.tipoEmergencia, emergencia.ubicacion);
+		}
 		
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		
+	}
+	
 }

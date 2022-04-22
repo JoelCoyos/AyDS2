@@ -5,16 +5,19 @@ import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
+import boton_panico.Emergencia;
 import boton_panico.TipoEmergencia;
 
 @SuppressWarnings("deprecation")
 public class ControladorEmisor implements ActionListener,Observer
 {
-	VistaEmisor uiEmisor;
+	private VistaEmisor vistaEmisor;
+	private RedEmisor redEmisor;
 	public ControladorEmisor()
 	{
-		uiEmisor = new VistaEmisor();
-		uiEmisor.setActionListener(this);
+		vistaEmisor = new VistaEmisor();
+		vistaEmisor.setActionListener(this);
+		redEmisor = new RedEmisor();
 	}
 	
 	@Override
@@ -28,7 +31,8 @@ public class ControladorEmisor implements ActionListener,Observer
 		String comando = e.getActionCommand();
 		if(comando == "Enviar Emergencia")
 		{
-			System.out.print("Emergencia " + uiEmisor.tipoEmergencia()+"\n");
+			Emergencia emergencia = new Emergencia("test", vistaEmisor.tipoEmergencia());
+			redEmisor.EnviarEmergencia(emergencia);
 		}
 		
 	}

@@ -29,21 +29,6 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 	private JTable tablaEmergencias;
 	private DefaultTableModel modeloTabla= new DefaultTableModel();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaReceptor frame = new VistaReceptor();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

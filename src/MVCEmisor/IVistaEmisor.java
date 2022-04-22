@@ -4,7 +4,8 @@ import boton_panico.TipoEmergencia;
 
 public interface IVistaEmisor {
 	
-	public TipoEmergencia tipoEmergencia();
+	public String tipoEmergencia();
 	public void EnviarEmergencia();
+	public void MostrarNotificacion(String mensaje);
 	
 }

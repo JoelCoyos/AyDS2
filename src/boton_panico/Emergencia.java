@@ -1,30 +1,24 @@
 package boton_panico;
 
-public class Emergencia {
+import java.io.Serializable;
+
+public class Emergencia implements Serializable {
 	
-	private String ubicacion;
-	private TipoEmergencia tipoEmergencia;
+	public String ubicacion;
+	public String tipoEmergencia;
+	public String fecha;
+	public String hora;
 	
-	public Emergencia(String ubicacion,TipoEmergencia tipo) {
+	public Emergencia(String ubicacion,String tipo) {
 		this.tipoEmergencia=tipo;
 		this.ubicacion=ubicacion;
+		this.fecha = "22/04";
+		this.hora = "03:36";
 	}
 	
 	public String getUbicacion() {
 		return this.ubicacion;
 	}
-	
-	public String getTipoEmergencia() {
-		String emergencia="";
-		switch(this.tipoEmergencia) {
-			case medica: emergencia="Asistencia Medica";
-			break;
-			case incendios: emergencia="Bomberos";
-			break;
-			case seguridad: emergencia="Personal de seguridad";
-			break;
-		}
-		return emergencia;
-	}
+
 	
 }

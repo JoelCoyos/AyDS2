@@ -2,13 +2,14 @@ package MVCReceptor;
 
 import java.util.ArrayList;
 import MVCReceptor.EmergenciaRegistro;
+import boton_panico.Emergencia;
 
 public class ModeloReceptor {
    private ArrayList<EmergenciaRegistro> emergencias= new ArrayList<EmergenciaRegistro>();
 
    public ModeloReceptor() {}
    
-   public ArrayList<EmergenciasRegistro> getEmergencias(){
+   public ArrayList<EmergenciaRegistro> getEmergencias(){
 	   return this.emergencias;
    }
    

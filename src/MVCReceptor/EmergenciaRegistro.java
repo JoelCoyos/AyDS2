@@ -19,8 +19,4 @@ public class EmergenciaRegistro {
 		return this.emergencia.getUbicacion();
 	}
 	
-	public String getTipo() {
-		return this.emergencia.getTipoEmergencia();
-	}
-	
 }

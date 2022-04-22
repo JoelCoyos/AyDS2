@@ -21,6 +21,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -134,14 +135,14 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 	}
 
 	@Override
-	public TipoEmergencia tipoEmergencia() {
-		TipoEmergencia tipoEmergencia = null;
+	public String tipoEmergencia() {
+		String tipoEmergencia = null;
 		if(seguridadButton.isSelected())
-			tipoEmergencia = TipoEmergencia.seguridad;
+			tipoEmergencia = "Seguridad";
 		else if(bomberosButton.isSelected())
-			tipoEmergencia = TipoEmergencia.incendios;
+			tipoEmergencia = "Bomberos";
 		else if(medicaButton.isSelected())
-			tipoEmergencia = TipoEmergencia.medica;
+			tipoEmergencia = "Medica";
 		return tipoEmergencia;
 	}
 	
@@ -154,6 +155,11 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 	public void EnviarEmergencia() {
 		
 		
+	}
+
+	@Override
+	public void MostrarNotificacion(String mensaje) {
+		JOptionPane.showMessageDialog(this, mensaje);
 	}
 
 }
