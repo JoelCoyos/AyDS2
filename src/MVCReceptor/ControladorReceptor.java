@@ -1,13 +1,14 @@
 package MVCReceptor;
 
 import boton_panico.Emergencia;
+import MVCReceptor.VistaReceptor;
 
 public class ControladorReceptor {
 	
-	private UIReceptor vista;
+	private VistaReceptor vista;
 	private ModeloReceptor modelo;
 	
-	public ControladorReceptor(UIReceptor vista, ModeloReceptor modelo) {
+	public ControladorReceptor(VistaReceptor vista, ModeloReceptor modelo) {
 		this.vista=vista;
 		this.modelo=modelo;
 	}
