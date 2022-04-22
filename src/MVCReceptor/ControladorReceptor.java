@@ -19,7 +19,6 @@ public class ControladorReceptor implements ActionListener,Observer{
 		vistaReceptor = new VistaReceptor();
 		redReceptor = new RedReceptor();
 		redReceptor.addObserver(this);
-		redReceptor.Escuchar();
 	}
 
 	@Override

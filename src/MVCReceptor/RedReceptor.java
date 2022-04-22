@@ -17,27 +17,32 @@ public class RedReceptor extends Observable implements IRedReceptor {
 	
 	private static Emergencia emergencia;
 	
+	public RedReceptor() {
+		new Thread(){public void run(){Escuchar();}}.start();
+	}
+	
 	public void Escuchar()
 	{
             ServerSocket ss;
 			try {
 				ss = new ServerSocket(1234);
-				Socket socket = ss.accept(); 
-				System.out.println("Se conecto!");
+				while(true)
+				{
+					Socket socket = ss.accept(); 
+					System.out.println("Se conecto!");
+					
+					InputStream inputStream = socket.getInputStream();
+					ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+					emergencia = (Emergencia) objectInputStream.readObject();
+					//PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+					//BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+					//String msg = in.readLine();
+					//System.out.println(msg);
+					System.out.println("Mensaje recibido");
+					setChanged();
+					notifyObservers("Emergencia");
+				}
 
-	            InputStream inputStream = socket.getInputStream();
-	            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-	            emergencia = (Emergencia) objectInputStream.readObject();
-                //PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                //BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                //String msg = in.readLine();
-                //System.out.println(msg);
-	            System.out.println("Mensaje recibido");
-	            System.out.println(emergencia.tipoEmergencia);
-	            setChanged();
-	            notifyObservers("Emergencia");
-	            ss.close();
-	            socket.close();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
