@@ -56,14 +56,7 @@
     </ownedConnector>
     <interfaceRealization xmi:id="_DI5wcMMPEey6PdLSrho1mQ" client="_DO4-wMAREeyi7amANyoU0g _bZzuoMJWEeycH-sMtUYykQ _suKMQMMPEey6PdLSrho1mQ" supplier="_-zE_sMMOEey6PdLSrho1mQ" contract="_-zE_sMMOEey6PdLSrho1mQ"/>
     <ownedOperation xmi:id="_OGG_8MAREeyi7amANyoU0g" name="Operation_1"/>
-    <packagedElement xmi:type="uml:Component" xmi:id="_AY3YMMJTEeycH-sMtUYykQ" name="VistaReceptor">
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_G08u8cMQEey6PdLSrho1mQ" name="VistaReceptorPort" type="_AY3YMMJTEeycH-sMtUYykQ"/>
-      <ownedConnector xmi:id="_G08H4MMQEey6PdLSrho1mQ" name="MostrarEmergencia_MostrarEmergencia_connector">
-        <end xmi:id="_G08u8MMQEey6PdLSrho1mQ" role="_AcVnEMMQEey6PdLSrho1mQ"/>
-        <end xmi:id="_G08u8sMQEey6PdLSrho1mQ" role="_G08u8cMQEey6PdLSrho1mQ"/>
-      </ownedConnector>
-      <interfaceRealization xmi:id="_Ftq90MMQEey6PdLSrho1mQ" client="_AY3YMMJTEeycH-sMtUYykQ _G08H4MMQEey6PdLSrho1mQ" supplier="_CXEOYMMQEey6PdLSrho1mQ" contract="_CXEOYMMQEey6PdLSrho1mQ"/>
-    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_AY3YMMJTEeycH-sMtUYykQ" name="VistaReceptor"/>
     <packagedElement xmi:type="uml:Component" xmi:id="_B8pfIMJTEeycH-sMtUYykQ" name="ControladorReceptor">
       <ownedAttribute xmi:type="uml:Port" xmi:id="_AcVnEMMQEey6PdLSrho1mQ" name="ControladorReceptorPort" type="_B8pfIMJTEeycH-sMtUYykQ"/>
     </packagedElement>
@@ -77,7 +70,6 @@
       <interfaceRealization xmi:id="_82ZbIMMPEey6PdLSrho1mQ" client="_DbHoQMJTEeycH-sMtUYykQ _AcVAAMMQEey6PdLSrho1mQ" supplier="_4biZYMMPEey6PdLSrho1mQ" contract="_4biZYMMPEey6PdLSrho1mQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_4biZYMMPEey6PdLSrho1mQ" name="GetEmergencia"/>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_CXEOYMMQEey6PdLSrho1mQ" name="MostrarEmergencia"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_aAYZkMAREeyi7amANyoU0g" name="Class1"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_QPQ9cMAUEeyi7amANyoU0g" name="Emisor">
@@ -138,5 +130,4 @@
   <packagedElement xmi:type="uml:Usage" xmi:id="_lv9EAMMPEey6PdLSrho1mQ" client="_851skMJSEeycH-sMtUYykQ" supplier="_-zE_sMMOEey6PdLSrho1mQ"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_niYq8MMPEey6PdLSrho1mQ" client="_aGDAsMJWEeycH-sMtUYykQ _suKMQMMPEey6PdLSrho1mQ" supplier="_-zE_sMMOEey6PdLSrho1mQ"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="__X3SUMMPEey6PdLSrho1mQ" client="_B8pfIMJTEeycH-sMtUYykQ _AcVAAMMQEey6PdLSrho1mQ" supplier="_4biZYMMPEey6PdLSrho1mQ"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_GONfEMMQEey6PdLSrho1mQ" client="_B8pfIMJTEeycH-sMtUYykQ _G08H4MMQEey6PdLSrho1mQ" supplier="_CXEOYMMQEey6PdLSrho1mQ"/>
 </uml:Model>
