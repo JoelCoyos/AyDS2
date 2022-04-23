@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.Icon;
 
 public class VistaEmisor extends JFrame implements IVistaEmisor {
 
@@ -103,10 +104,9 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		icono = new ImageIcon(doctorImagen);
 		iconoImage = icono.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
 		icono = new ImageIcon(iconoImage);
-		JLabel iconoJLabel3 = new JLabel(icono);
 		panelIcon3 = new JPanel();
 		panelIconos.add(panelIcon3);
-		panelIcon3.add(iconoJLabel3);
+		
 		
 		panelRadio = new JPanel();
 		panel_1.add(panelRadio, BorderLayout.CENTER);
