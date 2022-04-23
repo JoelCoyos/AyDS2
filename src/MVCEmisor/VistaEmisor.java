@@ -151,11 +151,6 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		enviarEmergenciaButton.addActionListener(actionListener);
 	}
 
-	@Override
-	public void EnviarEmergencia() {
-		
-		
-	}
 
 	@Override
 	public void MostrarNotificacion(String mensaje) {

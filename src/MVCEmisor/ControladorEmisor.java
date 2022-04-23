@@ -31,11 +31,16 @@ public class ControladorEmisor implements ActionListener,Observer
 		String comando = e.getActionCommand();
 		if(comando == "Enviar Emergencia")
 		{
-			Emergencia emergencia = new Emergencia("test", vistaEmisor.tipoEmergencia());
-			Boolean llego = redEmisor.EnviarEmergencia(emergencia);
-			if(llego)
-				vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
+			EnviarEmergencia();
 		}
-		
 	}
+	
+	public void EnviarEmergencia()
+	{
+		Emergencia emergencia = new Emergencia("test", vistaEmisor.tipoEmergencia());
+		Boolean llego = redEmisor.EnviarEmergencia(emergencia);
+		if(llego)
+			vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
+	}
+	
 }
