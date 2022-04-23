@@ -26,7 +26,7 @@ public class ControladorReceptor implements ActionListener,Observer{
 		System.out.println("Llego");
 		if(arg.equals("Emergencia"))
 		{
-			Emergencia emergencia = redReceptor.recibirEmergencia();
+			Emergencia emergencia = redReceptor.GetEmergencia();
 			vistaReceptor.agregarEmergencia(emergencia.fecha, emergencia.tipoEmergencia, emergencia.ubicacion);
 		}
 		

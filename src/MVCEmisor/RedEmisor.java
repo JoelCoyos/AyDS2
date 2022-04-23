@@ -23,6 +23,7 @@ public class RedEmisor implements IRedEmisor {
 	@Override
 	public boolean EnviarEmergencia(Emergencia emergencia) 
 	{
+		Boolean llego = null;
 		try {
 			System.out.println("Conectando...");
 	        Socket socket = new Socket("localhost", 1234);
@@ -34,14 +35,14 @@ public class RedEmisor implements IRedEmisor {
             //PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             //BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             //out.println("hola");
-
 	        socket.close();
+	        llego = true;
 			} 
 		catch (Exception e) {
-			e.printStackTrace();
+			llego = false;
 			}
 
-		return false;
+		return llego;
 	}
 
 }

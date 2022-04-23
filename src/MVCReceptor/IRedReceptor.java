@@ -4,6 +4,7 @@ import boton_panico.Emergencia;
 
 public interface IRedReceptor {
 	
-	public Emergencia recibirEmergencia();
+	public Emergencia GetEmergencia();
+	public void Escuchar();
 
 }

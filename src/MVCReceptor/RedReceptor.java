@@ -50,7 +50,7 @@ public class RedReceptor extends Observable implements IRedReceptor {
 	}
 	
 	@Override
-	public Emergencia recibirEmergencia() {
+	public Emergencia GetEmergencia() {
 		return emergencia;
 	}
 

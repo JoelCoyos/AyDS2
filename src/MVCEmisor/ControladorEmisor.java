@@ -32,7 +32,9 @@ public class ControladorEmisor implements ActionListener,Observer
 		if(comando == "Enviar Emergencia")
 		{
 			Emergencia emergencia = new Emergencia("test", vistaEmisor.tipoEmergencia());
-			redEmisor.EnviarEmergencia(emergencia);
+			Boolean llego = redEmisor.EnviarEmergencia(emergencia);
+			if(llego)
+				vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
 		}
 		
 	}
