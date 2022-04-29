@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
-import boton_panico.Emergencia;
-import boton_panico.TipoEmergencia;
+import clasesComunes.Emergencia;
+import clasesComunes.TipoEmergencia;
 
 @SuppressWarnings("deprecation")
 public class ControladorEmisor implements ActionListener,Observer

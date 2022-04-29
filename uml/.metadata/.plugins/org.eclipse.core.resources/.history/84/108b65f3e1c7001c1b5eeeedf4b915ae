@@ -231,11 +231,16 @@
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_G0YW8MfhEey97Inx8drAzQ" name="Operation_1"/>
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LzTIAsfhEey97Inx8drAzQ" name="Operation_1"/>
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_OSxbIsfhEey97Inx8drAzQ" name="Operation_1"/>
-    <lifeline xmi:id="_AwBAwcfhEey97Inx8drAzQ" name="VistaEmisor" represents="_AwBAwMfhEey97Inx8drAzQ" coveredBy="_G0YW8sfhEey97Inx8drAzQ _G0YW9sfhEey97Inx8drAzQ"/>
-    <lifeline xmi:id="_BhTTwcfhEey97Inx8drAzQ" name="RedEmisor" represents="_BhTTwMfhEey97Inx8drAzQ" coveredBy="_G0YW88fhEey97Inx8drAzQ _G0YW9cfhEey97Inx8drAzQ _G0YW9MfhEey97Inx8drAzQ _LzTvEMfhEey97Inx8drAzQ _LzTvFMfhEey97Inx8drAzQ _kJz_5cfhEey97Inx8drAzQ"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_kJz_4cfhEey97Inx8drAzQ" name="Operation_2"/>
+    <lifeline xmi:id="_AwBAwcfhEey97Inx8drAzQ" name="VistaEmisor" represents="_AwBAwMfhEey97Inx8drAzQ" coveredBy="_G0YW8sfhEey97Inx8drAzQ _G0YW9sfhEey97Inx8drAzQ _kJz_48fhEey97Inx8drAzQ _kJz_58fhEey97Inx8drAzQ"/>
+    <lifeline xmi:id="_BhTTwcfhEey97Inx8drAzQ" name="RedEmisor" represents="_BhTTwMfhEey97Inx8drAzQ" coveredBy="_G0YW88fhEey97Inx8drAzQ _G0YW9cfhEey97Inx8drAzQ _G0YW9MfhEey97Inx8drAzQ _LzTvEMfhEey97Inx8drAzQ _LzTvFMfhEey97Inx8drAzQ _kJz_5MfhEey97Inx8drAzQ _kJz_5sfhEey97Inx8drAzQ _kJz_5cfhEey97Inx8drAzQ"/>
     <lifeline xmi:id="_EC2DccfhEey97Inx8drAzQ" name="RedReceptor" represents="_EC2DcMfhEey97Inx8drAzQ" coveredBy="_LzTvEcfhEey97Inx8drAzQ _LzTvE8fhEey97Inx8drAzQ _LzTvEsfhEey97Inx8drAzQ _OSxbJMfhEey97Inx8drAzQ _OSyCMMfhEey97Inx8drAzQ"/>
     <lifeline xmi:id="_E1xVMcfhEey97Inx8drAzQ" name="VistaReceptor" represents="_E1xVMMfhEey97Inx8drAzQ" coveredBy="_OSxbJcfhEey97Inx8drAzQ _OSxbJ8fhEey97Inx8drAzQ _OSxbJsfhEey97Inx8drAzQ"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kJz_5cfhEey97Inx8drAzQ" name="Operation_2_reply_sender" covered="_BhTTwcfhEey97Inx8drAzQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kJz_48fhEey97Inx8drAzQ" name="Operation_2_sender" covered="_AwBAwcfhEey97Inx8drAzQ" message="_kJz_4MfhEey97Inx8drAzQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kJz_5MfhEey97Inx8drAzQ" name="Operation_2_receiver" covered="_BhTTwcfhEey97Inx8drAzQ" message="_kJz_4MfhEey97Inx8drAzQ"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_kJz_5sfhEey97Inx8drAzQ" name="" covered="_BhTTwcfhEey97Inx8drAzQ" finish="_kJz_5cfhEey97Inx8drAzQ" start="_kJz_5MfhEey97Inx8drAzQ" behavior="_kJz_4cfhEey97Inx8drAzQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kJz_5cfhEey97Inx8drAzQ" name="Operation_2_reply_sender" covered="_BhTTwcfhEey97Inx8drAzQ" message="_kJz_4sfhEey97Inx8drAzQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kJz_58fhEey97Inx8drAzQ" name="Operation_2_reply_receiver" covered="_AwBAwcfhEey97Inx8drAzQ" message="_kJz_4sfhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_G0YW8sfhEey97Inx8drAzQ" name="Operation_1_sender" covered="_AwBAwcfhEey97Inx8drAzQ" message="_G0Xv4cfhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_G0YW88fhEey97Inx8drAzQ" name="Operation_1_receiver" covered="_BhTTwcfhEey97Inx8drAzQ" message="_G0Xv4cfhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_G0YW9cfhEey97Inx8drAzQ" name="" covered="_BhTTwcfhEey97Inx8drAzQ" finish="_G0YW9MfhEey97Inx8drAzQ" start="_G0YW88fhEey97Inx8drAzQ" behavior="_G0YW8MfhEey97Inx8drAzQ"/>
@@ -244,7 +249,7 @@
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_LzTvE8fhEey97Inx8drAzQ" name="" covered="_EC2DccfhEey97Inx8drAzQ" finish="_LzTvEsfhEey97Inx8drAzQ" start="_LzTvEcfhEey97Inx8drAzQ" behavior="_LzTIAsfhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OSxbJMfhEey97Inx8drAzQ" name="Operation_1_sender" covered="_EC2DccfhEey97Inx8drAzQ" message="_OSxbIcfhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OSxbJcfhEey97Inx8drAzQ" name="Operation_1_receiver" covered="_E1xVMcfhEey97Inx8drAzQ" message="_OSxbIcfhEey97Inx8drAzQ"/>
-    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_OSxbJ8fhEey97Inx8drAzQ" name="" covered="_E1xVMcfhEey97Inx8drAzQ" finish="_OSxbJsfhEey97Inx8drAzQ" start="_OSxbJcfhEey97Inx8drAzQ" behavior="_OSxbIsfhEey97Inx8drAzQ"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_OSxbJ8fhEey97Inx8drAzQ" name="Operation_1" covered="_E1xVMcfhEey97Inx8drAzQ" finish="_OSxbJsfhEey97Inx8drAzQ" start="_OSxbJcfhEey97Inx8drAzQ" behavior="_OSxbIsfhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OSxbJsfhEey97Inx8drAzQ" name="Operation_1_reply_sender" covered="_E1xVMcfhEey97Inx8drAzQ" message="_OSxbI8fhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OSyCMMfhEey97Inx8drAzQ" name="Operation_1_reply_receiver" covered="_EC2DccfhEey97Inx8drAzQ" message="_OSxbI8fhEey97Inx8drAzQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_LzTvEsfhEey97Inx8drAzQ" name="Operation_1_reply_sender" covered="_EC2DccfhEey97Inx8drAzQ" message="_LzTIA8fhEey97Inx8drAzQ"/>
@@ -257,5 +262,7 @@
     <message xmi:id="_LzTIA8fhEey97Inx8drAzQ" name="Operation_1_reply" messageSort="reply" sendEvent="_LzTvEsfhEey97Inx8drAzQ"/>
     <message xmi:id="_OSxbIcfhEey97Inx8drAzQ" name="MostrarEmergencia" receiveEvent="_OSxbJcfhEey97Inx8drAzQ" sendEvent="_OSxbJMfhEey97Inx8drAzQ" signature="_OSxbIMfhEey97Inx8drAzQ"/>
     <message xmi:id="_OSxbI8fhEey97Inx8drAzQ" name="Operation_1_reply" messageSort="reply" sendEvent="_OSxbJsfhEey97Inx8drAzQ"/>
+    <message xmi:id="_kJz_4MfhEey97Inx8drAzQ" name="GetTipoEmergencia" receiveEvent="_kJz_5MfhEey97Inx8drAzQ" sendEvent="_kJz_48fhEey97Inx8drAzQ" signature="_kJzY0MfhEey97Inx8drAzQ"/>
+    <message xmi:id="_kJz_4sfhEey97Inx8drAzQ" name="Operation_2_reply" messageSort="reply" receiveEvent="_kJz_58fhEey97Inx8drAzQ"/>
   </packagedElement>
 </uml:Model>

@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import boton_panico.Emergencia;
 import MVCReceptor.IVistaReceptor;
+import clasesComunes.Emergencia;
 
 import java.awt.GridLayout;
 import javax.swing.JLabel;

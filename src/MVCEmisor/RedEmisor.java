@@ -8,17 +8,12 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
-import boton_panico.Emergencia;
+import clasesComunes.Emergencia;
 
 public class RedEmisor implements IRedEmisor {
 	
 	InetAddress localhost;
 	
-	public RedEmisor()
-	{
-		
-	}
-
 
 	@Override
 	public boolean EnviarEmergencia(Emergencia emergencia) 

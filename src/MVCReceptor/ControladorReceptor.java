@@ -1,16 +1,14 @@
 package MVCReceptor;
 
-import boton_panico.Emergencia;
-import boton_panico.RedEmisor;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
+import clasesComunes.Emergencia;
+
 
 @SuppressWarnings("deprecation")
-public class ControladorReceptor implements ActionListener,Observer{
+public class ControladorReceptor implements Observer{
 	
 	private VistaReceptor vistaReceptor;
 	private RedReceptor redReceptor;
@@ -35,12 +33,5 @@ public class ControladorReceptor implements ActionListener,Observer{
 	{
 		Emergencia emergencia = redReceptor.GetEmergencia();
 		vistaReceptor.agregarEmergencia(emergencia.fecha, emergencia.tipoEmergencia, emergencia.ubicacion);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
-		
-	}
-	
+	}	
 }

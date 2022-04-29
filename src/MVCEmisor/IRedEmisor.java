@@ -1,6 +1,6 @@
 package MVCEmisor;
 
-import boton_panico.Emergencia;
+import clasesComunes.Emergencia;
 
 public interface IRedEmisor {
 	

@@ -1,4 +1,4 @@
-package boton_panico;
+package clasesComunes;
 
 import java.io.Serializable;
 

@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import boton_panico.TipoEmergencia;
+import clasesComunes.TipoEmergencia;
 
 import java.awt.GridLayout;
 import java.awt.Image;

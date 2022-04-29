@@ -10,7 +10,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Observable;
 
-import boton_panico.Emergencia;
+import clasesComunes.Emergencia;
 
 @SuppressWarnings("deprecation")
 public class RedReceptor extends Observable implements IRedReceptor {
