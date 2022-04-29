@@ -73,14 +73,14 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		panelIcon1 = new JPanel();
 		panelIconos.add(panelIcon1);
 		
-		/*
+		
 		BufferedImage policiaImagen = null;
 		BufferedImage bomberoImagen = null;
 		BufferedImage doctorImagen = null;
 		try {
-			policiaImagen = ImageIO.read(new File("src/Iconos/policia.png"));
-			bomberoImagen = ImageIO.read(new File("src/Iconos/bombero.png"));
-			doctorImagen = ImageIO.read(new File("src/Iconos/doctor.png"));
+			policiaImagen = ImageIO.read(getClass().getResource("/Iconos/policia.png"));
+			bomberoImagen = ImageIO.read(getClass().getResource("/Iconos/bombero.png"));
+			doctorImagen = ImageIO.read(getClass().getResource("/Iconos/doctor.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -106,8 +106,9 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		iconoImage = icono.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
 		icono = new ImageIcon(iconoImage);
 		panelIcon3 = new JPanel();
-		panelIconos.add(panelIcon3);
-		*/
+		JLabel iconoJLabel3 = new JLabel(icono);
+		panelIconos.add(iconoJLabel3);
+		
 		
 		panelRadio = new JPanel();
 		panel_1.add(panelRadio, BorderLayout.CENTER);
