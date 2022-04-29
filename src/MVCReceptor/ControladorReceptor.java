@@ -37,7 +37,7 @@ public class ControladorReceptor implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		clip.start();
+		
 		System.out.println("Llego");
 		if(arg.equals("Emergencia"))
 		{
@@ -48,7 +48,7 @@ public class ControladorReceptor implements Observer{
 	
 	public void RecibirEmergencia()
 	{
-		
+		clip.start();
 		Emergencia emergencia = redReceptor.GetEmergencia();
 		vistaReceptor.agregarEmergencia(emergencia.getFechaHora(), emergencia.tipoEmergencia, emergencia.ubicacion);
 	}	
