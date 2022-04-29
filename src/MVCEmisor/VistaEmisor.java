@@ -1,20 +1,16 @@
 package MVCEmisor;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import clasesComunes.TipoEmergencia;
 
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JRadioButton;
@@ -25,7 +21,6 @@ import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import javax.swing.Icon;
 
 public class VistaEmisor extends JFrame implements IVistaEmisor {
 
@@ -49,6 +44,7 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 	 * Create the frame.
 	 */
 	public VistaEmisor() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

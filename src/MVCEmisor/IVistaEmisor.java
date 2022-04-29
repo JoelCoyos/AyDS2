@@ -1,6 +1,5 @@
 package MVCEmisor;
 
-import clasesComunes.TipoEmergencia;
 
 public interface IVistaEmisor {
 	
