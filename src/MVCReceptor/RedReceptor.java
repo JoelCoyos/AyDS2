@@ -1,6 +1,7 @@
 package MVCReceptor;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,6 +10,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Observable;
+import java.util.Properties;
 
 import clasesComunes.Emergencia;
 
@@ -24,6 +26,7 @@ public class RedReceptor extends Observable implements IRedReceptor {
 	public void Escuchar()
 	{
             ServerSocket ss;
+            
 			try {
 				ss = new ServerSocket(1234);
 				while(true)
@@ -41,6 +44,7 @@ public class RedReceptor extends Observable implements IRedReceptor {
 					System.out.println("Mensaje recibido");
 					setChanged();
 					notifyObservers("Emergencia");
+					socket.close();
 				}
 
 			} catch (Exception e) {

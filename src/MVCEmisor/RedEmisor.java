@@ -1,12 +1,14 @@
 package MVCEmisor;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Properties;
 
 import clasesComunes.Emergencia;
 
@@ -19,9 +21,13 @@ public class RedEmisor implements IRedEmisor {
 	public boolean EnviarEmergencia(Emergencia emergencia) 
 	{
 		Boolean llego = null;
+		Properties properties = new Properties();
 		try {
+			FileInputStream configFile= new FileInputStream("configEmisor.properties");
+			properties.load(configFile);
 			System.out.println("Conectando...");
-	        Socket socket = new Socket("localhost", 1234);
+			int puerto = Integer.parseInt(properties.getProperty("puerto"));
+	        Socket socket = new Socket(properties.getProperty("ipReceptor"),puerto);
 	        System.out.println("Conectado!");
 
 	        OutputStream outputStream = socket.getOutputStream();
@@ -34,6 +40,7 @@ public class RedEmisor implements IRedEmisor {
 	        llego = true;
 			} 
 		catch (Exception e) {
+			System.out.println("Algo salio mal");
 			llego = false;
 			}
 
