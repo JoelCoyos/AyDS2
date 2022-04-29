@@ -32,6 +32,6 @@ public class ControladorReceptor implements Observer{
 	public void RecibirEmergencia()
 	{
 		Emergencia emergencia = redReceptor.GetEmergencia();
-		vistaReceptor.agregarEmergencia(emergencia.fecha, emergencia.tipoEmergencia, emergencia.ubicacion);
+		vistaReceptor.agregarEmergencia(emergencia.getFechaHora(), emergencia.tipoEmergencia, emergencia.ubicacion);
 	}	
 }
