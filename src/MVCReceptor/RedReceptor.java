@@ -26,14 +26,16 @@ public class RedReceptor extends Observable implements IRedReceptor {
 	public void Escuchar()
 	{
             ServerSocket ss;
-            
+            Properties properties = new Properties();
 			try {
-				ss = new ServerSocket(1234);
+				FileInputStream configFile= new FileInputStream("configReceptor.properties");
+				properties.load(configFile);
+				int puerto = Integer.parseInt(properties.getProperty("puerto"));
+				ss = new ServerSocket(puerto);
 				while(true)
 				{
 					Socket socket = ss.accept(); 
 					System.out.println("Se conecto!");
-					
 					InputStream inputStream = socket.getInputStream();
 					ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 					emergencia = (Emergencia) objectInputStream.readObject();
