@@ -18,16 +18,15 @@ public class RedEmisor implements IRedEmisor {
 	
 
 	@Override
-	public boolean EnviarEmergencia(Emergencia emergencia) 
+	public boolean EnviarEmergencia(Emergencia emergencia,String ip, int puerto) 
 	{
 		Boolean llego = null;
-		Properties properties = new Properties();
+		
 		try {
-			FileInputStream configFile= new FileInputStream("configEmisor.properties");
-			properties.load(configFile);
+			
 			System.out.println("Conectando...");
-			int puerto = Integer.parseInt(properties.getProperty("puerto"));
-	        Socket socket = new Socket(properties.getProperty("ipReceptor"),puerto);
+			
+	        Socket socket = new Socket(ip,puerto);
 	        System.out.println("Conectado!");
 
 	        OutputStream outputStream = socket.getOutputStream();
