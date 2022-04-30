@@ -17,12 +17,8 @@ public class RedEmisor implements IRedEmisor {
 	{
 		Boolean llego = null;
 		
-		try {
-			
-			System.out.println("Conectando...");
-			
+		try {	
 	        Socket socket = new Socket(ip,puerto);
-	        System.out.println("Conectado!");
 
 	        OutputStream outputStream = socket.getOutputStream();
 	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
@@ -34,7 +30,6 @@ public class RedEmisor implements IRedEmisor {
 	        llego = true;
 			} 
 		catch (Exception e) {
-			System.out.println("Algo salio mal");
 			llego = false;
 			}
 

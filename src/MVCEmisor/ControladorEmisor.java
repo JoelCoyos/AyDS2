@@ -48,10 +48,18 @@ public class ControladorEmisor implements ActionListener,Observer
 			vistaEmisor.MostrarNotificacion("Error en el archivo de configuracion");
 		}
 		int puerto = Integer.parseInt(properties.getProperty("puerto"));
-		String[] ipStrings = properties.getProperty("ipReceptor").split("/");
+		String tipoEmergencia = vistaEmisor.tipoEmergencia();
+		String tipoIp = null;
+		if(tipoEmergencia.equals("Seguridad"))
+			tipoIp = "ipSeguridad";
+		else if(tipoEmergencia.equals("Bomberos"))
+			tipoIp = "ipBomberos";
+		else if(tipoEmergencia.equals("Medica"))
+			tipoIp = "ipMedica";
+		String[] ipStrings = properties.getProperty(tipoIp).split("/");
 		String ubicacion = properties.getProperty("ubicacion");
 		
-		Emergencia emergencia = new Emergencia(ubicacion, vistaEmisor.tipoEmergencia());
+		Emergencia emergencia = new Emergencia(ubicacion,tipoEmergencia);
 		Boolean huboError = false;
 		for (String ip : ipStrings) {
 			Boolean llego = redEmisor.EnviarEmergencia(emergencia,ip,puerto);

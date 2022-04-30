@@ -1,4 +1,7 @@
 Class\ Diagram=true
 Component\ Diagram=true
+Package\ Containment=true
+Package\ Hierarchy=true
+Sequence\ Diagram=true
 eclipse.preferences.version=1
 usage_user_answer_preference=3

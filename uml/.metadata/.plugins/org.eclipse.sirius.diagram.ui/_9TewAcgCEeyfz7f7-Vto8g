@@ -1,10 +1,10 @@
 #Fri Apr 29 20:11:42 ART 2022
-viewport.x=13
-rulergrid.snaptogeometry=false
-zoom=1.0
+viewport.x=40
+rulergrid.snaptogeometry=true
+zoom=1.25
 print.margin.right=0.5
 rulergrid.rulerunit=1
-rulergrid.snaptogrid=false
+rulergrid.snaptogrid=true
 print.page.size=A4
 print.margin.left=0.5
 print.page.width=8.26771654

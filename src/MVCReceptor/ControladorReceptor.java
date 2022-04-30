@@ -32,7 +32,6 @@ public class ControladorReceptor implements Observer{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
 	}
 
 	@Override
@@ -43,7 +42,6 @@ public class ControladorReceptor implements Observer{
 		{
 			RecibirEmergencia();
 		}
-		
 	}
 	
 	public void RecibirEmergencia()
