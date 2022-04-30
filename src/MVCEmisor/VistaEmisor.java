@@ -74,9 +74,9 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		BufferedImage bomberoImagen = null;
 		BufferedImage doctorImagen = null;
 		try {
-			policiaImagen = ImageIO.read(getClass().getResource("/Iconos/policia.png"));
-			bomberoImagen = ImageIO.read(getClass().getResource("/Iconos/bombero.png"));
-			doctorImagen = ImageIO.read(getClass().getResource("/Iconos/doctor.png"));
+			policiaImagen = ImageIO.read(getClass().getResource("/resources/policia.png"));
+			bomberoImagen = ImageIO.read(getClass().getResource("/resources/bombero.png"));
+			doctorImagen = ImageIO.read(getClass().getResource("/resources/doctor.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

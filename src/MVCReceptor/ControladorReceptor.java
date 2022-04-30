@@ -25,7 +25,7 @@ public class ControladorReceptor implements Observer{
 		redReceptor = new RedReceptor();
 		redReceptor.addObserver(this);
 		try {
-			audioInputStream = AudioSystem.getAudioInputStream(new File("notificacion.wav").getAbsoluteFile());
+			audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/resources/notificacion.wav"));
 			clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 		} catch (Exception e) {

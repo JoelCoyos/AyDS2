@@ -56,7 +56,7 @@ public class ControladorEmisor implements ActionListener,Observer
 			tipoIp = "ipBomberos";
 		else if(tipoEmergencia.equals("Medica"))
 			tipoIp = "ipMedica";
-		String[] ipStrings = properties.getProperty(tipoIp).split("/");
+		String[] ipStrings = properties.getProperty(tipoIp).split(",");
 		String ubicacion = properties.getProperty("ubicacion");
 		
 		Emergencia emergencia = new Emergencia(ubicacion,tipoEmergencia);
