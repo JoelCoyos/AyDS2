@@ -109,9 +109,14 @@
         <end xmi:id="_Wr8RUcJWEeycH-sMtUYykQ"/>
         <end xmi:id="_Wr8RUsJWEeycH-sMtUYykQ" role="_IAusAcJUEeycH-sMtUYykQ"/>
       </ownedConnector>
+      <ownedConnector xmi:id="_HOxlUMjQEeyPf_KqtUV75Q" name="llegoEmergencia_llegoEmergencia_connector">
+        <end xmi:id="_HOyzcMjQEeyPf_KqtUV75Q" role="_BJiVQcJVEeycH-sMtUYykQ"/>
+        <end xmi:id="_HOyzccjQEeyPf_KqtUV75Q" role="_IAusAcJUEeycH-sMtUYykQ"/>
+      </ownedConnector>
       <interfaceRealization xmi:id="__ks64MJTEeycH-sMtUYykQ" client="_3JsS4MJSEeycH-sMtUYykQ _IAusAMJUEeycH-sMtUYykQ _PCe3gMJUEeycH-sMtUYykQ"/>
       <interfaceRealization xmi:id="_vuMfwMJUEeycH-sMtUYykQ" client="_3JsS4MJSEeycH-sMtUYykQ _xc6rYMJUEeycH-sMtUYykQ"/>
       <interfaceRealization xmi:id="_U4jBEMJWEeycH-sMtUYykQ" client="_3JsS4MJSEeycH-sMtUYykQ _Wr8RUMJWEeycH-sMtUYykQ"/>
+      <interfaceRealization xmi:id="_GTUCoMjQEeyPf_KqtUV75Q" client="_3JsS4MJSEeycH-sMtUYykQ _HOxlUMjQEeyPf_KqtUV75Q" supplier="_9hb9UMjPEeyPf_KqtUV75Q" contract="_9hb9UMjPEeyPf_KqtUV75Q"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Component" xmi:id="_851skMJSEeycH-sMtUYykQ" name="RedEmisor">
       <ownedAttribute xmi:type="uml:Port" xmi:id="_BJiVQcJVEeycH-sMtUYykQ" name="RedEmisorPort" type="_851skMJSEeycH-sMtUYykQ"/>
@@ -133,6 +138,7 @@
       <ownedOperation xmi:id="_kJzY0MfhEey97Inx8drAzQ" name="Operation_2"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_2Hnf8MJUEeycH-sMtUYykQ" name="EnviarEmergencia"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_9hb9UMjPEeyPf_KqtUV75Q" name="llegoEmergencia"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_07WD0MAUEeyi7amANyoU0g" name="UIEmisor" visibility="public">
     <interfaceRealization xmi:id="_GW7J4MAVEeyi7amANyoU0g" client="_07WD0MAUEeyi7amANyoU0g" supplier="_CR3ZAMAVEeyi7amANyoU0g" contract="_CR3ZAMAVEeyi7amANyoU0g"/>
@@ -299,4 +305,5 @@
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_9LT5MMgHEeyfz7f7-Vto8g" name="String"/>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_BAdl0MgIEeyfz7f7-Vto8g" name="int"/>
   <packagedElement xmi:type="uml:Package" xmi:id="_9uySUMgKEeyfz7f7-Vto8g" name="javax.sound"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_B7PPIMjQEeyPf_KqtUV75Q" client="_851skMJSEeycH-sMtUYykQ _HOxlUMjQEeyPf_KqtUV75Q" supplier="_9hb9UMjPEeyPf_KqtUV75Q"/>
 </uml:Model>
