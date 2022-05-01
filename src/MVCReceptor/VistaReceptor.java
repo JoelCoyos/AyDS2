@@ -68,11 +68,11 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 	}
 	
 	@Override
-	public void MostrarEmergencia(String FechaHora,String tipo,String ubicacion) {
+	public void MostrarEmergencia(Emergencia emergencia) {
 		Object[] objeto= new Object[3];
-		objeto[0]=FechaHora;
-		objeto[1]=tipo;
-		objeto[2]=ubicacion;
+		objeto[0]=emergencia.getFechaHora();
+		objeto[1]=emergencia.getTipoEmergencia();
+		objeto[2]=emergencia.getUbicacion();
 		this.modeloTabla.addRow(objeto);
 		this.setVisible(true);
 		

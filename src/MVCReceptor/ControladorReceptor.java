@@ -48,6 +48,6 @@ public class ControladorReceptor implements Observer{
 	{
 		clip.start();
 		Emergencia emergencia = redReceptor.GetEmergencia();
-		vistaReceptor.MostrarEmergencia(emergencia.getFechaHora(), emergencia.getTipoEmergencia(), emergencia.getUbicacion());
+		vistaReceptor.MostrarEmergencia(emergencia);
 	}	
 }
