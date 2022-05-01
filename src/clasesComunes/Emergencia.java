@@ -6,9 +6,9 @@ import java.time.format.DateTimeFormatter;
 
 public class Emergencia implements Serializable {
 	
-	public String ubicacion;
-	public String tipoEmergencia;
-	public String fechaHora;
+	private String ubicacion;
+	private String tipoEmergencia;
+	private String fechaHora;
 	
 	public Emergencia(String ubicacion,String tipo) {
 		this.tipoEmergencia=tipo;
@@ -24,6 +24,11 @@ public class Emergencia implements Serializable {
 	
 	public String getFechaHora() {
 		return this.fechaHora;
+	}
+	
+	public String getTipoEmergencia()
+	{
+		return this.tipoEmergencia;
 	}
 
 	

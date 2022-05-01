@@ -4,6 +4,6 @@ import clasesComunes.Emergencia;
 
 public interface IVistaReceptor {
 	
-	public void agregarEmergencia(String FechaHora,String tipo,String ubicacion);
+	public void MostrarEmergencia(String FechaHora,String tipo,String ubicacion);
 
 }

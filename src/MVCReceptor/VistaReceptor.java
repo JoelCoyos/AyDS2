@@ -68,7 +68,7 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 	}
 	
 	@Override
-	public void agregarEmergencia(String FechaHora,String tipo,String ubicacion) {
+	public void MostrarEmergencia(String FechaHora,String tipo,String ubicacion) {
 		Object[] objeto= new Object[3];
 		objeto[0]=FechaHora;
 		objeto[1]=tipo;

@@ -36,7 +36,7 @@ public class ControladorEmisor implements ActionListener,Observer
 		}
 	}
 	
-	public void EnviarEmergencia()
+	private void EnviarEmergencia()
 	{
 		
 		Properties properties = new Properties();
