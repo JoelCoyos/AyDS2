@@ -35,6 +35,7 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 	 */
 	@SuppressWarnings("deprecation")
 	public VistaReceptor() {
+		setTitle("Receptor");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 536, 510);

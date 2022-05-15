@@ -10,12 +10,13 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Properties;
 
 import clasesComunes.Emergencia;
 import clasesComunes.RegistroReceptor;
 
-public class RedServidor implements IRedServidor {
+public class RedServidor extends Observable implements IRedServidor {
 	
 	private ArrayList<String> ipBombero;
 	private ArrayList<String> ipSeguridad;
@@ -78,9 +79,13 @@ public class RedServidor implements IRedServidor {
 				registro = (RegistroReceptor) objectInputStream.readObject();
 				System.out.println("Mensaje recibido");
 				socket.close();
-				if(registro.tipoEmergencia == "bombero")
+				if(registro.tipoEmergencia.equals("Bomberos"))
 					ipBombero.add(registro.ip);
-				//Agregar el resto
+				else if (registro.tipoEmergencia.equals("Seguridad"))
+					 ipSeguridad.add(registro.ip);
+				else if (registro.tipoEmergencia.equals("Medica"))
+					 ipMedica.add(registro.ip);
+				notifyObservers("Emergencia");
 					
 			}
 

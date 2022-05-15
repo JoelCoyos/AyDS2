@@ -44,6 +44,7 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 	 * Create the frame.
 	 */
 	public VistaEmisor() {
+		setTitle("Emisor");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
