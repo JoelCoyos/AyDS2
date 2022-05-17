@@ -15,22 +15,13 @@ public class ControladorServidor implements Observer {
 		
 	}
 	
-	
-	//Recibe la emergencia de parte del emisor
-	public void Recibir_Emergencia() {
-		
-		
-	}
-	
-	//Envia la emergencia a un receptor
-	public void Enviar_Emergencia() {
-		
-	}
-
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+		if (arg.equals("Emergencia")) {
+			this.vista.agregar_emergencia(this.redServidor.getEmergencia());
+			this.redServidor.EnviarEmergencia();
+		}
 		
 	}
 	

@@ -69,8 +69,7 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		tabla_EmergenciasRecibidas = new JTable();
 		scrollPane.setViewportView(tabla_EmergenciasRecibidas);
 		this.tabla_Recibidos.addColumn("Fecha y Hora");
-		this.tabla_Recibidos.addColumn("Tipo de Emergencia");
-		this.tabla_Recibidos.addColumn("Ubicacion");
+		this.tabla_Recibidos.addColumn("Evento Ocurrido");
 		this.tabla_EmergenciasRecibidas.setModel(this.tabla_Recibidos);
 		scrollPane.setViewportView(this.tabla_EmergenciasRecibidas);
 		this.setVisible(true);
@@ -80,10 +79,9 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 
 	@Override
 	public void agregar_emergencia(Emergencia emergencia) {
-		Object[] objeto= new Object[3];
+		Object[] objeto= new Object[2];
 		objeto[0]=emergencia.getFechaHora();
-		objeto[1]=emergencia.getTipoEmergencia();
-		objeto[2]=emergencia.getUbicacion();
+		objeto[1]="Se ha recibido una emergencia "+emergencia.getTipoEmergencia()+" desde "+emergencia.getUbicacion();
 		this.tabla_Recibidos.addRow(objeto);
 		this.setVisible(true);
 		

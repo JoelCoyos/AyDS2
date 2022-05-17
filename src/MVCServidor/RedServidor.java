@@ -25,7 +25,7 @@ public class RedServidor extends Observable implements IRedServidor {
 	private int puertoReceptor;
 	private int puertoEmisor;
 	
-	public Emergencia emergencia;
+	private Emergencia emergencia;
 	
 	public RedServidor()
 	{
@@ -98,9 +98,16 @@ public class RedServidor extends Observable implements IRedServidor {
 
 	@Override
 	public void EnviarEmergencia() {
-		// TODO Auto-generated method stub
+		
 		
 	}
+
+	@Override
+	public Emergencia getEmergencia() {
+		return this.emergencia;
+	}
+	
+	
 	
 
 }
