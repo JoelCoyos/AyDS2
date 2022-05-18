@@ -53,12 +53,9 @@ public class ControladorEmisor implements ActionListener,Observer
 		String ubicacion = properties.getProperty("ubicacion");
 		
 		Emergencia emergencia = new Emergencia(ubicacion,tipoEmergencia);
-		Boolean huboError = false;
 		Boolean llego = redEmisor.EnviarEmergencia(emergencia,ip,puerto);
-		if(llego==false)
-			huboError = true;
 				
-		if(!huboError)
+		if(llego)
 			vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
 		else
 			vistaEmisor.MostrarNotificacion("Hubo un error en el envio de la emergencia");

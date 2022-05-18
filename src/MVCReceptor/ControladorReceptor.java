@@ -32,12 +32,12 @@ public class ControladorReceptor implements Observer{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		redReceptor.RegistrarServidor();
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		
-		System.out.println("Llego");
 		if(arg.equals("Emergencia"))
 		{
 			RecibirEmergencia();

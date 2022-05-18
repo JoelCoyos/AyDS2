@@ -6,7 +6,8 @@ public interface IRedServidor {
 	
 	public void RegistroReceptor();
 	public void RecibirEmergencia();
-	public void EnviarEmergencia();
+	public void EnviarEmergencias();
+	public void EnviarEmergencia(String ip,int puerto);
 	public Emergencia getEmergencia();
 	
 }

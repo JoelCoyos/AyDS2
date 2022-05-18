@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import clasesComunes.Emergencia;
+import clasesComunes.RegistroReceptor;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTable;
@@ -67,6 +69,7 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		panelCentral.add(scrollPane);
 		
 		tabla_EmergenciasRecibidas = new JTable();
+		this.tabla_Recibidos = new DefaultTableModel();
 		scrollPane.setViewportView(tabla_EmergenciasRecibidas);
 		this.tabla_Recibidos.addColumn("Fecha y Hora");
 		this.tabla_Recibidos.addColumn("Evento Ocurrido");
@@ -85,6 +88,16 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		this.tabla_Recibidos.addRow(objeto);
 		this.setVisible(true);
 		
+	}
+
+	@Override
+	public void registro_receptor(RegistroReceptor receptor) {
+		Object[] objeto= new Object[2];
+		System.out.println("registro");
+		objeto[0]=receptor.fechaHora;
+		objeto[1]="Se ha agregado el receptor con ip" + receptor.ip + "en el puerto" + receptor.puerto + "con el tipo de emergencia" + receptor.tipoEmergencia;
+		this.tabla_Recibidos.addRow(objeto);
+		this.setVisible(true);
 	}
 
 }

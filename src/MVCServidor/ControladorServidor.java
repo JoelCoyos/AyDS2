@@ -20,8 +20,19 @@ public class ControladorServidor implements Observer {
 	public void update(Observable o, Object arg) {
 		if (arg.equals("Emergencia")) {
 			this.vista.agregar_emergencia(this.redServidor.getEmergencia());
-			this.redServidor.EnviarEmergencia();
+			this.redServidor.EnviarEmergencias();
 		}
+		else if(arg.equals("Registro"))
+		{
+			System.out.print("Registro");
+			vista.registro_receptor(redServidor.registro);
+			
+		}
+		
+	}
+	
+	public void RegistroServidor()
+	{
 		
 	}
 	

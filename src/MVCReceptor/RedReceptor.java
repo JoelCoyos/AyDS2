@@ -50,22 +50,24 @@ public class RedReceptor extends Observable implements IRedReceptor {
 					notifyObservers("Emergencia");
 					socket.close();
 				}
-
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
 	
-	private void RegistrarServidor()
+	public void RegistrarServidor()
 	{
 		try {
 			FileInputStream configFile= new FileInputStream("configReceptor.properties");
 			properties.load(configFile);
 			InetAddress inetAddress = InetAddress.getLocalHost();
-			RegistroReceptor registro = new RegistroReceptor(inetAddress.getHostAddress(),properties.getProperty("tipoEmergencia"));
-			//Cambiar por configuracion archivo
-			Socket socket = new Socket("192.168.0.105",1001);
+			String ip = inetAddress.getHostAddress();
+			int puerto = Integer.parseInt(properties.getProperty("puerto"));
+			String tipoEmergencia = properties.getProperty("tipoEmergencia");
+			RegistroReceptor registro = new RegistroReceptor(ip,tipoEmergencia,puerto);
+			String ipServidor = properties.getProperty("servidor");
+			Socket socket = new Socket(ipServidor,1002);
 			OutputStream outputStream = socket.getOutputStream();
 	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 	        objectOutputStream.writeObject(registro);
