@@ -73,6 +73,7 @@ public class RedServidor extends Observable implements IRedServidor {
 	public void RecibirEmergencia() {
 		
         ServerSocket ss;
+        boolean llego = false;
         Properties properties = new Properties();
 		try {
 			FileInputStream configFile= new FileInputStream("configServer.properties");
@@ -86,6 +87,12 @@ public class RedServidor extends Observable implements IRedServidor {
 				emergencia = (Emergencia) objectInputStream.readObject();
 				setChanged();
 				notifyObservers("Emergencia");
+				llego = EnviarEmergencias();
+				if(llego)
+				{
+					PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+					out.println("Llego");
+				}
 				socket.close();
 			}
 
@@ -97,7 +104,8 @@ public class RedServidor extends Observable implements IRedServidor {
 		
 
 	@Override
-	public void EnviarEmergencias() {
+	public boolean EnviarEmergencias() {
+		boolean llego = false;
 		ArrayList<RegistroReceptor> listaReceptores = null;
 		if(this.emergencia.getTipoEmergencia().equals("Bomberos"))
 		{
@@ -111,26 +119,33 @@ public class RedServidor extends Observable implements IRedServidor {
 		{
 			listaReceptores = ipMedica;
 		}
+		boolean aux = false;
 		for (RegistroReceptor receptor : listaReceptores) {
-			EnviarEmergencia(receptor.ip, receptor.puerto);
+			aux = EnviarEmergencia(receptor.ip, receptor.puerto);
+			if(llego == false && aux == true) //Si llega un solo envio se toma como que llego
+				llego = true;				
 		}
+		return llego;
 	}
 	
-	public void EnviarEmergencia(String ip,int puerto)
+	public boolean EnviarEmergencia(String ip,int puerto)
 	{
-		
+		boolean llego = false;
 		try {	
 	        Socket socket = new Socket(ip,puerto);
 	        OutputStream outputStream = socket.getOutputStream();
 	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 	        objectOutputStream.writeObject(emergencia);
             //PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            //BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            //out.println("hola");
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            if( in.readLine().equals("Llego"))
+            	llego= true;
 	        socket.close();
 			} 
 		catch (Exception e) {
+			llego = false;
 			}
+		return llego;
 	}
 
 	@Override

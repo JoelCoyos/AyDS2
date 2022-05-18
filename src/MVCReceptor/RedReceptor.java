@@ -41,13 +41,13 @@ public class RedReceptor extends Observable implements IRedReceptor {
 				while(true)
 				{
 					Socket socket = ss.accept(); 
-					System.out.println("Se conecto!");
 					InputStream inputStream = socket.getInputStream();
 					ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 					emergencia = (Emergencia) objectInputStream.readObject();
-					System.out.println("Mensaje recibido");
 					setChanged();
 					notifyObservers("Emergencia");
+		            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+		            out.println("Llego");
 					socket.close();
 				}
 			} catch (Exception e) {

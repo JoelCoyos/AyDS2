@@ -93,7 +93,6 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 	@Override
 	public void registro_receptor(RegistroReceptor receptor) {
 		Object[] objeto= new Object[2];
-		System.out.println("registro");
 		objeto[0]=receptor.fechaHora;
 		objeto[1]="Se ha agregado el receptor con ip" + receptor.ip + "en el puerto" + receptor.puerto + "con el tipo de emergencia" + receptor.tipoEmergencia;
 		this.tabla_Recibidos.addRow(objeto);
