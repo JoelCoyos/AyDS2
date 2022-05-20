@@ -48,8 +48,9 @@
     <message xmi:id="_dssy8cAUEeyi7amANyoU0g" name="MostrarEmergencia" receiveEvent="_dstaAsAUEeyi7amANyoU0g" sendEvent="_dstaAcAUEeyi7amANyoU0g"/>
     <message xmi:id="_dstaAMAUEeyi7amANyoU0g" name="Operation_1_reply" messageSort="reply" receiveEvent="_dstaBcAUEeyi7amANyoU0g"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_DO4-wMAREeyi7amANyoU0g" name="Receptor">
+  <packagedElement xmi:type="uml:Component" xmi:id="_DO4-wMAREeyi7amANyoU0g" name="Servidor">
     <ownedAttribute xmi:type="uml:Port" xmi:id="_bZzuoMJWEeycH-sMtUYykQ" name="" aggregation="composite" isConjugated="true"/>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_sur-gNhJEey6f8rO-RzuJg" name="" aggregation="composite" isConjugated="true"/>
     <ownedConnector xmi:id="_suKMQMMPEey6PdLSrho1mQ" name="Escuchar_Escuchar_connector">
       <end xmi:id="_suKMQcMPEey6PdLSrho1mQ" role="_aGDAsMJWEeycH-sMtUYykQ"/>
       <end xmi:id="_suKzUMMPEey6PdLSrho1mQ" role="_bZzuoMJWEeycH-sMtUYykQ"/>
@@ -58,9 +59,13 @@
       <end xmi:id="_NoWPMcgPEeyfz7f7-Vto8g" role="_bZzuoMJWEeycH-sMtUYykQ"/>
       <end xmi:id="_NoWPMsgPEeyfz7f7-Vto8g" role="_aGDAsMJWEeycH-sMtUYykQ"/>
     </ownedConnector>
+    <ownedConnector xmi:id="_-T8LsNhOEey6f8rO-RzuJg" name="NotificarLlegada_NotificarLlegada_connector">
+      <end xmi:id="_-T8LsdhOEey6f8rO-RzuJg" role="_sur-gNhJEey6f8rO-RzuJg"/>
+    </ownedConnector>
     <interfaceRealization xmi:id="_DI5wcMMPEey6PdLSrho1mQ" client="_DO4-wMAREeyi7amANyoU0g _bZzuoMJWEeycH-sMtUYykQ _suKMQMMPEey6PdLSrho1mQ _NoWPMMgPEeyfz7f7-Vto8g" supplier="_-zE_sMMOEey6PdLSrho1mQ" contract="_-zE_sMMOEey6PdLSrho1mQ"/>
+    <interfaceRealization xmi:id="_9i8zoNhOEey6f8rO-RzuJg" client="_DO4-wMAREeyi7amANyoU0g _sur-gNhJEey6f8rO-RzuJg _-T8LsNhOEey6f8rO-RzuJg" supplier="_xlzFINhOEey6f8rO-RzuJg" contract="_xlzFINhOEey6f8rO-RzuJg"/>
     <ownedOperation xmi:id="_OGG_8MAREeyi7amANyoU0g" name="Operation_1"/>
-    <packagedElement xmi:type="uml:Component" xmi:id="_AY3YMMJTEeycH-sMtUYykQ" name="UIReceptor">
+    <packagedElement xmi:type="uml:Component" xmi:id="_AY3YMMJTEeycH-sMtUYykQ" name="UIServidor">
       <ownedAttribute xmi:type="uml:Port" xmi:id="_G08u8cMQEey6PdLSrho1mQ" name="" type="_AY3YMMJTEeycH-sMtUYykQ"/>
       <ownedConnector xmi:id="_G08H4MMQEey6PdLSrho1mQ" name="MostrarEmergencia_MostrarEmergencia_connector">
         <end xmi:id="_G08u8MMQEey6PdLSrho1mQ"/>
@@ -77,9 +82,10 @@
       <interfaceRealization xmi:id="_Ftq90MMQEey6PdLSrho1mQ" client="_AY3YMMJTEeycH-sMtUYykQ _G08H4MMQEey6PdLSrho1mQ _suN3gMSMEeyAtuwsDETLGg _MxCzwMgPEeyfz7f7-Vto8g" supplier="_CXEOYMMQEey6PdLSrho1mQ" contract="_CXEOYMMQEey6PdLSrho1mQ"/>
       <ownedOperation xmi:id="_OSxbIMfhEey97Inx8drAzQ" name="Operation_1"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Component" xmi:id="_DbHoQMJTEeycH-sMtUYykQ" name="RedReceptor">
+    <packagedElement xmi:type="uml:Component" xmi:id="_DbHoQMJTEeycH-sMtUYykQ" name="RedServidor">
       <ownedAttribute xmi:type="uml:Port" xmi:id="_yjQ-cMMPEey6PdLSrho1mQ" name="" aggregation="composite" redefinedProperty="_bZzuoMJWEeycH-sMtUYykQ" isConjugated="true" redefinedPort="_bZzuoMJWEeycH-sMtUYykQ"/>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_AcWOIMMQEey6PdLSrho1mQ" name="RedReceptorPort" type="_DbHoQMJTEeycH-sMtUYykQ"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_mhifwNhJEey6f8rO-RzuJg" name="" aggregation="composite" redefinedProperty="_sur-gNhJEey6f8rO-RzuJg" isConjugated="true" redefinedPort="_sur-gNhJEey6f8rO-RzuJg"/>
       <ownedConnector xmi:id="_AcVAAMMQEey6PdLSrho1mQ" name="GetEmergencia_GetEmergencia_connector">
         <end xmi:id="_AcVnEcMQEey6PdLSrho1mQ"/>
         <end xmi:id="_AcWOIcMQEey6PdLSrho1mQ" role="_AcWOIMMQEey6PdLSrho1mQ"/>
@@ -92,6 +98,17 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_aAYZkMAREeyi7amANyoU0g" name="Class1"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_QPQ9cMAUEeyi7amANyoU0g" name="Emisor">
     <ownedAttribute xmi:type="uml:Port" xmi:id="_aGDAsMJWEeycH-sMtUYykQ" name="" aggregation="composite" isConjugated="true"/>
+    <ownedConnector xmi:id="_c2P0QNhLEey6f8rO-RzuJg" name="NotificarLlegada_NotificarLlegada_connector">
+      <end xmi:id="_c2QbUNhLEey6f8rO-RzuJg" role="_aGDAsMJWEeycH-sMtUYykQ"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="_o2WwINhLEey6f8rO-RzuJg" name="NotificarLlegada_NotificarLlegada_connector">
+      <end xmi:id="_o2WwIdhLEey6f8rO-RzuJg" role="_aGDAsMJWEeycH-sMtUYykQ"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="_DCnBoNhMEey6f8rO-RzuJg" name="NotificarLlegada_NotificarLlegada_connector">
+      <end xmi:id="_DCnBodhMEey6f8rO-RzuJg" role="_aGDAsMJWEeycH-sMtUYykQ"/>
+    </ownedConnector>
+    <interfaceRealization xmi:id="_awZiENhLEey6f8rO-RzuJg" client="_QPQ9cMAUEeyi7amANyoU0g _aGDAsMJWEeycH-sMtUYykQ _c2P0QNhLEey6f8rO-RzuJg _o2WwINhLEey6f8rO-RzuJg _DCnBoNhMEey6f8rO-RzuJg" supplier="_oABagNhKEey6f8rO-RzuJg" contract="_oABagNhKEey6f8rO-RzuJg"/>
+    <interfaceRealization xmi:id="_J03GoNhOEey6f8rO-RzuJg" client="_QPQ9cMAUEeyi7amANyoU0g _aGDAsMJWEeycH-sMtUYykQ" supplier="_-Cx1INhMEey6f8rO-RzuJg" contract="_-Cx1INhMEey6f8rO-RzuJg"/>
     <packagedElement xmi:type="uml:Component" xmi:id="_3JsS4MJSEeycH-sMtUYykQ" name="UIEmisor">
       <ownedAttribute xmi:type="uml:Port" xmi:id="_IAusAcJUEeycH-sMtUYykQ" name="VistaEmisorPort" type="_3JsS4MJSEeycH-sMtUYykQ"/>
       <ownedConnector xmi:id="_IAusAMJUEeycH-sMtUYykQ" name="EnviarEmergencia_EnviarEmergencia_connector">
@@ -306,4 +323,32 @@
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_BAdl0MgIEeyfz7f7-Vto8g" name="int"/>
   <packagedElement xmi:type="uml:Package" xmi:id="_9uySUMgKEeyfz7f7-Vto8g" name="javax.sound"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_B7PPIMjQEeyPf_KqtUV75Q" client="_851skMJSEeycH-sMtUYykQ _HOxlUMjQEeyPf_KqtUV75Q" supplier="_9hb9UMjPEeyPf_KqtUV75Q"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_ZvqaoNhHEey6f8rO-RzuJg" name="Receptor">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_CMeLMNhJEey6f8rO-RzuJg" name="" aggregation="composite" isConjugated="true"/>
+    <interfaceRealization xmi:id="_8vA1QNhOEey6f8rO-RzuJg" client="_ZvqaoNhHEey6f8rO-RzuJg _CMeLMNhJEey6f8rO-RzuJg" supplier="_oNcOoNhOEey6f8rO-RzuJg" contract="_oNcOoNhOEey6f8rO-RzuJg"/>
+    <nestedClassifier xmi:type="uml:Component" xmi:id="_7A-DQNhHEey6f8rO-RzuJg" name="UIReceptor">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_BjshsdhOEey6f8rO-RzuJg" name="UIReceptorPort" type="_7A-DQNhHEey6f8rO-RzuJg"/>
+      <ownedConnector xmi:id="_BjqsgNhOEey6f8rO-RzuJg" name="MostrarEmergencias_MostrarEmergencias_connector">
+        <end xmi:id="_BjshsNhOEey6f8rO-RzuJg" role="_Bjr6oNhOEey6f8rO-RzuJg"/>
+        <end xmi:id="_BjshsthOEey6f8rO-RzuJg" role="_BjshsdhOEey6f8rO-RzuJg"/>
+      </ownedConnector>
+      <interfaceRealization xmi:id="_9mynQNhNEey6f8rO-RzuJg" client="_7A-DQNhHEey6f8rO-RzuJg _BjqsgNhOEey6f8rO-RzuJg" supplier="_g6roINhNEey6f8rO-RzuJg" contract="_g6roINhNEey6f8rO-RzuJg"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Component" xmi:id="_Dw5AwNhIEey6f8rO-RzuJg" name="RedReceptor">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_H3qMYNhJEey6f8rO-RzuJg" name="" aggregation="composite" redefinedProperty="_CMeLMNhJEey6f8rO-RzuJg" isConjugated="true" redefinedPort="_CMeLMNhJEey6f8rO-RzuJg"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_Bjr6oNhOEey6f8rO-RzuJg" name="RedReceptorPort" type="_Dw5AwNhIEey6f8rO-RzuJg"/>
+    </nestedClassifier>
+    <packagedElement xmi:type="uml:Component" xmi:id="_wRgP4NhHEey6f8rO-RzuJg" name="UIReceptor"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_g6roINhNEey6f8rO-RzuJg" name="MostrarEmergencias"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_TSEkwNhKEey6f8rO-RzuJg" name="Interface7"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_oABagNhKEey6f8rO-RzuJg" name="NotificarLlegada"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_-Cx1INhMEey6f8rO-RzuJg" name="NotificarLlegada">
+    <eAnnotations xmi:id="_JrhZ4NhNEey6f8rO-RzuJg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_AjSNkNhOEey6f8rO-RzuJg" client="_Dw5AwNhIEey6f8rO-RzuJg _BjqsgNhOEey6f8rO-RzuJg" supplier="_g6roINhNEey6f8rO-RzuJg"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_oNcOoNhOEey6f8rO-RzuJg" name="EnviarEmergenciaRed">
+    <eAnnotations xmi:id="_bFGC4NhPEey6f8rO-RzuJg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_xlzFINhOEey6f8rO-RzuJg" name="NotificarLlegada"/>
 </uml:Model>
