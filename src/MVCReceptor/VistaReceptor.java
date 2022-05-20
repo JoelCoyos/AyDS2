@@ -58,7 +58,11 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		JScrollPane scrollPane = new JScrollPane();
 		panelCentral.add(scrollPane);
 		
-		tablaEmergencias = new JTable() ;
+		tablaEmergencias = new JTable(){
+	        public boolean isCellEditable(int rowIndex, int vColIndex) {
+	            return false;
+	        }};
+		tablaEmergencias.setRowSelectionAllowed(false);
 		this.modeloTabla.addColumn("Fecha y Hora");
 		this.modeloTabla.addColumn("Tipo de Emergencia");
 		this.modeloTabla.addColumn("Ubicacion");

@@ -46,9 +46,10 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 	 * Create the frame.
 	 */
 	public VistaServidor() {
+		setResizable(false);
 		setTitle("Servidor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 493, 477);
+		setBounds(100, 100, 535, 489);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,11 +70,15 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		panelCentral.add(scrollPane);
 		
 		tabla_EmergenciasRecibidas = new JTable();
+		tabla_EmergenciasRecibidas.setRowSelectionAllowed(false);
 		this.tabla_Recibidos = new DefaultTableModel();
 		scrollPane.setViewportView(tabla_EmergenciasRecibidas);
 		this.tabla_Recibidos.addColumn("Fecha y Hora");
 		this.tabla_Recibidos.addColumn("Evento Ocurrido");
 		this.tabla_EmergenciasRecibidas.setModel(this.tabla_Recibidos);
+		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(0).setPreferredWidth(15);
+		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(1).setPreferredWidth(35);
+		this.tabla_EmergenciasRecibidas.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		scrollPane.setViewportView(this.tabla_EmergenciasRecibidas);
 		this.setVisible(true);
 		
@@ -94,7 +99,7 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 	public void registro_receptor(RegistroReceptor receptor) {
 		Object[] objeto= new Object[2];
 		objeto[0]=receptor.fechaHora;
-		objeto[1]="Se ha agregado el receptor con ip" + receptor.ip + "en el puerto" + receptor.puerto + "con el tipo de emergencia" + receptor.tipoEmergencia;
+		objeto[1]="Se ha agregado el receptor con ip " + receptor.ip + " en el puerto " + receptor.puerto + " con el tipo de emergencia " + receptor.tipoEmergencia;
 		this.tabla_Recibidos.addRow(objeto);
 		this.setVisible(true);
 	}

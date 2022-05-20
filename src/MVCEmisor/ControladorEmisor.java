@@ -19,6 +19,16 @@ public class ControladorEmisor implements ActionListener,Observer
 		vistaEmisor = new VistaEmisor();
 		vistaEmisor.setActionListener(this);
 		redEmisor = new RedEmisor();
+		Properties properties = new Properties();
+		FileInputStream configFile;
+		try {
+			configFile = new FileInputStream("configEmisor.properties");
+			properties.load(configFile);
+		} catch (Exception e) {
+			vistaEmisor.MostrarNotificacion("Error en el archivo de configuracion");
+		}
+		String ubicacion = properties.getProperty("ubicacion");
+		this.vistaEmisor.actualizar_ubicacion(ubicacion);
 	}
 	
 	@Override

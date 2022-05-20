@@ -21,6 +21,9 @@ import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class VistaEmisor extends JFrame implements IVistaEmisor {
 
@@ -29,8 +32,6 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 	private JPanel panelButton; 
 	private JButton enviarEmergenciaButton;
 	private JPanel panel_1;
-	private JPanel panelLabel;
-	private JLabel lblNewLabel;
 	private JPanel panelIconos;
 	private JPanel panelRadio;
 	private JRadioButton seguridadButton;
@@ -39,6 +40,12 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 	private JPanel panelIcon1;
 	private JPanel panelIcon2;
 	private JPanel panelIcon3;
+	private JPanel panel;
+	private JLabel lblNewLabel;
+	private JPanel panel_2;
+	private JPanel panel_3;
+	private JPanel panel_4;
+	private JLabel ubicacion_Label;
 
 	/**
 	 * Create the frame.
@@ -47,7 +54,7 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		setTitle("Emisor");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 461, 308);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -124,11 +131,25 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		panelRadio.add(medicaButton);
 		buttonGroup.add(medicaButton);
 		
-		panelLabel = new JPanel();
-		contentPane.add(panelLabel, BorderLayout.NORTH);
+		panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setLayout(new GridLayout(3, 1, 0, 0));
 		
-		lblNewLabel = new JLabel("Seleccione Tipo de emegencia");
-		panelLabel.add(lblNewLabel);
+		panel_2 = new JPanel();
+		panel.add(panel_2);
+		
+		ubicacion_Label = new JLabel("Ubicacion Actual:");
+		ubicacion_Label.setFont(new Font("Arial Black", Font.PLAIN, 12));
+		panel_2.add(ubicacion_Label);
+		
+		panel_3 = new JPanel();
+		panel.add(panel_3);
+		
+		panel_4 = new JPanel();
+		panel.add(panel_4);
+		
+		lblNewLabel = new JLabel("Seleccione Tipo de emergencia");
+		panel_4.add(lblNewLabel);
 		
 		this.setVisible(true);
 	}
@@ -155,5 +176,13 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 	public void MostrarNotificacion(String mensaje) {
 		JOptionPane.showMessageDialog(this, mensaje);
 	}
+
+	@Override
+	public void actualizar_ubicacion(String ubicacion) {
+		this.ubicacion_Label.setText("Ubicacion Actual: "+ ubicacion);
+		
+	}
+
+	
 
 }
