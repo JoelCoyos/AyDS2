@@ -6,11 +6,11 @@ import java.time.format.DateTimeFormatter;
 
 public class RegistroReceptor implements Serializable {
 	public String ip;
-	public String tipoEmergencia;
+	public String[] tipoEmergencia;
 	public int puerto;
 	public String fechaHora;
 	
-	public RegistroReceptor(String ip,String tipoEmergencia,int puerto)
+	public RegistroReceptor(String ip,String[] tipoEmergencia,int puerto)
 	{
 		this.ip = ip;
 		this.tipoEmergencia = tipoEmergencia;

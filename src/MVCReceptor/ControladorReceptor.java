@@ -46,6 +46,7 @@ public class ControladorReceptor implements Observer{
 	
 	private void RecibirEmergencia()
 	{
+		clip.setMicrosecondPosition(0);
 		clip.start();
 		Emergencia emergencia = redReceptor.GetEmergencia();
 		vistaReceptor.MostrarEmergencia(emergencia);
