@@ -54,12 +54,15 @@ public class RedServidor extends Observable implements IRedServidor {
 				InputStream inputStream = socket.getInputStream();
 				ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 				registro = (RegistroReceptor) objectInputStream.readObject();
-				if(registro.tipoEmergencia.equals("Bomberos"))
-					ipBombero.add(registro);
-				else if (registro.tipoEmergencia.equals("Seguridad"))
-					 ipSeguridad.add(registro);
-				else if (registro.tipoEmergencia.equals("Medica"))
-					 ipMedica.add(registro);
+				for (String tipo : registro.tipoEmergencia) {
+					System.out.println(tipo);
+					if(tipo.equals("Bomberos"))
+						ipBombero.add(registro);
+					else if (tipo.equals("Seguridad"))
+						ipSeguridad.add(registro);
+					else if (tipo.equals("Medica"))
+						ipMedica.add(registro);					
+				}
 				setChanged();
 				notifyObservers("Registro");
 			}
