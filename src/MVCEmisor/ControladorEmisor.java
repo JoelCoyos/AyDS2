@@ -57,7 +57,7 @@ public class ControladorEmisor implements ActionListener,Observer
 		} catch (Exception e) {
 			vistaEmisor.MostrarNotificacion("Error en el archivo de configuracion");
 		}
-		int puerto = Integer.parseInt(properties.getProperty("puerto"));
+		int puerto = 1001;
 		String tipoEmergencia = vistaEmisor.tipoEmergencia();
 		String ip = properties.getProperty("ipServidor");
 		String ubicacion = properties.getProperty("ubicacion");
