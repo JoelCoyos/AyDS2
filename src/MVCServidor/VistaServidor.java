@@ -77,8 +77,8 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		this.tabla_Recibidos.addColumn("Evento Ocurrido");
 		this.tabla_EmergenciasRecibidas.setModel(this.tabla_Recibidos);
 		tabla_EmergenciasRecibidas.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(0).setPreferredWidth(100);
-		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(1).setPreferredWidth(674);
+		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(0).setPreferredWidth(200);
+		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(1).setPreferredWidth(574);
 		//this.tabla_EmergenciasRecibidas.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		scrollPane.setViewportView(this.tabla_EmergenciasRecibidas);
 		this.setVisible(true);
