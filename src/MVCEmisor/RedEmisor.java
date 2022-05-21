@@ -20,7 +20,7 @@ public class RedEmisor implements IRedEmisor {
 		boolean llego = false;
 		
 		try {	
-	        Socket socket = new Socket(ip,puerto);
+	        Socket socket = new Socket(ip,1001);
 
 	        OutputStream outputStream = socket.getOutputStream();
 	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);

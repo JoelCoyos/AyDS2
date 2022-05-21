@@ -49,7 +49,7 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		setResizable(false);
 		setTitle("Servidor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 535, 489);
+		setBounds(100, 100, 803, 489);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,7 +64,7 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		
 		JPanel panelCentral = new JPanel();
 		contentPane.add(panelCentral, BorderLayout.CENTER);
-		panelCentral.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 2));
+		panelCentral.setLayout(new BorderLayout(0, 0));
 		
 		scrollPane = new JScrollPane();
 		panelCentral.add(scrollPane);
@@ -76,9 +76,10 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		this.tabla_Recibidos.addColumn("Fecha y Hora");
 		this.tabla_Recibidos.addColumn("Evento Ocurrido");
 		this.tabla_EmergenciasRecibidas.setModel(this.tabla_Recibidos);
-		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(0).setPreferredWidth(15);
-		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(1).setPreferredWidth(35);
-		this.tabla_EmergenciasRecibidas.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		tabla_EmergenciasRecibidas.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(0).setPreferredWidth(100);
+		this.tabla_EmergenciasRecibidas.getColumnModel().getColumn(1).setPreferredWidth(674);
+		//this.tabla_EmergenciasRecibidas.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		scrollPane.setViewportView(this.tabla_EmergenciasRecibidas);
 		this.setVisible(true);
 		

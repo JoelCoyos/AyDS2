@@ -65,6 +65,7 @@ public class RedServidor extends Observable implements IRedServidor {
 				}
 				setChanged();
 				notifyObservers("Registro");
+				socket.close();
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -77,10 +78,7 @@ public class RedServidor extends Observable implements IRedServidor {
 		
         ServerSocket ss;
         boolean llego = false;
-        Properties properties = new Properties();
 		try {
-			FileInputStream configFile= new FileInputStream("configServer.properties");
-			properties.load(configFile);
 			ss = new ServerSocket(puertoEmisor);
 			while(true)
 			{
