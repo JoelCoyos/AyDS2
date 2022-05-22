@@ -562,7 +562,7 @@
     <message xmi:id="_Cc-YkdlKEeyYQ8YLlJZfUQ" name="EnviarEmergencias" receiveEvent="_Cc-YldlKEeyYQ8YLlJZfUQ" sendEvent="_Cc-YlNlKEeyYQ8YLlJZfUQ" signature="_Cc-YkNlKEeyYQ8YLlJZfUQ"/>
     <message xmi:id="_Cc-Yk9lKEeyYQ8YLlJZfUQ" name="LlegoEmergencia" messageSort="reply" receiveEvent="_Cc-YmNlKEeyYQ8YLlJZfUQ" sendEvent="_Cc-YltlKEeyYQ8YLlJZfUQ"/>
     <message xmi:id="_zNT7AdlKEeyYQ8YLlJZfUQ" name="MostrarEmergencia" receiveEvent="_zNT7BdlKEeyYQ8YLlJZfUQ" sendEvent="_zNT7BNlKEeyYQ8YLlJZfUQ" signature="_zNT7ANlKEeyYQ8YLlJZfUQ"/>
-    <message xmi:id="_zNT7A9lKEeyYQ8YLlJZfUQ" name="LlegoEmergencia" messageSort="reply" sendEvent="_zNT7BtlKEeyYQ8YLlJZfUQ"/>
+    <message xmi:id="_zNT7A9lKEeyYQ8YLlJZfUQ" name="LlegoEmergencia" messageSort="reply" receiveEvent="_zNT7CNlKEeyYQ8YLlJZfUQ" sendEvent="_zNT7BtlKEeyYQ8YLlJZfUQ"/>
     <message xmi:id="_8UFSQdlKEeyYQ8YLlJZfUQ" name="RegistrarServidor" receiveEvent="_8UFSRdlKEeyYQ8YLlJZfUQ" sendEvent="_8UFSRNlKEeyYQ8YLlJZfUQ" signature="_8UFSQNlKEeyYQ8YLlJZfUQ"/>
     <message xmi:id="_8UFSQ9lKEeyYQ8YLlJZfUQ" name="Operation_2_reply" messageSort="reply" sendEvent="_8UFSRtlKEeyYQ8YLlJZfUQ"/>
     <message xmi:id="_-gCMcdlKEeyYQ8YLlJZfUQ" name="RegistroReceptor" receiveEvent="_-gCMddlKEeyYQ8YLlJZfUQ" sendEvent="_-gCMdNlKEeyYQ8YLlJZfUQ" signature="_-gCMcNlKEeyYQ8YLlJZfUQ"/>

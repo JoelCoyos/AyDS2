@@ -3,6 +3,7 @@
 	<section name="ExportRepresentationsAsImagesDialog">
 		<item value="JPG" key="ExportRepresentationsAsImagesDialog.imageFormat"/>
 		<list key="ExportRepresentationsAsImagesDialog.file">
+			<item value="C:\Users\Coyos\Pictures\tercera entrega"/>
 			<item value="C:\Users\Coyos\Pictures"/>
 			<item value="C:\Users\Coyos\Pictures\NewModel Class Diagram.jpg"/>
 		</list>
