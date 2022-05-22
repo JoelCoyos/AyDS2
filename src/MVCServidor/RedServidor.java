@@ -35,9 +35,15 @@ public class RedServidor extends Observable implements IRedServidor {
 		ipBombero = new ArrayList<RegistroReceptor>();
 		ipSeguridad = new ArrayList<RegistroReceptor>();
 		ipMedica = new ArrayList<RegistroReceptor>();
-		
-		puertoEmisor = 1001;
-		puertoReceptor = 1002;
+		try {
+			Properties properties = new Properties();
+			FileInputStream configFile= new FileInputStream("configServidor.properties");
+			properties.load(configFile);
+			puertoEmisor = Integer.parseInt(properties.getProperty("puertoEmisor"));
+			puertoReceptor = Integer.parseInt(properties.getProperty("puertoReceptor"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		new Thread(){public void run(){RegistroReceptor();}}.start();
 		new Thread(){public void run(){RecibirEmergencia();}}.start();
@@ -55,7 +61,6 @@ public class RedServidor extends Observable implements IRedServidor {
 				ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 				registro = (RegistroReceptor) objectInputStream.readObject();
 				for (String tipo : registro.tipoEmergencia) {
-					System.out.println(tipo);
 					if(tipo.equals("Bomberos"))
 						ipBombero.add(registro);
 					else if (tipo.equals("Seguridad"))
@@ -65,7 +70,6 @@ public class RedServidor extends Observable implements IRedServidor {
 				}
 				setChanged();
 				notifyObservers("Registro");
-				socket.close();
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -129,11 +133,11 @@ public class RedServidor extends Observable implements IRedServidor {
 		return llego;
 	}
 	
-	public boolean EnviarEmergencia(String ip,int puerto)
+	public boolean EnviarEmergencia(String ip,int puertoReceptor)
 	{
 		boolean llego = false;
 		try {	
-	        Socket socket = new Socket(ip,puerto);
+	        Socket socket = new Socket(ip,puertoReceptor);
 	        OutputStream outputStream = socket.getOutputStream();
 	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 	        objectOutputStream.writeObject(emergencia);

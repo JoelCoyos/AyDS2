@@ -63,11 +63,12 @@ public class RedReceptor extends Observable implements IRedReceptor {
 			properties.load(configFile);
 			InetAddress inetAddress = InetAddress.getLocalHost();
 			String ip = inetAddress.getHostAddress();
-			int puerto = Integer.parseInt(properties.getProperty("puerto"));
+			int puertoReceptor = Integer.parseInt(properties.getProperty("puerto"));
+			int puertoServidor = Integer.parseInt(properties.getProperty("puertoServidor"));
 			String[] tipoEmergencia = properties.getProperty("tipoEmergencia").split(",");
-			RegistroReceptor registro = new RegistroReceptor(ip,tipoEmergencia,puerto);
-			String ipServidor = properties.getProperty("servidor");
-			Socket socket = new Socket(ipServidor,1002);
+			RegistroReceptor registro = new RegistroReceptor(ip,tipoEmergencia,puertoReceptor);
+			String ipServidor = properties.getProperty("ipServidor");
+			Socket socket = new Socket(ipServidor,puertoServidor);
 			OutputStream outputStream = socket.getOutputStream();
 	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 	        objectOutputStream.writeObject(registro);
