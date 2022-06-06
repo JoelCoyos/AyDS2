@@ -94,6 +94,7 @@ public class VistaMonitor extends JFrame implements IVistaMonitor {
 	@Override
 	public void actualizar_ubicacion(String ubicacion) {
 		this.ubicacion_Label.setText("Ubicacion: "+ubicacion);
+		this.setVisible(true);
 		
 	}
 
