@@ -47,6 +47,7 @@ public class RedServidor extends Observable implements IRedServidor {
 		
 		new Thread(){public void run(){RegistroReceptor();}}.start();
 		new Thread(){public void run(){RecibirEmergencia();}}.start();
+		new Thread(){public void run(){escucharMonitor();}}.start();
 	}
 
 	@Override
@@ -156,6 +157,35 @@ public class RedServidor extends Observable implements IRedServidor {
 	@Override
 	public Emergencia getEmergencia() {
 		return this.emergencia;
+	}
+
+	@Override
+	public void escucharMonitor() {
+		ServerSocket ss;
+        boolean llego = false;
+        String mensaje;
+		try {
+			ss = new ServerSocket(3001);
+			while(true)
+			{
+				Socket socket = ss.accept(); 
+				InputStream inputStream = socket.getInputStream();
+				ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+				mensaje = (String) objectInputStream.readObject();
+				
+				if(mensaje.equals("Disponible ServidorPrim?"))
+				{
+					PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+					out.println("Llego");
+				}
+				socket.close();
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
