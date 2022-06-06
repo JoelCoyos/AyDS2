@@ -1,7 +1,9 @@
 package MVCMonitor;
 
+import java.io.FileInputStream;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Properties;
 
 public class ControladorMonitor implements Observer {
 	
@@ -12,6 +14,16 @@ public class ControladorMonitor implements Observer {
 		this.vista= new VistaMonitor();
 		this.redMonitor= new RedMonitor();
 		this.redMonitor.addObserver(this);
+		try {
+			Properties properties = new Properties();
+			FileInputStream configFile= new FileInputStream("configMonitor.properties");
+			properties.load(configFile);
+			String ubicacion=properties.getProperty("ubicacion");
+			this.vista.actualizar_ubicacion(ubicacion);
+		}
+		catch(Exception e) {
+			System.out.println("Error al leer archivo configMonitor.properties");
+		}
 		
 	}
 
