@@ -27,6 +27,7 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 	private String[] columnasTabla= new String[] {"Fecha y Hora","Tipo de Emergencia","Ubicacion"};
 	private Object[] datos;
 	private JTable tablaEmergencias;
+	private JLabel ubicacionLabel;
 	private DefaultTableModel modeloTabla= new DefaultTableModel();
 
 
@@ -38,7 +39,7 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		setTitle("Receptor");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 536, 510);
+		setBounds(100, 100, 536, 575);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -46,10 +47,24 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		
 		JPanel panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
+		panelNorte.setLayout(new GridLayout(3, 1, 0, 0));
+		
+		JPanel panel_2 = new JPanel();
+		panelNorte.add(panel_2);
+		
+		ubicacionLabel = new JLabel("Ubicacion: ");
+		ubicacionLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+		panel_2.add(ubicacionLabel);
+		
+		JPanel panel_1 = new JPanel();
+		panelNorte.add(panel_1);
+		
+		JPanel panel = new JPanel();
+		panelNorte.add(panel);
 		
 		JLabel solicitudesLabel = new JLabel("Solicitudes Recibidas");
+		panel.add(solicitudesLabel);
 		solicitudesLabel.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		panelNorte.add(solicitudesLabel);
 		
 		JPanel panelCentral = new JPanel();
 		contentPane.add(panelCentral, BorderLayout.CENTER);
@@ -79,6 +94,13 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		objeto[1]=emergencia.getTipoEmergencia();
 		objeto[2]=emergencia.getUbicacion();
 		this.modeloTabla.addRow(objeto);
+		this.setVisible(true);
+		
+	}
+
+	@Override
+	public void actualizar_ubicacion(String ubicacion) {
+		this.ubicacionLabel.setText("Ubicacion: " + ubicacion);
 		this.setVisible(true);
 		
 	}
