@@ -1,5 +1,5 @@
 package MVCMonitor;
 
 public interface IRedMonitor {
-	public void activoPrimario();
+	public void pingPrimario();
 }
