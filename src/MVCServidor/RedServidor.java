@@ -47,7 +47,8 @@ public class RedServidor extends Observable implements IRedServidor {
 		
 		new Thread(){public void run(){RegistroReceptor();}}.start();
 		new Thread(){public void run(){RecibirEmergencia();}}.start();
-		new Thread(){public void run(){escucharMonitor();}}.start();
+		new Thread(){public void run(){escucharMonitor1();}}.start();
+		
 	}
 
 	@Override
@@ -160,7 +161,7 @@ public class RedServidor extends Observable implements IRedServidor {
 	}
 
 	@Override
-	public void escucharMonitor() {
+	public void escucharMonitor1() {
 		ServerSocket ss;
         boolean llego = false;
         String mensaje;
@@ -187,6 +188,8 @@ public class RedServidor extends Observable implements IRedServidor {
 		}
 		
 	}
+
+	
 	
 	
 	

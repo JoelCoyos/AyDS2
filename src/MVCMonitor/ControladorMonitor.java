@@ -9,9 +9,11 @@ public class ControladorMonitor implements Observer {
 	
 	private VistaMonitor vista;
 	private RedMonitor redMonitor;
+	private int detected;
 
 	public ControladorMonitor() {
 		this.vista= new VistaMonitor();
+		this.detected=0;
 		this.redMonitor= new RedMonitor();
 		this.redMonitor.addObserver(this);
 		try {
@@ -29,11 +31,13 @@ public class ControladorMonitor implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if (arg.equals("Disponible Primario")) {
+		if (arg.equals("Disponible Primario") && detected==0) {
 			this.vista.iniciarMonitor();
+			detected++;
 		}
-		else if(arg.equals("No Disponible Primario")) {
-			this.vista.actualizarMonitor();
+		else if(arg.equals("No Disponible Primario") && detected==1) {
+			this.vista.actualizarMonitor1();
+			detected++;
 		}
 		
 	}

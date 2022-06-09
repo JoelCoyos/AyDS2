@@ -9,6 +9,6 @@ public interface IRedServidor {
 	public boolean EnviarEmergencias();
 	public boolean EnviarEmergencia(String ip,int puerto);
 	public Emergencia getEmergencia();
-	public void escucharMonitor();
+	public void escucharMonitor1();
 	
 }

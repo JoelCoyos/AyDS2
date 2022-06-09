@@ -45,16 +45,17 @@ public class RedMonitor extends Observable implements IRedMonitor {
 				ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 				objectOutputStream.writeObject("Disponible ServidorPrim?");
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				if( in.readLine().toString().equals("Llego"))
+				if( in.readLine().toString().equals("Llego")) {
 	            	notifyObservers("Disponible Primario");
-				Thread.sleep(5000);
+	            	setChanged();
+				}
+				Thread.sleep(500);
 			}
 			catch(Exception e) {
 				notifyObservers("No Disponible Primario");
+            	setChanged();
 			}
 		}
 	}
-
-	
 
 }

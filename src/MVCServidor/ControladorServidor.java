@@ -26,6 +26,11 @@ public class ControladorServidor implements Observer {
 			vista.registro_receptor(redServidor.registro);
 			
 		}
+		else if(arg.equals("Abrir Secundario"))
+		{
+			this.vista= new VistaServidor();
+			
+		}
 		
 	}
 	
