@@ -1,13 +1,7 @@
 package MVCServidor;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,6 +11,8 @@ import java.util.Properties;
 
 import clasesComunes.Emergencia;
 import clasesComunes.Propiedades;
+import clasesComunes.RedEnviar;
+import clasesComunes.RedRecibir;
 import clasesComunes.RegistroReceptor;
 import clasesComunes.ServicioRed;
 
@@ -30,7 +26,12 @@ public class RedServidor extends Observable implements IRedServidor {
 	private int puertoEmisor;
 	
 	private Emergencia emergencia;
-	public RegistroReceptor registro;
+	private RegistroReceptor registro;
+	
+	private boolean primario;
+	
+	private RedEnviar redEnviar;
+	private RedRecibir redRecibir;
 	
 	public RedServidor()
 	{
@@ -40,11 +41,58 @@ public class RedServidor extends Observable implements IRedServidor {
 		Propiedades propiedades = new Propiedades("configServidor.properties");
 		puertoReceptor = Integer.parseInt(propiedades.getPropiedad("puertoReceptor"));
 		puertoEmisor = Integer.parseInt(propiedades.getPropiedad("puertoEmisor"));
-
-		new Thread(){public void run(){RegistroReceptor();}}.start();
-		new Thread(){public void run(){RecibirEmergencia();}}.start();
-		new Thread(){public void run(){escucharMonitor1();}}.start();
 		
+		
+		primario = esPrimario();
+		if(primario)
+		{
+			System.out.println("Es primario");
+			new Thread(){public void run(){RegistroReceptor();}}.start();
+			new Thread(){public void run(){RecibirEmergencia();}}.start();	
+			new Thread(){public void run(){Primario();}}.start();	
+		}
+		else 
+		{
+			new Thread(){public void run(){Secundario();}}.start();
+		}
+		
+	}
+	
+	private void Primario()
+	{
+		redRecibir = new RedRecibir();
+		redRecibir.Conectar(3001);
+		redRecibir.Escuchar();
+		System.out.println("se conecto el secundario");
+
+	}
+	
+	private void Secundario()
+	{
+		//System.out.println("es secundario");
+		while(true)
+		{
+			registro = redEnviar.RecibirMensaje();
+			System.out.println("llego un mensaje del primario");
+			setChanged();
+			notifyObservers("Registro");
+		}
+		
+	}
+	
+	private boolean esPrimario()
+	{
+		boolean primario;
+		redEnviar = new RedEnviar();
+		boolean aux = redEnviar.Conectar("localhost", 3001);
+		if(aux)
+			primario = false;
+		else
+		{
+			primario = true;
+			redEnviar = null;
+		}
+		return primario;
 	}
 
 	private void RegistroReceptor() {
@@ -60,6 +108,7 @@ public class RedServidor extends Observable implements IRedServidor {
 		}
 		setChanged();
 		notifyObservers("Registro");
+		redRecibir.EnviarRed(registro);
 	}
 
 	private void RecibirEmergencia() {
@@ -113,6 +162,11 @@ public class RedServidor extends Observable implements IRedServidor {
 				llego = true;				
 		}
 		return llego;
+	}
+	
+	public RegistroReceptor getRegistro()
+	{
+		return this.registro;
 	}
 	
 
