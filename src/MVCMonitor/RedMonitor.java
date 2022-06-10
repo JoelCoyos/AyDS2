@@ -37,7 +37,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 
 
 	@Override
-	public void pingPrimario() {
+	public void pingA() {
 		while(true) {
 			try {
 				Socket socket = new Socket(ip,puertoPrim);
@@ -56,6 +56,13 @@ public class RedMonitor extends Observable implements IRedMonitor {
             	setChanged();
 			}
 		}
+	}
+
+
+	@Override
+	public void pingB() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

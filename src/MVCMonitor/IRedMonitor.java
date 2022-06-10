@@ -1,6 +1,7 @@
 package MVCMonitor;
 
 public interface IRedMonitor {
-	public void pingPrimario();
+	public void pingA();
+	public void pingB();
 	
 }
