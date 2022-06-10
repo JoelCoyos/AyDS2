@@ -49,7 +49,8 @@ public class RedRecibir {
 	
 	public<T extends Serializable> void EnviarRed(T objeto)
 	{
-		redEnviar.EnviarMensaje(objeto);
+		if(redEnviar!=null)
+			redEnviar.EnviarMensaje(objeto);
 	}
 
 }
