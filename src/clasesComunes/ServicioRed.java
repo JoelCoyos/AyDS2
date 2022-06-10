@@ -43,7 +43,7 @@ public class ServicioRed {
 			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 			objeto = (T)objectInputStream.readObject();
 			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			out.println("Llego");
+			out.println(respuesta);
 			ss.close();
 		} catch (Exception e) {
 			e.printStackTrace();
