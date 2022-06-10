@@ -23,7 +23,7 @@ public class ControladorServidor implements Observer {
 		}
 		else if(arg.equals("Registro"))
 		{
-			vista.registro_receptor(redServidor.registro);
+			vista.registro_receptor(redServidor.getRegistro());
 			
 		}
 		
