@@ -16,7 +16,9 @@ import java.util.Observable;
 import java.util.Properties;
 
 import clasesComunes.Emergencia;
+import clasesComunes.Propiedades;
 import clasesComunes.RegistroReceptor;
+import clasesComunes.ServicioRed;
 
 public class RedServidor extends Observable implements IRedServidor {
 	
@@ -35,55 +37,35 @@ public class RedServidor extends Observable implements IRedServidor {
 		ipBombero = new ArrayList<RegistroReceptor>();
 		ipSeguridad = new ArrayList<RegistroReceptor>();
 		ipMedica = new ArrayList<RegistroReceptor>();
-		try {
-			Properties properties = new Properties();
-			FileInputStream configFile= new FileInputStream("configServidor.properties");
-			properties.load(configFile);
-			puertoEmisor = Integer.parseInt(properties.getProperty("puertoEmisor"));
-			puertoReceptor = Integer.parseInt(properties.getProperty("puertoReceptor"));
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
+		Propiedades propiedades = new Propiedades("configServidor.properties");
+		puertoReceptor = Integer.parseInt(propiedades.getPropiedad("puertoReceptor"));
+		puertoEmisor = Integer.parseInt(propiedades.getPropiedad("puertoEmisor"));
+
 		new Thread(){public void run(){RegistroReceptor();}}.start();
 		new Thread(){public void run(){RecibirEmergencia();}}.start();
 		new Thread(){public void run(){escucharMonitor1();}}.start();
 		
 	}
 
-	@Override
-	public void RegistroReceptor() {
-		ServerSocket ss;
-		try {
-			ss = new ServerSocket(puertoReceptor);
-			while(true)
-			{
-				Socket socket = ss.accept(); 
-				InputStream inputStream = socket.getInputStream();
-				ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-				registro = (RegistroReceptor) objectInputStream.readObject();
-				for (String tipo : registro.tipoEmergencia) {
-					if(tipo.equals("Bomberos"))
-						ipBombero.add(registro);
-					else if (tipo.equals("Seguridad"))
-						ipSeguridad.add(registro);
-					else if (tipo.equals("Medica"))
-						ipMedica.add(registro);					
-				}
-				setChanged();
-				notifyObservers("Registro");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	private void RegistroReceptor() {
+		
+		registro = ServicioRed.RecibirObjeto(puertoReceptor, null);
+		for (String tipo : registro.tipoEmergencia) {
+			if(tipo.equals("Bomberos"))
+				ipBombero.add(registro);
+			else if (tipo.equals("Seguridad"))
+				ipSeguridad.add(registro);
+			else if (tipo.equals("Medica"))
+				ipMedica.add(registro);					
 		}
+		setChanged();
+		notifyObservers("Registro");
 	}
 
-	@Override
-	public void RecibirEmergencia() {
+	private void RecibirEmergencia() {
 		
-        ServerSocket ss;
         boolean llego = false;
+        ServerSocket ss;
 		try {
 			ss = new ServerSocket(puertoEmisor);
 			while(true)
@@ -102,7 +84,6 @@ public class RedServidor extends Observable implements IRedServidor {
 				}
 				socket.close();
 			}
-
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,8 +91,7 @@ public class RedServidor extends Observable implements IRedServidor {
 }
 		
 
-	@Override
-	public boolean EnviarEmergencias() {
+	private boolean EnviarEmergencias() {
 		boolean llego = false;
 		ArrayList<RegistroReceptor> listaReceptores = null;
 		if(this.emergencia.getTipoEmergencia().equals("Bomberos"))
@@ -126,34 +106,15 @@ public class RedServidor extends Observable implements IRedServidor {
 		{
 			listaReceptores = ipMedica;
 		}
-		boolean aux = false;
+		String aux;
 		for (RegistroReceptor receptor : listaReceptores) {
-			aux = EnviarEmergencia(receptor.ip, receptor.puerto);
-			if(llego == false && aux == true) //Si llega un solo envio se toma como que llego
+			aux = ServicioRed.EnviarObjeto(receptor.ip, receptor.puerto, emergencia);
+			if(llego == false && aux.equals("Llego")) //Si llega un solo envio se toma como que llego
 				llego = true;				
 		}
 		return llego;
 	}
 	
-	public boolean EnviarEmergencia(String ip,int puertoReceptor)
-	{
-		boolean llego = false;
-		try {	
-	        Socket socket = new Socket(ip,puertoReceptor);
-	        OutputStream outputStream = socket.getOutputStream();
-	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-	        objectOutputStream.writeObject(emergencia);
-            //PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            if( in.readLine().equals("Llego"))
-            	llego= true;
-	        socket.close();
-			} 
-		catch (Exception e) {
-			llego = false;
-			}
-		return llego;
-	}
 
 	@Override
 	public Emergencia getEmergencia() {
