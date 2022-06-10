@@ -1,81 +1,51 @@
 package MVCReceptor;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Observable;
-import java.util.Properties;
 
 import clasesComunes.Emergencia;
+import clasesComunes.Propiedades;
 import clasesComunes.RegistroReceptor;
+import clasesComunes.ServicioRed;
 
 @SuppressWarnings("deprecation")
 public class RedReceptor extends Observable implements IRedReceptor {
 	
 	private static Emergencia emergencia;
-	Properties properties;
+	Propiedades propiedades;
 	
 	public RedReceptor() {
+		propiedades = new Propiedades("configReceptor.properties");
 		new Thread(){public void run(){Escuchar();}}.start();
-		properties = new Properties();
 	}
 	
 	public void Escuchar()
 	{
-            ServerSocket ss;
-            Properties properties = new Properties();
-			try {
-				FileInputStream configFile= new FileInputStream("configReceptor.properties");
-				properties.load(configFile);
-				int puerto = Integer.parseInt(properties.getProperty("puerto"));
-				ss = new ServerSocket(puerto);
-				while(true)
-				{
-					Socket socket = ss.accept(); 
-					InputStream inputStream = socket.getInputStream();
-					ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-					emergencia = (Emergencia) objectInputStream.readObject();
-					setChanged();
-					notifyObservers("Emergencia");
-		            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-		            out.println("Llego");
-					socket.close();
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			int puerto = Integer.parseInt(propiedades.getPropiedad("puerto"));
+			while(true)
+			{
+				emergencia = (Emergencia) ServicioRed.RecibirObjeto(puerto, "Llego");
+				setChanged();
+				notifyObservers("Emergencia");
 			}
 	}
 	
 	public void RegistrarServidor()
 	{
+		InetAddress inetAddress;
 		try {
-			FileInputStream configFile= new FileInputStream("configReceptor.properties");
-			properties.load(configFile);
-			InetAddress inetAddress = InetAddress.getLocalHost();
+			inetAddress = InetAddress.getLocalHost();
+			int puertoReceptor = Integer.parseInt(propiedades.getPropiedad("puerto"));
+			int puertoServidor = Integer.parseInt(propiedades.getPropiedad("puertoServidor"));
+			String[] tipoEmergencia = propiedades.getPropiedad("tipoEmergencia").split(",");
+			String ipServidor = propiedades.getPropiedad("ipServidor");
 			String ip = inetAddress.getHostAddress();
-			int puertoReceptor = Integer.parseInt(properties.getProperty("puerto"));
-			int puertoServidor = Integer.parseInt(properties.getProperty("puertoServidor"));
-			String[] tipoEmergencia = properties.getProperty("tipoEmergencia").split(",");
 			RegistroReceptor registro = new RegistroReceptor(ip,tipoEmergencia,puertoReceptor);
-			String ipServidor = properties.getProperty("ipServidor");
-			Socket socket = new Socket(ipServidor,puertoServidor);
-			OutputStream outputStream = socket.getOutputStream();
-	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-	        objectOutputStream.writeObject(registro);
-			socket.close();
-			} catch (Exception e) {
+			ServicioRed.EnviarObjeto(ipServidor, puertoServidor, registro);
+		} catch (UnknownHostException e) {
 			e.printStackTrace();
-			}
+		}
 
 	}
 	
