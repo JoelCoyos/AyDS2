@@ -27,7 +27,7 @@ public class ServicioRed {
 			respuesta = in.readLine();
 			socket.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return respuesta;
 	}
@@ -46,7 +46,7 @@ public class ServicioRed {
 			out.println(respuesta);
 			ss.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return objeto;
 	}
