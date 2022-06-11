@@ -1,7 +1,6 @@
 package MVCReceptor;
 
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.Observable;
 import java.util.Observer;

@@ -9,11 +9,9 @@ public class ControladorMonitor implements Observer {
 	
 	private VistaMonitor vista;
 	private RedMonitor redMonitor;
-	private int detected;
 
 	public ControladorMonitor() {
 		this.vista= new VistaMonitor();
-		this.detected=0;
 		this.redMonitor= new RedMonitor();
 		this.redMonitor.addObserver(this);
 		try {

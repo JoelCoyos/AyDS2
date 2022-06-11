@@ -21,8 +21,6 @@ import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 
 public class VistaEmisor extends JFrame implements IVistaEmisor {
