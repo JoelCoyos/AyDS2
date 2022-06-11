@@ -31,7 +31,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 			System.out.println("Error en archivo configMonitor.properties");
 		}
 		
-		new Thread(){public void run(){pingPrimario();}}.start();
+		new Thread(){public void run(){pingA();}}.start();
 		
 	}
 
