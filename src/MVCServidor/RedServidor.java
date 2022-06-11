@@ -34,6 +34,9 @@ public class RedServidor extends Observable implements IRedServidor {
 	private RedEnviar redEnviar;
 	private RedRecibir redRecibir;
 	
+	private ArrayList<Log> logs;
+	
+	
 	public RedServidor()
 	{
 		ipBombero = new ArrayList<RegistroReceptor>();
@@ -43,7 +46,6 @@ public class RedServidor extends Observable implements IRedServidor {
 		puertoReceptor = Integer.parseInt(propiedades.getPropiedad("puertoReceptor"));
 		puertoEmisor = Integer.parseInt(propiedades.getPropiedad("puertoEmisor"));
 		puertoMonitor = Integer.parseInt(propiedades.getPropiedad("puertoMonitor"));
-		
 		
 		primario = esPrimario();
 		if(primario)
@@ -71,18 +73,28 @@ public class RedServidor extends Observable implements IRedServidor {
 		new Thread(){public void run(){RecibirEmergencia();}}.start();	
 		redRecibir = new RedRecibir();
 		redRecibir.Conectar(4001);
-		redRecibir.Escuchar();
-
+		String mensaje = redRecibir.Escuchar();
+		System.out.println(mensaje);
+		Sincronizacion sincronizacion = new Sincronizacion(ipBombero, ipSeguridad, ipMedica, logs);
+		//System.out.println("sinc: " + ipBombero.get(0).ip);
+		redRecibir.EnviarRed(sincronizacion);
 	}
 	
 	private void Secundario()
 	{
 		boolean aux=true;
+		redEnviar.EnviarMensaje("buenas");
+		Sincronizacion sincronizacion = redEnviar.RecibirMensaje();
+		this.ipBombero = sincronizacion.getIpBombero();
+		this.ipMedica = sincronizacion.getIpMedica();
+		this.ipSeguridad = sincronizacion.getIpSeguridad();
+		this.logs = sincronizacion.getLogs();
+		System.out.println("Se sincronizo");
+		setChanged();
+		notifyObservers("Sincronizar");	
 		while(aux)
 		{
-			System.out.println("Contactando al primario");
 			registro = redEnviar.RecibirMensaje();
-			System.out.println("Recibir mensaje primario");
 			if(registro!=null)
 			{
 				AgregarReceptor(registro);
@@ -215,5 +227,15 @@ public class RedServidor extends Observable implements IRedServidor {
 	@Override
 	public Emergencia getEmergencia() {
 		return this.emergencia;
+	}
+	
+	public ArrayList<Log> getLogs()
+	{
+		return logs;
+	}
+	
+	public void setLogs(ArrayList<Log> logs)
+	{
+		this.logs = logs;
 	}
 }

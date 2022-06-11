@@ -60,8 +60,10 @@ public class RedEnviar {
 			objeto = (T)objectInputStream.readObject();
 		} catch (Exception e) {
 			try {
+				System.out.println("error");
 				socket.close();
 			} catch (IOException e1) {
+				System.out.println("error");
 				e1.printStackTrace();
 			}
 		}

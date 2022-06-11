@@ -87,35 +87,11 @@ public class VistaMonitor extends JFrame implements IVistaMonitor {
 		this.tablaEstado.getModel().setValueAt(servidor.getEstado(), 2, 1);
 	}
 	
-	
-
-	@Override
-	public void iniciarMonitor() {
-		this.tablaEstado.getModel().setValueAt("Activo",1,1);
-		this.tablaEstado.getModel().setValueAt("No Activo",2,1);
-		this.setVisible(true);
-		
-	}
-
 	@Override
 	public void actualizar_ubicacion(String ubicacion) {
 		this.ubicacion_Label.setText("Ubicacion: "+ubicacion);
 		this.setVisible(true);
 		
-	}
-
-	@Override
-	public void actualizarMonitor1() {
-		this.tablaEstado.getModel().setValueAt("Activo",2,1);
-		this.tablaEstado.getModel().setValueAt("No Activo",1,1);
-		this.setVisible(true);
-	}
-
-	@Override
-	public void actualizarMonitor2() {
-		this.tablaEstado.getModel().setValueAt("No Activo",2,1);
-		this.tablaEstado.getModel().setValueAt("No Activo",1,1);
-		this.setVisible(true);
 	}
 
 }
