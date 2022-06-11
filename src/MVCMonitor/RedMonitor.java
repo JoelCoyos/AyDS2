@@ -102,12 +102,13 @@ public class RedMonitor extends Observable implements IRedMonitor {
 		notifyObservers(mensajeObserver);
 	}
 	
-	
+	@Override
 	public Servidor getServidorA()
 	{
 		return servidorA;
 	}
 	
+	@Override
 	public Servidor getServidorB()
 	{
 		return servidorB;

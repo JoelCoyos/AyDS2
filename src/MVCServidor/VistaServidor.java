@@ -8,14 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import clasesComunes.Emergencia;
-import clasesComunes.RegistroReceptor;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTable;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
 import javax.swing.JScrollPane;
 
 public class VistaServidor extends JFrame implements IVistaServidor {

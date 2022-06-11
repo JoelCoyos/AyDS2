@@ -76,12 +76,13 @@ public class VistaMonitor extends JFrame implements IVistaMonitor {
 		
 	}
 
-	
+	@Override
 	public void actualizarServidorA(Servidor servidor)
 	{
 		this.tablaEstado.getModel().setValueAt(servidor.getEstado(), 1, 1);
 	}
 	
+	@Override
 	public void actualizarServidorB(Servidor servidor)
 	{
 		this.tablaEstado.getModel().setValueAt(servidor.getEstado(), 2, 1);
