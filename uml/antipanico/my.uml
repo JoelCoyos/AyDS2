@@ -48,6 +48,7 @@
     <ownedAttribute xmi:type="uml:Port" xmi:id="_bZzuoMJWEeycH-sMtUYykQ" name="" aggregation="composite" isConjugated="true"/>
     <ownedAttribute xmi:type="uml:Port" xmi:id="_sur-gNhJEey6f8rO-RzuJg" name="" aggregation="composite" isConjugated="true"/>
     <ownedAttribute xmi:type="uml:Port" xmi:id="_ObYdkNlFEeya-vmG1WeqBQ" name="" aggregation="composite" isConjugated="true"/>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_RGxGAOm9EeyWCOsXjtJmJw" name="" aggregation="composite" isConjugated="true"/>
     <ownedConnector xmi:id="_suKMQMMPEey6PdLSrho1mQ" name="Escuchar_Escuchar_connector">
       <end xmi:id="_suKMQcMPEey6PdLSrho1mQ" role="_aGDAsMJWEeycH-sMtUYykQ"/>
       <end xmi:id="_suKzUMMPEey6PdLSrho1mQ" role="_bZzuoMJWEeycH-sMtUYykQ"/>
@@ -86,14 +87,20 @@
         <end xmi:id="_DqMWcNlGEeya-vmG1WeqBQ" role="_AcWOIMMQEey6PdLSrho1mQ"/>
         <end xmi:id="_DqMWcdlGEeya-vmG1WeqBQ" role="_G08u8cMQEey6PdLSrho1mQ"/>
       </ownedConnector>
+      <ownedConnector xmi:id="_ocwDEOm_EeyWCOsXjtJmJw" name="sincLog_sincLog_connector">
+        <end xmi:id="_ocwDEem_EeyWCOsXjtJmJw" role="_G08u8cMQEey6PdLSrho1mQ"/>
+        <end xmi:id="_ocwqIOm_EeyWCOsXjtJmJw" role="_AcWOIMMQEey6PdLSrho1mQ"/>
+      </ownedConnector>
       <interfaceRealization xmi:id="_Ftq90MMQEey6PdLSrho1mQ" client="_AY3YMMJTEeycH-sMtUYykQ _G08H4MMQEey6PdLSrho1mQ _suN3gMSMEeyAtuwsDETLGg _MxCzwMgPEeyfz7f7-Vto8g" supplier="_CXEOYMMQEey6PdLSrho1mQ" contract="_CXEOYMMQEey6PdLSrho1mQ"/>
       <interfaceRealization xmi:id="_C15LsNlGEeya-vmG1WeqBQ" client="_AY3YMMJTEeycH-sMtUYykQ _DqLvYNlGEeya-vmG1WeqBQ" supplier="_yt7CkNlFEeya-vmG1WeqBQ" contract="_yt7CkNlFEeya-vmG1WeqBQ"/>
+      <interfaceRealization xmi:id="_nqQPIOm_EeyWCOsXjtJmJw" client="_AY3YMMJTEeycH-sMtUYykQ _ocwDEOm_EeyWCOsXjtJmJw" supplier="_OQNdsOm_EeyWCOsXjtJmJw" contract="_OQNdsOm_EeyWCOsXjtJmJw"/>
       <ownedOperation xmi:id="_OSxbIMfhEey97Inx8drAzQ" name="Operation_1"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Component" xmi:id="_DbHoQMJTEeycH-sMtUYykQ" name="RedServidor">
       <ownedAttribute xmi:type="uml:Port" xmi:id="_yjQ-cMMPEey6PdLSrho1mQ" name="" aggregation="composite" redefinedProperty="_bZzuoMJWEeycH-sMtUYykQ" isConjugated="true" redefinedPort="_bZzuoMJWEeycH-sMtUYykQ"/>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_AcWOIMMQEey6PdLSrho1mQ" name="RedReceptorPort" type="_DbHoQMJTEeycH-sMtUYykQ"/>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_mhifwNhJEey6f8rO-RzuJg" name="" aggregation="composite" redefinedProperty="_sur-gNhJEey6f8rO-RzuJg _ObYdkNlFEeya-vmG1WeqBQ" isConjugated="true" redefinedPort="_sur-gNhJEey6f8rO-RzuJg _ObYdkNlFEeya-vmG1WeqBQ"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_L3ousOm9EeyWCOsXjtJmJw" name="" aggregation="composite" redefinedProperty="_RGxGAOm9EeyWCOsXjtJmJw" isConjugated="true" redefinedPort="_RGxGAOm9EeyWCOsXjtJmJw"/>
       <ownedConnector xmi:id="_AcVAAMMQEey6PdLSrho1mQ" name="GetEmergencia_GetEmergencia_connector">
         <end xmi:id="_AcVnEcMQEey6PdLSrho1mQ"/>
         <end xmi:id="_AcWOIcMQEey6PdLSrho1mQ" role="_AcWOIMMQEey6PdLSrho1mQ"/>
@@ -102,6 +109,7 @@
       <ownedOperation xmi:id="_LzTIAMfhEey97Inx8drAzQ" name="Operation_1"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_CXEOYMMQEey6PdLSrho1mQ" name="MostrarEmergencia"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_OQNdsOm_EeyWCOsXjtJmJw" name="sincLog"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_aAYZkMAREeyi7amANyoU0g" name="RegistroReceptor"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_QPQ9cMAUEeyi7amANyoU0g" name="Emisor">
@@ -603,4 +611,36 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_I_pKsOm5EeyWCOsXjtJmJw" client="_cqahoOm4EeyWCOsXjtJmJw" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_oeYCcOm5EeyWCOsXjtJmJw" client="_cqahoOm4EeyWCOsXjtJmJw" supplier="_EEXN8MgDEeyfz7f7-Vto8g"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_lyJ3UOm6EeyWCOsXjtJmJw" name="Monitor"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_v3-30Om6EeyWCOsXjtJmJw" name="Monitor">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_empykOm9EeyWCOsXjtJmJw" name="" aggregation="composite" isConjugated="true"/>
+    <ownedConnector xmi:id="_n8qDMOm-EeyWCOsXjtJmJw" name="pingServidor_pingServidor_connector">
+      <end xmi:id="_n8qqQOm-EeyWCOsXjtJmJw" role="_empykOm9EeyWCOsXjtJmJw"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="_yypVUOm-EeyWCOsXjtJmJw" name="pingServidor_pingServidor_connector">
+      <end xmi:id="_yyp8YOm-EeyWCOsXjtJmJw" role="_empykOm9EeyWCOsXjtJmJw"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="_30mzUOm-EeyWCOsXjtJmJw" name="pingServidor_pingServidor_connector">
+      <end xmi:id="_30naYOm-EeyWCOsXjtJmJw" role="_empykOm9EeyWCOsXjtJmJw"/>
+      <end xmi:id="_30naYem-EeyWCOsXjtJmJw" role="_RGxGAOm9EeyWCOsXjtJmJw"/>
+    </ownedConnector>
+    <interfaceRealization xmi:id="_i2VCkOm-EeyWCOsXjtJmJw" client="_v3-30Om6EeyWCOsXjtJmJw _empykOm9EeyWCOsXjtJmJw _n8qDMOm-EeyWCOsXjtJmJw _yypVUOm-EeyWCOsXjtJmJw _30mzUOm-EeyWCOsXjtJmJw" supplier="_9c340Om9EeyWCOsXjtJmJw" contract="_9c340Om9EeyWCOsXjtJmJw"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_Nm3ikOm7EeyWCOsXjtJmJw" name="UIMonitor">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_OPObsem-EeyWCOsXjtJmJw" name="UIMonitorPort" type="_Nm3ikOm7EeyWCOsXjtJmJw"/>
+      <ownedConnector xmi:id="_OPObsOm-EeyWCOsXjtJmJw" name="actualizarServidor_actualizarServidor_connector">
+        <end xmi:id="_OPObsum-EeyWCOsXjtJmJw" role="_OPObsem-EeyWCOsXjtJmJw"/>
+        <end xmi:id="_OPPCwOm-EeyWCOsXjtJmJw" role="_OPObs-m-EeyWCOsXjtJmJw"/>
+      </ownedConnector>
+      <interfaceRealization xmi:id="_lDjaAOm8EeyWCOsXjtJmJw" client="_Nm3ikOm7EeyWCOsXjtJmJw _OPObsOm-EeyWCOsXjtJmJw" supplier="_Mc8QoOm8EeyWCOsXjtJmJw" contract="_Mc8QoOm8EeyWCOsXjtJmJw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_YSAPkOm7EeyWCOsXjtJmJw" name="RedMonitor">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_6p7skOm8EeyWCOsXjtJmJw" name="" aggregation="composite" redefinedProperty="_empykOm9EeyWCOsXjtJmJw" isConjugated="true" redefinedPort="_empykOm9EeyWCOsXjtJmJw"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_OPObs-m-EeyWCOsXjtJmJw" name="RedMonitorPort" type="_YSAPkOm7EeyWCOsXjtJmJw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_Mc8QoOm8EeyWCOsXjtJmJw" name="actualizarServidor"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Zc_mkOm8EeyWCOsXjtJmJw" client="_YSAPkOm7EeyWCOsXjtJmJw _OPObsOm-EeyWCOsXjtJmJw" supplier="_Mc8QoOm8EeyWCOsXjtJmJw"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_9c340Om9EeyWCOsXjtJmJw" name="pingServidor"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1I9scOm-EeyWCOsXjtJmJw" client="_RGxGAOm9EeyWCOsXjtJmJw _30mzUOm-EeyWCOsXjtJmJw" supplier="_9c340Om9EeyWCOsXjtJmJw"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_iNo1cOm_EeyWCOsXjtJmJw" client="_DbHoQMJTEeycH-sMtUYykQ _ocwDEOm_EeyWCOsXjtJmJw" supplier="_OQNdsOm_EeyWCOsXjtJmJw"/>
 </uml:Model>
