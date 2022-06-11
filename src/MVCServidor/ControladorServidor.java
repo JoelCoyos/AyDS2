@@ -1,5 +1,7 @@
 package MVCServidor;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -27,6 +29,8 @@ public class ControladorServidor implements Observer {
 	public void update(Observable o, Object arg) {
 		Log log = null;
 		String mensaje;
+		DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String fechaHora=dtf.format(LocalDateTime.now());
 		if (arg.equals("Emergencia")) {
 			Emergencia emergencia = redServidor.getEmergencia();
 			mensaje =  "Se ha recibido una emergencia "+emergencia.getTipoEmergencia()+" desde "+emergencia.getUbicacion();
@@ -34,11 +38,24 @@ public class ControladorServidor implements Observer {
 			logs.add(log);
 			this.vista.AgregarLog(log);
 		}
+		else if(arg.equals("EnvioEmergencia"))
+		{
+			RegistroReceptor receptor = redServidor.getRegistro();
+			Emergencia emergencia = redServidor.getEmergencia();
+			mensaje = "Se envio una emergencia al receptor en el puerto " + receptor.puerto + " de tipo " + emergencia.getTipoEmergencia();
+			log = new Log(fechaHora, mensaje);
+			logs.add(log);
+			this.vista.AgregarLog(log);
+			
+		}
 		else if(arg.equals("Registro"))
 		{
 			RegistroReceptor receptor = redServidor.getRegistro();
-			mensaje = "Se ha agregado el receptor con ip " + receptor.ip + " en el puerto " + receptor.puerto;
-			log = new Log(mensaje, mensaje);
+			mensaje = "Se ha agregado el receptor con ip " + receptor.ip + " en el puerto " + receptor.puerto + " de tipo ";
+			for (String tipo : receptor.tipoEmergencia) {
+				mensaje+=tipo + " ";
+			}
+			log = new Log(fechaHora, mensaje);
 			logs.add(log);
 			vista.AgregarLog(log);
 			
