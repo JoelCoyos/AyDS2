@@ -27,12 +27,10 @@ public class RedEnviar {
 	{
 		boolean pudo=false;
 		try {
-			System.out.println("Tratando de conectarse...");
 			socket = new Socket(ip,puerto);
-			System.out.println("Se pudo conectar!");
 			pudo = true;
 		} catch (IOException e) {
-			System.out.println("error");
+			
 		}
 		return pudo;
 	}
@@ -64,6 +62,11 @@ public class RedEnviar {
 			
 		}
 		return objeto;
+	}
+	
+	public boolean estaActivo()
+	{
+		return socket.isConnected();
 	}
 
 }

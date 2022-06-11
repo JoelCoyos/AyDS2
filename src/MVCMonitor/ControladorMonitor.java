@@ -31,14 +31,6 @@ public class ControladorMonitor implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if (arg.equals("Disponible Primario") && detected==0) {
-			this.vista.iniciarMonitor();
-			detected++;
-		}
-		else if(arg.equals("No Disponible Primario") && detected==1) {
-			this.vista.actualizarMonitor1();
-			detected++;
-		}
 		if(arg.equals("ServidorA"))
 			this.vista.actualizarServidorA(redMonitor.getServidorA());
 		if(arg.equals("ServidorB"))

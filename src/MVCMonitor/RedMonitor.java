@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.security.cert.TrustAnchor;
 import java.util.Observable;
 import java.util.Properties;
 
@@ -18,6 +19,8 @@ public class RedMonitor extends Observable implements IRedMonitor {
 	
 	private Servidor servidorA, servidorB;
 	private String ipServidor;
+	
+	private boolean elPrimarioCayo;
 	
 	
 	Propiedades propiedades;
@@ -30,6 +33,13 @@ public class RedMonitor extends Observable implements IRedMonitor {
 		int puertoB = Integer.parseInt(propiedades.getPropiedad("puertoB"));
 		servidorA = new Servidor(puertoA);
 		servidorB = new Servidor(puertoB);
+		servidorA.setEstado("Caido");
+		servidorB.setEstado("Caido");
+		elPrimarioCayo = false;
+		setChanged();
+		notifyObservers("ServidorA");
+		setChanged();
+		notifyObservers("ServidorB");
 		new Thread(){public void run(){pingServidor(puertoA);}}.start();
 		new Thread(){public void run(){pingServidor(puertoB);}}.start();
 	}
@@ -39,18 +49,29 @@ public class RedMonitor extends Observable implements IRedMonitor {
 		RedEnviar enviarServidor = new RedEnviar();
 		while(true)
 		{
+			System.out.println("Tratando de conectar con " +Integer.toString(puerto));
 			boolean pudo = enviarServidor.Conectar(ipServidor, puerto);
 			if(pudo)
 			{
-				enviarServidor.EnviarMensaje("ping");
-				String respuesta = enviarServidor.RecibirMensaje();			
-				System.out.println(respuesta);
-				estadoServidores(puerto, respuesta, pudo);
+				String mensajeEnviar;
+				if(elPrimarioCayo==false)
+					mensajeEnviar = "ping";
+				else {
+					mensajeEnviar ="CayoPrimario";
+				}
+				enviarServidor.EnviarMensaje(mensajeEnviar);
+				String respuesta = enviarServidor.RecibirMensaje();	
+				elPrimarioCayo=false;
+				estadoServidores(puerto, respuesta, pudo);					
 			}
 			else {
 				System.out.println("El servidor en el puerto " + Integer.toString(puerto)+ " esta caido :(");
-				estadoServidores(puerto, "", pudo);
-				
+				if(getServidorFromPuerto(puerto).getEstado().equals("Primario"))
+				{
+					System.out.println("Se cayo el primario");
+					elPrimarioCayo=true;					
+				}
+				estadoServidores(puerto, "Caido", pudo);
 			}
 			try {
 				Thread.sleep(5000);
@@ -62,6 +83,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 	
 	private void estadoServidores(int puerto,String estado,boolean disponible)
 	{
+		System.out.println("Actualizando estado vista");
 		Servidor servidor=null;
 		String mensajeObserver=null;
 		if(puerto == servidorA.getPuerto())
@@ -80,6 +102,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 		notifyObservers(mensajeObserver);
 	}
 	
+	
 	public Servidor getServidorA()
 	{
 		return servidorA;
@@ -88,6 +111,16 @@ public class RedMonitor extends Observable implements IRedMonitor {
 	public Servidor getServidorB()
 	{
 		return servidorB;
+	}
+	
+	public Servidor getServidorFromPuerto(int puerto)
+	{
+		Servidor servidor = null;
+		if(puerto==servidorA.getPuerto())
+			servidor = servidorA;
+		else if(puerto == servidorB.getPuerto())
+			servidor = servidorB;
+		return servidor;
 	}
 	
 	

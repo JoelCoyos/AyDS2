@@ -29,13 +29,12 @@ public class RedRecibir {
 		T objeto=null;
 		try {
 			Socket socket = serverSocket.accept();
-			redEnviar = new RedEnviar(socket);
 			InputStream inputStream = socket.getInputStream();
 			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 			objeto = (T)objectInputStream.readObject();
+			redEnviar = new RedEnviar(socket);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 		return objeto;
 	}
@@ -49,6 +48,16 @@ public class RedRecibir {
 	{
 		if(redEnviar!=null)
 			redEnviar.EnviarMensaje(objeto);
+	}
+	
+	public void Cerrar()
+	{
+		try {
+			serverSocket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

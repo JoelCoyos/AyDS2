@@ -48,9 +48,6 @@ public class RedServidor extends Observable implements IRedServidor {
 		primario = esPrimario();
 		if(primario)
 		{
-			System.out.println("Es primario");
-			new Thread(){public void run(){RegistroReceptor();}}.start();
-			new Thread(){public void run(){RecibirEmergencia();}}.start();	
 			new Thread(){public void run(){Primario();}}.start();
 		}
 		else 
@@ -60,26 +57,36 @@ public class RedServidor extends Observable implements IRedServidor {
 		new Thread(){public void run(){RecibirMonitor(puertoMonitor);}}.start();	
 	}
 	
+	private void CambioSecundarioPrimario()
+	{
+		System.out.println("Realizando el cambio");
+		primario = true;
+		
+	}
+	
 	
 	private void Primario()
 	{
+		new Thread(){public void run(){RegistroReceptor();}}.start();
+		new Thread(){public void run(){RecibirEmergencia();}}.start();	
 		redRecibir = new RedRecibir();
 		redRecibir.Conectar(2001);
 		redRecibir.Escuchar();
-		System.out.println("se conecto el secundario");
 
 	}
 	
 	private void Secundario()
 	{
-		//System.out.println("es secundario");
-		while(true)
+		while(redEnviar.estaActivo())
 		{
 			registro = redEnviar.RecibirMensaje();
-			System.out.println("llego un mensaje del primario");
-			setChanged();
-			notifyObservers("Registro");
+			if(registro!=null)
+			{
+				setChanged();
+				notifyObservers("Registro");				
+			}
 		}
+		System.out.println("Termino secundario");
 		
 	}
 	
@@ -102,10 +109,17 @@ public class RedServidor extends Observable implements IRedServidor {
 	{
 		RedRecibir monitor = new RedRecibir();
 		monitor.Conectar(puertoMonitor);
-		String mensaje= monitor.Escuchar();
-		String estado = primario==true?"Primario":"Secundario";
-		monitor.EnviarRed(estado);
-		System.out.println(mensaje);
+		while(true)
+		{
+			String mensaje= monitor.Escuchar();
+			if(mensaje.equals("CayoPrimario"))
+			{
+				CambioSecundarioPrimario();
+			}
+			String estado = primario==true?"Primario":"Secundario";
+			monitor.EnviarRed(estado);
+		}
+
 	}
 
 	private void RegistroReceptor() {
