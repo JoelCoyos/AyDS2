@@ -10,8 +10,20 @@ public class RedEmisor implements IRedEmisor {
 	{
 		boolean llego = false;
 		String respuesta = ServicioRed.EnviarObjeto(ip, puerto, emergencia);
-		if(respuesta!=null)
-			llego = respuesta.equals("Llego");
+		int i=0;
+		while(i<3 && !llego) {
+			respuesta = ServicioRed.EnviarObjeto(ip, puerto, emergencia);
+			if(respuesta!=null)
+				llego = respuesta.equals("Llego");
+			else {
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				i++;
+			}
+		}
 		return llego;
 	}
 
