@@ -1,30 +1,37 @@
 package MVCEmisor;
 
+import java.util.Observable;
+
 import clasesComunes.Emergencia;
 import clasesComunes.ServicioRed;
 
-public class RedEmisor implements IRedEmisor {
+public class RedEmisor extends Observable implements IRedEmisor {
+	
+	public boolean llego;
+	
 
 	@Override
-	public boolean EnviarEmergencia(Emergencia emergencia,String ip, int puerto) 
+	public void EnviarEmergencia(Emergencia emergencia,String ip, int puerto) 
 	{
-		boolean llego = false;
-		String respuesta = ServicioRed.EnviarObjeto(ip, puerto, emergencia);
+		llego = false;
+		String respuesta;
 		int i=0;
-		while(i<3 && !llego) {
+		while(i<5 && !llego) {
+			System.out.println("Tratando de enviar...");
 			respuesta = ServicioRed.EnviarObjeto(ip, puerto, emergencia);
-			if(respuesta!=null)
-				llego = respuesta.equals("Llego");
+			if(respuesta!=null && respuesta.equals("Llego"))
+				llego = true;
 			else {
+				System.out.println("Reintentando...");
+				i++;
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
 				}
-				i++;
 			}
 		}
-		return llego;
+		setChanged();
+		notifyObservers(llego);	
 	}
 
 }

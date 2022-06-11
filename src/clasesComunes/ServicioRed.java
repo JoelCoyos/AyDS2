@@ -1,12 +1,9 @@
 package clasesComunes;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -15,15 +12,15 @@ public class ServicioRed {
 	
 	public static<T extends Serializable> String EnviarObjeto(String ip, int puerto,T objeto)
 	{
-		String respuesta="";
+		String respuesta=null;
 		Socket socket;
 		try {
 			socket = new Socket(ip, puerto);
 			OutputStream outputStream = socket.getOutputStream();
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 			objectOutputStream.writeObject(objeto);
-			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			respuesta = in.readLine();
+			ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+			respuesta = (String) in.readObject();
 			socket.close();
 		} catch (Exception e) {
 			
@@ -41,8 +38,9 @@ public class ServicioRed {
 			InputStream inputStream = socket.getInputStream();
 			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 			objeto = (T)objectInputStream.readObject();
-			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			out.println(respuesta);
+			OutputStream outputStream = socket.getOutputStream();
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+			objectOutputStream.writeObject(respuesta);
 			ss.close();
 		} catch (Exception e) {
 			

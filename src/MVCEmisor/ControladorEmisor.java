@@ -20,6 +20,7 @@ public class ControladorEmisor implements ActionListener,Observer
 		vistaEmisor.setActionListener(this);
 		redEmisor = new RedEmisor();
 		Properties properties = new Properties();
+		redEmisor.addObserver(this);
 		FileInputStream configFile;
 		try {
 			configFile = new FileInputStream("configEmisor.properties");
@@ -33,8 +34,14 @@ public class ControladorEmisor implements ActionListener,Observer
 	
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		boolean llego = (boolean)arg;
+		if(llego)
+		{
+			vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
+		}
+		else {
+			vistaEmisor.MostrarNotificacion("El mensaje no pudo ser enviado");
+		}
 	}
 
 	@Override
@@ -63,12 +70,8 @@ public class ControladorEmisor implements ActionListener,Observer
 		String ubicacion = properties.getProperty("ubicacion");
 		
 		Emergencia emergencia = new Emergencia(ubicacion,tipoEmergencia);
-		Boolean llego = redEmisor.EnviarEmergencia(emergencia,ip,puerto);
-				
-		if(llego)
-			vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
-		else
-			vistaEmisor.MostrarNotificacion("Hubo un error en el envio de la emergencia");
+		boolean llego;
+		redEmisor.EnviarEmergencia(emergencia,ip,puerto);
 	}
 	
 }

@@ -18,4 +18,13 @@ public class RegistroReceptor implements Serializable {
 		DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		this.fechaHora=dtf.format(LocalDateTime.now());
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean aux = false;
+		RegistroReceptor receptor = (RegistroReceptor)obj;
+		if(receptor.ip.equals(this.ip) && receptor.puerto == this.puerto)
+			aux = true;
+		return aux;
+	}
 }

@@ -168,38 +168,40 @@ public class RedServidor extends Observable implements IRedServidor {
 	private void AgregarReceptor(RegistroReceptor receptor)
 	{
 		for (String tipo : registro.tipoEmergencia) {
+			ArrayList<RegistroReceptor> lista = null;
 			if(tipo.equals("Bomberos"))
-				ipBombero.add(registro);
+				lista = ipBombero;
 			else if (tipo.equals("Seguridad"))
-				ipSeguridad.add(registro);
+				lista = ipSeguridad;
 			else if (tipo.equals("Medica"))
-				ipMedica.add(registro);					
+				lista = ipMedica;
+			if(!lista.contains(receptor))
+				lista.add(receptor);
 		}
 	}
 
 	private void RecibirEmergencia() {
 		
         boolean llego = false;
-        ServerSocket ss;
+        RedRecibir recibirEmergencia = new RedRecibir();
 		try {
-			ss = new ServerSocket(puertoEmisor);
+			recibirEmergencia.Conectar(puertoEmisor);
 			while(true)
 			{
-				Socket socket = ss.accept(); 
-				InputStream inputStream = socket.getInputStream();
-				ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-				emergencia = (Emergencia) objectInputStream.readObject();
+				this.emergencia =  (Emergencia)recibirEmergencia.Escuchar();
 				setChanged();
 				notifyObservers("Emergencia");
-				MensajeSinc mensajeSinc = new MensajeSinc("Log", logs.get(logs.size()-1));
-				redRecibir.EnviarRed(mensajeSinc);
 				llego = EnviarEmergencias();
 				if(llego)
 				{
-					PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-					out.println("Llego");
+					recibirEmergencia.EnviarRed("Llego");
+					MensajeSinc mensajeSinc = new MensajeSinc("Log", logs.get(logs.size()-1));
+					redRecibir.EnviarRed(mensajeSinc);
+					redRecibir.Cerrar();
 				}
-				socket.close();
+				else {
+					recibirEmergencia.EnviarRed("No Llego");
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -223,14 +225,19 @@ public class RedServidor extends Observable implements IRedServidor {
 		{
 			listaReceptores = ipMedica;
 		}
+		if(listaReceptores == null)
+			return false;
 		String aux;
 		for (RegistroReceptor receptor : listaReceptores) {
 			this.registro = receptor;
 			aux = ServicioRed.EnviarObjeto(receptor.ip, receptor.puerto, emergencia);
-			setChanged();
-			notifyObservers("EnvioEmergencia");
-			if(llego == false && aux.equals("Llego")) //Si llega un solo envio se toma como que llego
+
+			if(llego == false && aux!=null &&aux.equals("Llego")) //Si llega un solo envio se toma como que llego
+			{				
 				llego = true;				
+				setChanged();
+				notifyObservers("EnvioEmergencia");
+			}
 		}
 		return llego;
 	}
