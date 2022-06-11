@@ -72,8 +72,22 @@ public class VistaMonitor extends JFrame implements IVistaMonitor {
 		));
 		panel_1.add(tablaEstado);
 		this.setVisible(true);
+		this.setAlwaysOnTop(true);
 		
 	}
+
+	
+	public void actualizarServidorA(Servidor servidor)
+	{
+		this.tablaEstado.getModel().setValueAt(servidor.getEstado(), 1, 1);
+	}
+	
+	public void actualizarServidorB(Servidor servidor)
+	{
+		this.tablaEstado.getModel().setValueAt(servidor.getEstado(), 2, 1);
+	}
+	
+	
 
 	@Override
 	public void iniciarMonitor() {

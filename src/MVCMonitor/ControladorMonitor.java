@@ -39,6 +39,10 @@ public class ControladorMonitor implements Observer {
 			this.vista.actualizarMonitor1();
 			detected++;
 		}
+		if(arg.equals("ServidorA"))
+			this.vista.actualizarServidorA(redMonitor.getServidorA());
+		if(arg.equals("ServidorB"))
+			this.vista.actualizarServidorB(redMonitor.getServidorB());
 		
 	}
 	

@@ -24,6 +24,7 @@ public class RedServidor extends Observable implements IRedServidor {
 	
 	private int puertoReceptor;
 	private int puertoEmisor;
+	private int puertoMonitor;
 	
 	private Emergencia emergencia;
 	private RegistroReceptor registro;
@@ -41,6 +42,7 @@ public class RedServidor extends Observable implements IRedServidor {
 		Propiedades propiedades = new Propiedades("configServidor.properties");
 		puertoReceptor = Integer.parseInt(propiedades.getPropiedad("puertoReceptor"));
 		puertoEmisor = Integer.parseInt(propiedades.getPropiedad("puertoEmisor"));
+		puertoMonitor = Integer.parseInt(propiedades.getPropiedad("puertoMonitor"));
 		
 		
 		primario = esPrimario();
@@ -49,19 +51,20 @@ public class RedServidor extends Observable implements IRedServidor {
 			System.out.println("Es primario");
 			new Thread(){public void run(){RegistroReceptor();}}.start();
 			new Thread(){public void run(){RecibirEmergencia();}}.start();	
-			new Thread(){public void run(){Primario();}}.start();	
+			new Thread(){public void run(){Primario();}}.start();
 		}
 		else 
 		{
 			new Thread(){public void run(){Secundario();}}.start();
 		}
-		
+		new Thread(){public void run(){RecibirMonitor(puertoMonitor);}}.start();	
 	}
+	
 	
 	private void Primario()
 	{
 		redRecibir = new RedRecibir();
-		redRecibir.Conectar(3001);
+		redRecibir.Conectar(2001);
 		redRecibir.Escuchar();
 		System.out.println("se conecto el secundario");
 
@@ -84,7 +87,7 @@ public class RedServidor extends Observable implements IRedServidor {
 	{
 		boolean primario;
 		redEnviar = new RedEnviar();
-		boolean aux = redEnviar.Conectar("localhost", 3001);
+		boolean aux = redEnviar.Conectar("localhost", 2001);
 		if(aux)
 			primario = false;
 		else
@@ -93,6 +96,16 @@ public class RedServidor extends Observable implements IRedServidor {
 			redEnviar = null;
 		}
 		return primario;
+	}
+	
+	private void RecibirMonitor(int puertoMonitor)
+	{
+		RedRecibir monitor = new RedRecibir();
+		monitor.Conectar(puertoMonitor);
+		String mensaje= monitor.Escuchar();
+		String estado = primario==true?"Primario":"Secundario";
+		monitor.EnviarRed(estado);
+		System.out.println(mensaje);
 	}
 
 	private void RegistroReceptor() {

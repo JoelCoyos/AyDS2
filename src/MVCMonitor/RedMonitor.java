@@ -11,58 +11,84 @@ import java.net.Socket;
 import java.util.Observable;
 import java.util.Properties;
 
+import clasesComunes.Propiedades;
+import clasesComunes.RedEnviar;
+
 public class RedMonitor extends Observable implements IRedMonitor {
 	
-	private int puertoPrim,puertoSec;
-	private String ip;
+	private Servidor servidorA, servidorB;
+	private String ipServidor;
+	
+	
+	Propiedades propiedades;
 	
 	
 	public RedMonitor() {
-		
-		try {
-			Properties properties = new Properties();
-			FileInputStream configFile= new FileInputStream("configMonitor.properties");
-			properties.load(configFile);
-			ip=properties.getProperty("ipServidor");
-			puertoPrim = Integer.parseInt(properties.getProperty("puertoPrim"));
-			puertoSec= Integer.parseInt(properties.getProperty("puertoSec"));
-			
-		} catch (Exception e) {
-			System.out.println("Error en archivo configMonitor.properties");
-		}
-		
-		new Thread(){public void run(){pingA();}}.start();
-		
+		propiedades = new Propiedades("configMonitor.properties");
+		ipServidor = propiedades.getPropiedad("ipServidor");
+		int puertoA = Integer.parseInt(propiedades.getPropiedad("puertoA"));
+		int puertoB = Integer.parseInt(propiedades.getPropiedad("puertoB"));
+		servidorA = new Servidor(puertoA);
+		servidorB = new Servidor(puertoB);
+		new Thread(){public void run(){pingServidor(puertoA);}}.start();
+		new Thread(){public void run(){pingServidor(puertoB);}}.start();
 	}
-
-
-	@Override
-	public void pingA() {
-		while(true) {
+	
+	private void pingServidor(int puerto)
+	{
+		RedEnviar enviarServidor = new RedEnviar();
+		while(true)
+		{
+			boolean pudo = enviarServidor.Conectar(ipServidor, puerto);
+			if(pudo)
+			{
+				enviarServidor.EnviarMensaje("ping");
+				String respuesta = enviarServidor.RecibirMensaje();			
+				System.out.println(respuesta);
+				estadoServidores(puerto, respuesta, pudo);
+			}
+			else {
+				System.out.println("El servidor en el puerto " + Integer.toString(puerto)+ " esta caido :(");
+				estadoServidores(puerto, "", pudo);
+				
+			}
 			try {
-				Socket socket = new Socket(ip,puertoPrim);
-				OutputStream outputStream = socket.getOutputStream();
-				ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-				objectOutputStream.writeObject("Disponible ServidorPrim?");
-				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				if( in.readLine().toString().equals("Llego")) {
-	            	notifyObservers("Disponible Primario");
-	            	setChanged();
-				}
-				Thread.sleep(500);
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
 			}
-			catch(Exception e) {
-				notifyObservers("No Disponible Primario");
-            	setChanged();
-			}
+			
 		}
 	}
-
-
-	@Override
-	public void pingB() {
-		// TODO Auto-generated method stub
-		
+	
+	private void estadoServidores(int puerto,String estado,boolean disponible)
+	{
+		Servidor servidor=null;
+		String mensajeObserver=null;
+		if(puerto == servidorA.getPuerto())
+		{
+			servidor = servidorA;	
+			mensajeObserver = "ServidorA";
+		}
+		else if(puerto == servidorB.getPuerto())
+		{
+			servidor = servidorB;		
+			mensajeObserver = "ServidorB";
+		}
+		servidor.setDisponible(disponible);
+		servidor.setEstado(estado);
+		setChanged();
+		notifyObservers(mensajeObserver);
 	}
-
+	
+	public Servidor getServidorA()
+	{
+		return servidorA;
+	}
+	
+	public Servidor getServidorB()
+	{
+		return servidorB;
+	}
+	
+	
 }

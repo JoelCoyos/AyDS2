@@ -33,8 +33,6 @@ public class RedRecibir {
 			InputStream inputStream = socket.getInputStream();
 			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 			objeto = (T)objectInputStream.readObject();
-			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			out.println("Llego");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

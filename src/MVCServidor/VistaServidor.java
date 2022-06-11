@@ -82,6 +82,7 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		scrollPane.setViewportView(this.tabla_EmergenciasRecibidas);
 		this.setVisible(true);
 		
+		this.setAlwaysOnTop(true);
 		
 	}
 
