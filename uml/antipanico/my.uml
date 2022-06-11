@@ -314,22 +314,23 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_-a9VcMgCEeyfz7f7-Vto8g" name="MVCEmisor">
     <packagedElement xmi:type="uml:Dependency" xmi:id="_LTZqsMgHEeyfz7f7-Vto8g" client="_-a9VcMgCEeyfz7f7-Vto8g" supplier="_Ji9n0MgHEeyfz7f7-Vto8g"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_Y3dFwNlDEeya-vmG1WeqBQ" client="_-a9VcMgCEeyfz7f7-Vto8g" supplier="_EEXN8MgDEeyfz7f7-Vto8g"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_NV5RoNlEEeya-vmG1WeqBQ" client="_-a9VcMgCEeyfz7f7-Vto8g" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_WBw1kNlEEeya-vmG1WeqBQ" client="_-a9VcMgCEeyfz7f7-Vto8g" supplier="_Guq7QMgHEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_azb00NlEEeya-vmG1WeqBQ" client="_-a9VcMgCEeyfz7f7-Vto8g" supplier="_2Gx78MgGEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_WBG14Om5EeyWCOsXjtJmJw" client="_-a9VcMgCEeyfz7f7-Vto8g" supplier="_EEXN8MgDEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Zm3boOm5EeyWCOsXjtJmJw" client="_-a9VcMgCEeyfz7f7-Vto8g" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="__pjPgMgCEeyfz7f7-Vto8g" name="MVCReceptor">
     <packagedElement xmi:type="uml:Dependency" xmi:id="_eyaBQNlDEeya-vmG1WeqBQ" client="__pjPgMgCEeyfz7f7-Vto8g" supplier="_2Gx78MgGEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_30ZfENlDEeya-vmG1WeqBQ" client="__pjPgMgCEeyfz7f7-Vto8g" supplier="_Guq7QMgHEeyfz7f7-Vto8g"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_AzT60NlEEeya-vmG1WeqBQ" client="__pjPgMgCEeyfz7f7-Vto8g" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_DvvPsNlEEeya-vmG1WeqBQ" client="__pjPgMgCEeyfz7f7-Vto8g" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_pWwUUNlEEeya-vmG1WeqBQ" client="__pjPgMgCEeyfz7f7-Vto8g" supplier="_9uySUMgKEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_MUF-AOm5EeyWCOsXjtJmJw" client="__pjPgMgCEeyfz7f7-Vto8g" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_vnKqEOm5EeyWCOsXjtJmJw" client="__pjPgMgCEeyfz7f7-Vto8g" supplier="_EEXN8MgDEeyfz7f7-Vto8g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_BUEQkMgDEeyfz7f7-Vto8g" name="ClasesComunes">
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ekymkNlEEeya-vmG1WeqBQ" client="_BUEQkMgDEeyfz7f7-Vto8g" supplier="_-a9VcMgCEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_i1Dh4NlEEeya-vmG1WeqBQ" client="_BUEQkMgDEeyfz7f7-Vto8g" supplier="_n7GgkNlCEeya-vmG1WeqBQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_lO2DwNlEEeya-vmG1WeqBQ" client="_BUEQkMgDEeyfz7f7-Vto8g" supplier="__pjPgMgCEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_tPyYcOm4EeyWCOsXjtJmJw" client="_BUEQkMgDEeyfz7f7-Vto8g" supplier="_cqahoOm4EeyWCOsXjtJmJw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_EEXN8MgDEeyfz7f7-Vto8g" name="java.swing"/>
   <packagedElement xmi:type="uml:Package" xmi:id="_2Gx78MgGEeyfz7f7-Vto8g" name="java.net"/>
@@ -483,10 +484,10 @@
   <packagedElement xmi:type="uml:Dependency" xmi:id="_rOfO0NlAEeya-vmG1WeqBQ" client="_KxT0cNjVEeyO2cwk_aMiGw" supplier="_zyDn0Nk_Eeya-vmG1WeqBQ"/>
   <packagedElement xmi:type="uml:Dependency" xmi:id="_sPy60NlAEeya-vmG1WeqBQ" client="_lbBZAMMTEey6PdLSrho1mQ" supplier="_zyDn0Nk_Eeya-vmG1WeqBQ"/>
   <packagedElement xmi:type="uml:Package" xmi:id="_n7GgkNlCEeya-vmG1WeqBQ" name="MVCServidor">
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_ZzOKcNlDEeya-vmG1WeqBQ" client="_n7GgkNlCEeya-vmG1WeqBQ" supplier="_EEXN8MgDEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_cXKt4NlDEeya-vmG1WeqBQ" client="_n7GgkNlCEeya-vmG1WeqBQ" supplier="_2Gx78MgGEeyfz7f7-Vto8g"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_qKTGkNlDEeya-vmG1WeqBQ" client="_n7GgkNlCEeya-vmG1WeqBQ" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_t17q0NlDEeya-vmG1WeqBQ" client="_n7GgkNlCEeya-vmG1WeqBQ" supplier="_Guq7QMgHEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Rb4-QOm5EeyWCOsXjtJmJw" client="_n7GgkNlCEeya-vmG1WeqBQ" supplier="_EEXN8MgDEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_iSyC4Om5EeyWCOsXjtJmJw" client="_n7GgkNlCEeya-vmG1WeqBQ" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Usage" xmi:id="_5KjkQNlEEeya-vmG1WeqBQ" client="_sur-gNhJEey6f8rO-RzuJg _7FkfcNlEEeya-vmG1WeqBQ" supplier="_oNcOoNhOEey6f8rO-RzuJg"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_RHFO0NlFEeya-vmG1WeqBQ" name="RegistroReceptor"/>
@@ -597,5 +598,9 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_AZalYNlKEeyYQ8YLlJZfUQ" name="UIReceptor">
     <ownedOperation xmi:id="_zNT7ANlKEeyYQ8YLlJZfUQ" name="Operation_1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_cqahoOm4EeyWCOsXjtJmJw" name="MVCMonitor">
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_I_pKsOm5EeyWCOsXjtJmJw" client="_cqahoOm4EeyWCOsXjtJmJw" supplier="_9trb4MgGEeyfz7f7-Vto8g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_oeYCcOm5EeyWCOsXjtJmJw" client="_cqahoOm4EeyWCOsXjtJmJw" supplier="_EEXN8MgDEeyfz7f7-Vto8g"/>
   </packagedElement>
 </uml:Model>
