@@ -235,6 +235,7 @@ public class RedServidor extends Observable implements IRedServidor {
 		return llego;
 	}
 	
+	@Override
 	public RegistroReceptor getRegistro()
 	{
 		return this.registro;
@@ -250,7 +251,7 @@ public class RedServidor extends Observable implements IRedServidor {
 	{
 		return logs;
 	}
-	
+	@Override
 	public void setLogs(ArrayList<Log> logs)
 	{
 		this.logs = logs;

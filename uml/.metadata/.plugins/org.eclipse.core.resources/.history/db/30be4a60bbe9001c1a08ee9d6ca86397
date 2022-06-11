@@ -690,28 +690,21 @@
     <templateBinding xmi:id="_09cAoOm4EeyQepb1XEUF-g"/>
     <interfaceRealization xmi:id="_vaYnwem4EeyQepb1XEUF-g" client="_vaYnwOm4EeyQepb1XEUF-g _vaYnwOm4EeyQepb1XEUF-g" supplier="_tLqXgNjPEeyO2cwk_aMiGw" contract="_tLqXgNjPEeyO2cwk_aMiGw"/>
     <interfaceRealization xmi:id="_w3FPQOm4EeyQepb1XEUF-g" client="_vaYnwOm4EeyQepb1XEUF-g" supplier="_sIkRsOm4EeyQepb1XEUF-g" contract="_sIkRsOm4EeyQepb1XEUF-g"/>
-    <ownedOperation xmi:id="_vaYnwum4EeyQepb1XEUF-g" name="RegistroReceptor" visibility="private"/>
-    <ownedOperation xmi:id="_vaYnw-m4EeyQepb1XEUF-g" name="RecibirEmergencia" visibility="private"/>
-    <ownedOperation xmi:id="_vaYnxOm4EeyQepb1XEUF-g" name="EnviarEmergencias" visibility="private">
+    <ownedOperation xmi:id="_vaYnwum4EeyQepb1XEUF-g" name="RegistroReceptor"/>
+    <ownedOperation xmi:id="_vaYnw-m4EeyQepb1XEUF-g" name="RecibirEmergencia"/>
+    <ownedOperation xmi:id="_vaYnxOm4EeyQepb1XEUF-g" name="EnviarEmergencias">
       <ownedParameter xmi:id="_vaYnxem4EeyQepb1XEUF-g" name="" type="_S9WtkNk9Eeya-vmG1WeqBQ" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_vaYnxum4EeyQepb1XEUF-g" name="EnviarEmergencia" visibility="private">
+    <ownedOperation xmi:id="_vaYnxum4EeyQepb1XEUF-g" name="EnviarEmergencia">
       <ownedParameter xmi:id="_vaYnx-m4EeyQepb1XEUF-g" name="ip" type="_s-L9kMMVEey6PdLSrho1mQ"/>
       <ownedParameter xmi:id="_vaYnyOm4EeyQepb1XEUF-g" name="puerto" type="_BAdl0MgIEeyfz7f7-Vto8g"/>
       <ownedParameter xmi:id="_vaYnyem4EeyQepb1XEUF-g" type="_JntqIMMTEey6PdLSrho1mQ" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_vaYnzOm4EeyQepb1XEUF-g" name="EnviarEmergencias" visibility="private">
-      <ownedParameter xmi:id="_vaYnzem4EeyQepb1XEUF-g" name="" type="_S9WtkNk9Eeya-vmG1WeqBQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_2LhH4Om5EeyQepb1XEUF-g" name="CambioSecundarioPrimario" visibility="private"/>
-    <ownedOperation xmi:id="_6O9IIOm5EeyQepb1XEUF-g" name="Primario" visibility="private"/>
-    <ownedOperation xmi:id="_7bfzwOm5EeyQepb1XEUF-g" name="Secundario" visibility="private"/>
-    <ownedOperation xmi:id="_9TFngOm5EeyQepb1XEUF-g" name="esPrimario" visibility="private"/>
-    <ownedOperation xmi:id="_-8WEUOm5EeyQepb1XEUF-g" name="RecibirMonitor" visibility="private">
-      <ownedParameter xmi:id="_Ah-lYOm6EeyQepb1XEUF-g" name="puertoMonitor" type="_CgdrUOm6EeyQepb1XEUF-g"/>
-    </ownedOperation>
     <ownedOperation xmi:id="_vaYnyum4EeyQepb1XEUF-g" name="getEmergencia">
       <ownedParameter xmi:id="_vaYny-m4EeyQepb1XEUF-g" type="_sWpR4MMUEey6PdLSrho1mQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_vaYnzOm4EeyQepb1XEUF-g" name="EnviarEmergencias">
+      <ownedParameter xmi:id="_vaYnzem4EeyQepb1XEUF-g" name="" type="_S9WtkNk9Eeya-vmG1WeqBQ" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_zCiaMOm4EeyQepb1XEUF-g" name="Emergencia" visibility="public">
@@ -735,124 +728,4 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_ZSvlwOm5EeyQepb1XEUF-g" name="Log"/>
   <packagedElement xmi:type="uml:Dependency" xmi:id="_e4dREOm5EeyQepb1XEUF-g" client="_sIlf0Om4EeyQepb1XEUF-g" supplier="_EGNWkOm5EeyQepb1XEUF-g"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_p9OmEOm5EeyQepb1XEUF-g" name="ArrayList&lt;Log>"/>
-  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_CgdrUOm6EeyQepb1XEUF-g" name="int"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_R7iSMOm6EeyQepb1XEUF-g" name="RedEnviar" visibility="public">
-    <ownedOperation xmi:id="_fTCe0Om6EeyQepb1XEUF-g" name="Conectar&lt;T extends Serializable>">
-      <ownedParameter xmi:id="_h7pf0Om6EeyQepb1XEUF-g" name="ip" type="_i9glcOm6EeyQepb1XEUF-g"/>
-      <ownedParameter xmi:id="_yqCvwOm6EeyQepb1XEUF-g" name="puerto" type="_0gZ0cOm6EeyQepb1XEUF-g"/>
-      <ownedParameter xmi:id="_1mGRMOm6EeyQepb1XEUF-g" name="objeto" type="_3odKgOm6EeyQepb1XEUF-g"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_kh8zsOm6EeyQepb1XEUF-g" name="EnviarMensaje"/>
-    <ownedOperation xmi:id="_8ixvcOm6EeyQepb1XEUF-g" name="RecibirMensaje&lt;T extends Serializable>"/>
-    <ownedOperation xmi:id="_CECYkOm7EeyQepb1XEUF-g" name="estaActivo"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_SooBsOm6EeyQepb1XEUF-g" name="RedRecibir" visibility="public">
-    <ownedOperation xmi:id="_FETEkOm7EeyQepb1XEUF-g" name="Conectar">
-      <ownedParameter xmi:id="_GbsVUOm7EeyQepb1XEUF-g" name="puerto" type="_I4FfQOm7EeyQepb1XEUF-g"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_KuF-oOm7EeyQepb1XEUF-g" name="Escuchar&lt;T extends Serializable>"/>
-    <ownedOperation xmi:id="_PW7yAOm7EeyQepb1XEUF-g" name="RecibirMensaje"/>
-    <ownedOperation xmi:id="_VT-_QOm7EeyQepb1XEUF-g" name="EnviarRed"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_Z10BIOm6EeyQepb1XEUF-g" client="_vaYnwOm4EeyQepb1XEUF-g" supplier="_R7iSMOm6EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_bSIOIOm6EeyQepb1XEUF-g" client="_vaYnwOm4EeyQepb1XEUF-g" supplier="_SooBsOm6EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_i9glcOm6EeyQepb1XEUF-g" name="String"/>
-  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_0gZ0cOm6EeyQepb1XEUF-g" name="int"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_3odKgOm6EeyQepb1XEUF-g" name="T"/>
-  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_I4FfQOm7EeyQepb1XEUF-g" name="int"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_mjqXUOm7EeyQepb1XEUF-g" name="IVistaMonitor" visibility="public"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_peAokOm7EeyQepb1XEUF-g" name="IRedMonitor" visibility="public"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_s3d3sOm7EeyQepb1XEUF-g" name="VistaMonitor" visibility="public">
-    <interfaceRealization xmi:id="_Ds9MQOm9EeyQepb1XEUF-g" client="_s3d3sOm7EeyQepb1XEUF-g" supplier="_mjqXUOm7EeyQepb1XEUF-g" contract="_mjqXUOm7EeyQepb1XEUF-g"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_5yz3UOm8EeyQepb1XEUF-g" name="ControladorMonitor" visibility="public"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_7yi6cOm8EeyQepb1XEUF-g" name="RedMonitor" visibility="public">
-    <interfaceRealization xmi:id="_EDCxAOm9EeyQepb1XEUF-g" client="_7yi6cOm8EeyQepb1XEUF-g" supplier="_peAokOm7EeyQepb1XEUF-g" contract="_peAokOm7EeyQepb1XEUF-g"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_-LUvsOm8EeyQepb1XEUF-g" name="Servidor" visibility="public"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_EkGPoOm9EeyQepb1XEUF-g" client="_5yz3UOm8EeyQepb1XEUF-g" supplier="_mjqXUOm7EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_E6FtwOm9EeyQepb1XEUF-g" client="_5yz3UOm8EeyQepb1XEUF-g" supplier="_peAokOm7EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_GAZOgOm9EeyQepb1XEUF-g" client="_7yi6cOm8EeyQepb1XEUF-g" supplier="_-LUvsOm8EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_H3G4gOm9EeyQepb1XEUF-g" name="RedRecibir" visibility="public">
-    <ownedOperation xmi:id="_H3G4gem9EeyQepb1XEUF-g" name="Conectar">
-      <ownedParameter xmi:id="_H3G4gum9EeyQepb1XEUF-g" name="puerto" type="_I4FfQOm7EeyQepb1XEUF-g"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_H3G4g-m9EeyQepb1XEUF-g" name="Escuchar&lt;T extends Serializable>"/>
-    <ownedOperation xmi:id="_H3G4hOm9EeyQepb1XEUF-g" name="RecibirMensaje"/>
-    <ownedOperation xmi:id="_H3G4hem9EeyQepb1XEUF-g" name="EnviarRed"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_H3JUwOm9EeyQepb1XEUF-g" name="RedEnviar" visibility="public">
-    <ownedOperation xmi:id="_H3JUwem9EeyQepb1XEUF-g" name="Conectar&lt;T extends Serializable>">
-      <ownedParameter xmi:id="_H3JUwum9EeyQepb1XEUF-g" name="ip" type="_i9glcOm6EeyQepb1XEUF-g"/>
-      <ownedParameter xmi:id="_H3JUw-m9EeyQepb1XEUF-g" name="puerto" type="_0gZ0cOm6EeyQepb1XEUF-g"/>
-      <ownedParameter xmi:id="_H3JUxOm9EeyQepb1XEUF-g" name="objeto" type="_3odKgOm6EeyQepb1XEUF-g"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_H3JUxem9EeyQepb1XEUF-g" name="EnviarMensaje"/>
-    <ownedOperation xmi:id="_H3JUxum9EeyQepb1XEUF-g" name="RecibirMensaje&lt;T extends Serializable>"/>
-    <ownedOperation xmi:id="_H3JUx-m9EeyQepb1XEUF-g" name="estaActivo"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_LLxuQOm9EeyQepb1XEUF-g" client="_7yi6cOm8EeyQepb1XEUF-g" supplier="_H3JUwOm9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_LgLQ8Om9EeyQepb1XEUF-g" client="_7yi6cOm8EeyQepb1XEUF-g" supplier="_H3G4gOm9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_SlnpoOm9EeyQepb1XEUF-g" client="_SloQsem9EeyQepb1XEUF-g" supplier="_SlqF4Om9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_SloQsOm9EeyQepb1XEUF-g" client="_SltJMem9EeyQepb1XEUF-g _SltJMem9EeyQepb1XEUF-g" supplier="_SlqF4Om9EeyQepb1XEUF-g" contract="_SlqF4Om9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_SloQsem9EeyQepb1XEUF-g" name="ControladorReceptor" visibility="public">
-    <ownedOperation xmi:id="_SloQsum9EeyQepb1XEUF-g" name="RecibirEmergencia"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_SlqF4Om9EeyQepb1XEUF-g" name="IVistaReceptor" visibility="public">
-    <ownedOperation xmi:id="_SlqF4em9EeyQepb1XEUF-g" name="MostrarEmergencia">
-      <ownedParameter xmi:id="_SlqF4um9EeyQepb1XEUF-g" name="emergencia" type="_H4ANwMMYEey6PdLSrho1mQ"/>
-    </ownedOperation>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_SlrUAOm9EeyQepb1XEUF-g" name="RedReceptor" visibility="public">
-    <ownedOperation xmi:id="_SlrUAum9EeyQepb1XEUF-g" name="GetEmergencia">
-      <ownedParameter xmi:id="_SlrUA-m9EeyQepb1XEUF-g" type="_Cq3scMMWEey6PdLSrho1mQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_SlrUBOm9EeyQepb1XEUF-g" name="EscucharRed"/>
-    <ownedOperation xmi:id="_SlrUBem9EeyQepb1XEUF-g" name="RegistroReceptor"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_SlrUAem9EeyQepb1XEUF-g" client="_SlrUAOm9EeyQepb1XEUF-g _SlrUAOm9EeyQepb1XEUF-g" supplier="_SlvlcOm9EeyQepb1XEUF-g" contract="_SlvlcOm9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_SltJMOm9EeyQepb1XEUF-g" client="_SloQsem9EeyQepb1XEUF-g" supplier="_SlvlcOm9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_SltJMem9EeyQepb1XEUF-g" name="VistaReceptor" visibility="public">
-    <ownedOperation xmi:id="_SltJMum9EeyQepb1XEUF-g" name="MostrarEmergencia">
-      <ownedParameter xmi:id="_SltJM-m9EeyQepb1XEUF-g" name="emergencia" type="_H4ANwMMYEey6PdLSrho1mQ"/>
-    </ownedOperation>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_SlvlcOm9EeyQepb1XEUF-g" name="IRedReceptor" visibility="public">
-    <ownedOperation xmi:id="_Slvlcem9EeyQepb1XEUF-g" name="GetEmergencia">
-      <ownedParameter xmi:id="_Slvlcum9EeyQepb1XEUF-g" type="_Cq3scMMWEey6PdLSrho1mQ" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_Slvlc-m9EeyQepb1XEUF-g" name="EscucharRed"/>
-    <ownedOperation xmi:id="_SlvldOm9EeyQepb1XEUF-g" name="RegistroReceptor"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_WfOYcOm9EeyQepb1XEUF-g" name="RegistroReceptor" visibility="public">
-    <ownedAttribute xmi:id="_WfOYcem9EeyQepb1XEUF-g" name="ip" visibility="public" type="_F9t6EMMSEey6PdLSrho1mQ">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WfOYcum9EeyQepb1XEUF-g" value="1"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WfOYc-m9EeyQepb1XEUF-g" value="1"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:id="_WfOYdOm9EeyQepb1XEUF-g" name="tipoEmergencia" visibility="public" type="_F9t6EMMSEey6PdLSrho1mQ" isUnique="false">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WfOYdem9EeyQepb1XEUF-g" value="1"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WfOYdum9EeyQepb1XEUF-g" value="*"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:id="_WfOYd-m9EeyQepb1XEUF-g" name="puerto" visibility="public" type="_BAdl0MgIEeyfz7f7-Vto8g">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WfOYeOm9EeyQepb1XEUF-g" value="1"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WfOYeem9EeyQepb1XEUF-g" value="1"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:id="_WfOYeum9EeyQepb1XEUF-g" name="fechaHora" visibility="public" type="_F9t6EMMSEey6PdLSrho1mQ">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WfOYe-m9EeyQepb1XEUF-g" value="1"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WfOYfOm9EeyQepb1XEUF-g" value="1"/>
-    </ownedAttribute>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_X8VPoOm9EeyQepb1XEUF-g" name="Emergencia" visibility="public">
-    <ownedAttribute xmi:id="_X8VPoem9EeyQepb1XEUF-g" name="ubicacion" type="_h7DVYMMXEey6PdLSrho1mQ"/>
-    <ownedAttribute xmi:id="_X8VPoum9EeyQepb1XEUF-g" name="tipo" type="_h7DVYMMXEey6PdLSrho1mQ"/>
-    <ownedAttribute xmi:id="_X8VPo-m9EeyQepb1XEUF-g" name="fecha" type="_h7DVYMMXEey6PdLSrho1mQ"/>
-    <ownedAttribute xmi:id="_X8VPpOm9EeyQepb1XEUF-g" name="hora" type="_h7DVYMMXEey6PdLSrho1mQ"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_Z3y2wOm9EeyQepb1XEUF-g" client="_SlrUAOm9EeyQepb1XEUF-g" supplier="_X8VPoOm9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_a01GwOm9EeyQepb1XEUF-g" client="_SlrUAOm9EeyQepb1XEUF-g" supplier="_WfOYcOm9EeyQepb1XEUF-g"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_d_jWUOm9EeyQepb1XEUF-g" name="ServicioRed" visibility="public">
-    <ownedOperation xmi:id="_d_jWUem9EeyQepb1XEUF-g" name="EnviarObjeto" isStatic="true"/>
-    <ownedOperation xmi:id="_d_jWUum9EeyQepb1XEUF-g" name="RecibirObjeto" isStatic="true"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_esriEOm9EeyQepb1XEUF-g" client="_SlrUAOm9EeyQepb1XEUF-g" supplier="_d_jWUOm9EeyQepb1XEUF-g"/>
 </uml:Model>
