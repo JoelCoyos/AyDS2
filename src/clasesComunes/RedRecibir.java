@@ -29,10 +29,10 @@ public class RedRecibir {
 		T objeto=null;
 		try {
 			Socket socket = serverSocket.accept();
+			redEnviar = new RedEnviar(socket);
 			InputStream inputStream = socket.getInputStream();
 			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 			objeto = (T)objectInputStream.readObject();
-			redEnviar = new RedEnviar(socket);
 		} catch (Exception e) {
 			
 		}

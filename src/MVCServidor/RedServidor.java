@@ -59,34 +59,41 @@ public class RedServidor extends Observable implements IRedServidor {
 	
 	private void CambioSecundarioPrimario()
 	{
-		System.out.println("Realizando el cambio");
 		primario = true;
-		
+		new Thread(){public void run(){Primario();}}.start();
 	}
 	
 	
 	private void Primario()
 	{
+
 		new Thread(){public void run(){RegistroReceptor();}}.start();
 		new Thread(){public void run(){RecibirEmergencia();}}.start();	
 		redRecibir = new RedRecibir();
-		redRecibir.Conectar(2001);
+		redRecibir.Conectar(4001);
 		redRecibir.Escuchar();
 
 	}
 	
 	private void Secundario()
 	{
-		while(redEnviar.estaActivo())
+		boolean aux=true;
+		while(aux)
 		{
+			System.out.println("Contactando al primario");
 			registro = redEnviar.RecibirMensaje();
+			System.out.println("Recibir mensaje primario");
 			if(registro!=null)
 			{
+				AgregarReceptor(registro);
 				setChanged();
 				notifyObservers("Registro");				
 			}
+			else {
+				aux = false;
+			}
 		}
-		System.out.println("Termino secundario");
+		redEnviar = null;
 		
 	}
 	
@@ -94,7 +101,7 @@ public class RedServidor extends Observable implements IRedServidor {
 	{
 		boolean primario;
 		redEnviar = new RedEnviar();
-		boolean aux = redEnviar.Conectar("localhost", 2001);
+		boolean aux = redEnviar.Conectar("localhost", 4001);
 		if(aux)
 			primario = false;
 		else
@@ -124,7 +131,18 @@ public class RedServidor extends Observable implements IRedServidor {
 
 	private void RegistroReceptor() {
 		
-		registro = ServicioRed.RecibirObjeto(puertoReceptor, null);
+		while(true)
+		{
+			registro = ServicioRed.RecibirObjeto(puertoReceptor, null);
+			AgregarReceptor(registro);
+			setChanged();
+			notifyObservers("Registro");
+			redRecibir.EnviarRed(registro);			
+		}
+	}
+	
+	private void AgregarReceptor(RegistroReceptor receptor)
+	{
 		for (String tipo : registro.tipoEmergencia) {
 			if(tipo.equals("Bomberos"))
 				ipBombero.add(registro);
@@ -133,9 +151,6 @@ public class RedServidor extends Observable implements IRedServidor {
 			else if (tipo.equals("Medica"))
 				ipMedica.add(registro);					
 		}
-		setChanged();
-		notifyObservers("Registro");
-		redRecibir.EnviarRed(registro);
 	}
 
 	private void RecibirEmergencia() {
@@ -201,39 +216,4 @@ public class RedServidor extends Observable implements IRedServidor {
 	public Emergencia getEmergencia() {
 		return this.emergencia;
 	}
-
-	@Override
-	public void escucharMonitor1() {
-		ServerSocket ss;
-        boolean llego = false;
-        String mensaje;
-		try {
-			ss = new ServerSocket(3001);
-			while(true)
-			{
-				Socket socket = ss.accept(); 
-				InputStream inputStream = socket.getInputStream();
-				ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-				mensaje = (String) objectInputStream.readObject();
-				
-				if(mensaje.equals("Disponible ServidorPrim?"))
-				{
-					PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-					out.println("Llego");
-				}
-				socket.close();
-			}
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-
-	
-	
-	
-	
-
 }

@@ -49,7 +49,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 		RedEnviar enviarServidor = new RedEnviar();
 		while(true)
 		{
-			System.out.println("Tratando de conectar con " +Integer.toString(puerto));
+			//System.out.println("Tratando de conectar con " +Integer.toString(puerto));
 			boolean pudo = enviarServidor.Conectar(ipServidor, puerto);
 			if(pudo)
 			{
@@ -65,10 +65,10 @@ public class RedMonitor extends Observable implements IRedMonitor {
 				estadoServidores(puerto, respuesta, pudo);					
 			}
 			else {
-				System.out.println("El servidor en el puerto " + Integer.toString(puerto)+ " esta caido :(");
+				//System.out.println("El servidor en el puerto " + Integer.toString(puerto)+ " esta caido :(");
 				if(getServidorFromPuerto(puerto).getEstado().equals("Primario"))
 				{
-					System.out.println("Se cayo el primario");
+					//System.out.println("Se cayo el primario");
 					elPrimarioCayo=true;					
 				}
 				estadoServidores(puerto, "Caido", pudo);
@@ -83,7 +83,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 	
 	private void estadoServidores(int puerto,String estado,boolean disponible)
 	{
-		System.out.println("Actualizando estado vista");
+		//System.out.println("Actualizando estado vista");
 		Servidor servidor=null;
 		String mensajeObserver=null;
 		if(puerto == servidorA.getPuerto())

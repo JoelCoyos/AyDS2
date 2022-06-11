@@ -59,7 +59,11 @@ public class RedEnviar {
 			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 			objeto = (T)objectInputStream.readObject();
 		} catch (Exception e) {
-			
+			try {
+				socket.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 		return objeto;
 	}
