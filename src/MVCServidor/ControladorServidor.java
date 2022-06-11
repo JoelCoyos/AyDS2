@@ -50,6 +50,13 @@ public class ControladorServidor implements Observer {
 				vista.AgregarLog(logSinc);
 			}
 		}
+		else
+		{
+			Log logSinc = (Log)arg;
+			logs.add(log);
+			vista.AgregarLog(logSinc);
+		}
+			
 	}
 	
 }

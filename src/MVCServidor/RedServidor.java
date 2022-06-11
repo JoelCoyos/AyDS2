@@ -94,16 +94,27 @@ public class RedServidor extends Observable implements IRedServidor {
 		notifyObservers("Sincronizar");	
 		while(aux)
 		{
-			registro = redEnviar.RecibirMensaje();
-			if(registro!=null)
+			MensajeSinc mensajeSinc = redEnviar.RecibirMensaje();
+			if(mensajeSinc.getTipo().equals("Registro"))
 			{
-				AgregarReceptor(registro);
+				registro = (RegistroReceptor)mensajeSinc.getMensaje();
+				if(registro!=null)
+				{
+					AgregarReceptor(registro);
+					setChanged();
+					notifyObservers("Registro");				
+				}
+				else {
+					aux = false;
+				}
+			}
+			else if(mensajeSinc.getTipo().equals("Log"))
+			{
+				Log log = (Log)mensajeSinc.getMensaje();
 				setChanged();
-				notifyObservers("Registro");				
+				notifyObservers(log);	
 			}
-			else {
-				aux = false;
-			}
+
 		}
 		redEnviar = null;
 		
@@ -149,7 +160,8 @@ public class RedServidor extends Observable implements IRedServidor {
 			AgregarReceptor(registro);
 			setChanged();
 			notifyObservers("Registro");
-			redRecibir.EnviarRed(registro);			
+			MensajeSinc mensajeSinc = new MensajeSinc("Registro", registro);
+			redRecibir.EnviarRed(mensajeSinc);			
 		}
 	}
 	
@@ -179,6 +191,8 @@ public class RedServidor extends Observable implements IRedServidor {
 				emergencia = (Emergencia) objectInputStream.readObject();
 				setChanged();
 				notifyObservers("Emergencia");
+				MensajeSinc mensajeSinc = new MensajeSinc("Log", logs.get(logs.size()-1));
+				redRecibir.EnviarRed(mensajeSinc);
 				llego = EnviarEmergencias();
 				if(llego)
 				{
