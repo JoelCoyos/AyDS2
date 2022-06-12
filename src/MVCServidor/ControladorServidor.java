@@ -42,7 +42,7 @@ public class ControladorServidor implements Observer {
 		{
 			RegistroReceptor receptor = redServidor.getRegistro();
 			Emergencia emergencia = redServidor.getEmergencia();
-			mensaje = "Se envio una emergencia al receptor en el puerto " + receptor.puerto + " de tipo " + emergencia.getTipoEmergencia();
+			mensaje = "Se envio una emergencia al receptor en el puerto " + receptor.puerto +" con ip" + receptor.ip +  " de tipo " + emergencia.getTipoEmergencia();
 			log = new Log(fechaHora, mensaje);
 			logs.add(log);
 			this.vista.AgregarLog(log);

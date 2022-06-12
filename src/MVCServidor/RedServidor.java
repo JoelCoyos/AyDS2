@@ -73,29 +73,26 @@ public class RedServidor extends Observable implements IRedServidor {
 		new Thread(){public void run(){RecibirEmergencia();}}.start();	
 		redRecibir = new RedRecibir();
 		redRecibir.Conectar(4001);
-		String mensaje = redRecibir.Escuchar();
-		System.out.println(mensaje);
+		String mensaje = redRecibir.Escuchar(); //Esperamos a que se conecte el secundario
 		Sincronizacion sincronizacion = new Sincronizacion(ipBombero, ipSeguridad, ipMedica, logs);
-		//System.out.println("sinc: " + ipBombero.get(0).ip);
-		redRecibir.EnviarRed(sincronizacion);
+		redRecibir.EnviarRed(sincronizacion); //Le enviamos toda la informacion que tenemos
 	}
 	
 	private void Secundario()
 	{
 		boolean aux=true;
-		redEnviar.EnviarMensaje("buenas");
-		Sincronizacion sincronizacion = redEnviar.RecibirMensaje();
+		redEnviar.EnviarMensaje("Conectar");
+		Sincronizacion sincronizacion = redEnviar.RecibirMensaje(); //Sincronizacion de toda la informacion del Primario
 		this.ipBombero = sincronizacion.getIpBombero();
 		this.ipMedica = sincronizacion.getIpMedica();
 		this.ipSeguridad = sincronizacion.getIpSeguridad();
 		this.logs = sincronizacion.getLogs();
-		System.out.println("Se sincronizo");
 		setChanged();
 		notifyObservers("Sincronizar");	
 		while(aux)
 		{
 			MensajeSinc mensajeSinc = redEnviar.RecibirMensaje();
-			if(mensajeSinc.getTipo().equals("Registro"))
+			if(mensajeSinc.getTipo().equals("Registro")) //Primario envia registro receptor
 			{
 				registro = (RegistroReceptor)mensajeSinc.getMensaje();
 				if(registro!=null)
@@ -108,7 +105,7 @@ public class RedServidor extends Observable implements IRedServidor {
 					aux = false;
 				}
 			}
-			else if(mensajeSinc.getTipo().equals("Log"))
+			else if(mensajeSinc.getTipo().equals("Log")) //Primario envia un Log
 			{
 				Log log = (Log)mensajeSinc.getMensaje();
 				setChanged();
@@ -225,7 +222,7 @@ public class RedServidor extends Observable implements IRedServidor {
 		{
 			listaReceptores = ipMedica;
 		}
-		if(listaReceptores == null)
+		if(listaReceptores.size()==0) //Todavia no se registraron receptores
 			return false;
 		String aux;
 		for (RegistroReceptor receptor : listaReceptores) {
@@ -242,6 +239,7 @@ public class RedServidor extends Observable implements IRedServidor {
 		return llego;
 	}
 	
+	@Override
 	public RegistroReceptor getRegistro()
 	{
 		return this.registro;
@@ -253,11 +251,13 @@ public class RedServidor extends Observable implements IRedServidor {
 		return this.emergencia;
 	}
 	
+	@Override
 	public ArrayList<Log> getLogs()
 	{
 		return logs;
 	}
 	
+	@Override
 	public void setLogs(ArrayList<Log> logs)
 	{
 		this.logs = logs;
