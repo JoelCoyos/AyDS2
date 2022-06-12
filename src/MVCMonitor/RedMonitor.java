@@ -71,6 +71,9 @@ public class RedMonitor extends Observable implements IRedMonitor {
 					//System.out.println("Se cayo el primario");
 					elPrimarioCayo=true;					
 				}
+				else {
+					estadoServidores(puerto, "Caido", false);	
+				}
 				estadoServidores(puerto, "Caido", pudo);
 			}
 			try {

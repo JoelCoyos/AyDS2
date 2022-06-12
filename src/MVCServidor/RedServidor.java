@@ -71,11 +71,23 @@ public class RedServidor extends Observable implements IRedServidor {
 
 		new Thread(){public void run(){RegistroReceptor();}}.start();
 		new Thread(){public void run(){RecibirEmergencia();}}.start();	
+		new Thread(){public void run(){EscucharAlSecundario();}}.start();	
+
+	}
+	
+	private void EscucharAlSecundario()
+	{
 		redRecibir = new RedRecibir();
 		redRecibir.Conectar(4001);
-		String mensaje = redRecibir.Escuchar(); //Esperamos a que se conecte el secundario
-		Sincronizacion sincronizacion = new Sincronizacion(ipBombero, ipSeguridad, ipMedica, logs);
-		redRecibir.EnviarRed(sincronizacion); //Le enviamos toda la informacion que tenemos
+		while(true)
+		{
+			redRecibir.Escuchar(); //Esperamos a que se conecte el secundario
+			Sincronizacion sincronizacion = new Sincronizacion(ipBombero, ipSeguridad, ipMedica, logs);
+			System.out.println("Enviando al secundario la sincronizacion");
+			//System.out.println(logs.get(0).mensaje);
+			redRecibir.EnviarRed(sincronizacion); //Le enviamos toda la informacion que tenemos
+		}
+
 	}
 	
 	private void Secundario()
@@ -92,7 +104,9 @@ public class RedServidor extends Observable implements IRedServidor {
 		while(aux)
 		{
 			MensajeSinc mensajeSinc = redEnviar.RecibirMensaje();
-			if(mensajeSinc.getTipo().equals("Registro")) //Primario envia registro receptor
+			if(mensajeSinc == null)
+				aux = false;
+			else if(mensajeSinc.getTipo().equals("Registro")) //Primario envia registro receptor
 			{
 				registro = (RegistroReceptor)mensajeSinc.getMensaje();
 				if(registro!=null)
@@ -188,13 +202,14 @@ public class RedServidor extends Observable implements IRedServidor {
 				this.emergencia =  (Emergencia)recibirEmergencia.Escuchar();
 				setChanged();
 				notifyObservers("Emergencia");
+				MensajeSinc mensajeSinc = new MensajeSinc("Log", logs.get(logs.size()-1));
+				redRecibir.EnviarRed(mensajeSinc);
 				llego = EnviarEmergencias();
 				if(llego)
 				{
 					recibirEmergencia.EnviarRed("Llego");
-					MensajeSinc mensajeSinc = new MensajeSinc("Log", logs.get(logs.size()-1));
+					mensajeSinc = new MensajeSinc("Log", logs.get(logs.size()-1));
 					redRecibir.EnviarRed(mensajeSinc);
-					redRecibir.Cerrar();
 				}
 				else {
 					recibirEmergencia.EnviarRed("No Llego");

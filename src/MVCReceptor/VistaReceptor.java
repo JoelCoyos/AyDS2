@@ -77,7 +77,7 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		this.tablaEmergencias.setModel(modeloTabla);
 		scrollPane.setViewportView(tablaEmergencias);
 		this.setVisible(true);
-		
+		this.setAlwaysOnTop(true);
 	}
 	
 	@Override
