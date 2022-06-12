@@ -117,7 +117,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 		return servidorB;
 	}
 	
-	public Servidor getServidorFromPuerto(int puerto)
+	private Servidor getServidorFromPuerto(int puerto)
 	{
 		Servidor servidor = null;
 		if(puerto==servidorA.getPuerto())

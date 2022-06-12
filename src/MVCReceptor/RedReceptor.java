@@ -12,7 +12,7 @@ import clasesComunes.ServicioRed;
 @SuppressWarnings("deprecation")
 public class RedReceptor extends Observable implements IRedReceptor {
 	
-	private static Emergencia emergencia;
+	private Emergencia emergencia;
 	Propiedades propiedades;
 	
 	public RedReceptor() {

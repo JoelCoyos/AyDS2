@@ -6,8 +6,8 @@ import java.util.Properties;
 
 public class Propiedades {
 	
-	Properties properties = new Properties();
-	FileInputStream configFile;
+	private Properties properties = new Properties();
+	private FileInputStream configFile;
 	
 	public Propiedades(String nombre) {
 		try {

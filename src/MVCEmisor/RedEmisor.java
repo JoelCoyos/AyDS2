@@ -7,13 +7,11 @@ import clasesComunes.ServicioRed;
 
 public class RedEmisor extends Observable implements IRedEmisor {
 	
-	public boolean llego;
-	
 
 	@Override
-	public void EnviarEmergencia(Emergencia emergencia,String ip, int puerto) 
+	public boolean EnviarEmergencia(Emergencia emergencia,String ip, int puerto) 
 	{
-		llego = false;
+		boolean llego = false;
 		String respuesta;
 		int i=0;
 		while(i<5 && !llego) {
@@ -30,8 +28,7 @@ public class RedEmisor extends Observable implements IRedEmisor {
 				}
 			}
 		}
-		setChanged();
-		notifyObservers(llego);	
+		return llego;
 	}
 
 }

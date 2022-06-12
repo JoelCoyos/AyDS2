@@ -38,11 +38,6 @@ public class RedRecibir {
 		return objeto;
 	}
 	
-	public <T extends Serializable> T RecibirMensaje()
-	{
-		return redEnviar.RecibirMensaje();
-	}
-	
 	public<T extends Serializable> void EnviarRed(T objeto)
 	{
 		if(redEnviar!=null)

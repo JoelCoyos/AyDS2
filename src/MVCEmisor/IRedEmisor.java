@@ -4,6 +4,6 @@ import clasesComunes.Emergencia;
 
 public interface IRedEmisor {
 	
-	public void EnviarEmergencia(Emergencia emergencia,String ip, int puerto);
+	public boolean EnviarEmergencia(Emergencia emergencia,String ip, int puerto);
 
 }

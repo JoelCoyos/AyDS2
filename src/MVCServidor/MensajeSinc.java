@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class MensajeSinc implements Serializable{
 	
-	String tipo;
-	Serializable mensaje;
+	private String tipo;
+	private Serializable mensaje;
 	
 	public String getTipo() {
 		return tipo;
