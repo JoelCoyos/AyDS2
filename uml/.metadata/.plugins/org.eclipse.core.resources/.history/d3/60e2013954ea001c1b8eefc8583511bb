@@ -105,26 +105,11 @@
         <end xmi:id="_AcVnEcMQEey6PdLSrho1mQ"/>
         <end xmi:id="_AcWOIcMQEey6PdLSrho1mQ" role="_AcWOIMMQEey6PdLSrho1mQ"/>
       </ownedConnector>
-      <ownedConnector xmi:id="_jPeRMOpUEeyhIcSmOdzuNQ" name="RealizarSwitch_RealizarSwitch_connector">
-        <end xmi:id="_jPe4QOpUEeyhIcSmOdzuNQ" role="_81mMQepTEeyhIcSmOdzuNQ"/>
-        <end xmi:id="_jPe4QepUEeyhIcSmOdzuNQ" role="_AcWOIMMQEey6PdLSrho1mQ"/>
-      </ownedConnector>
       <interfaceRealization xmi:id="_82ZbIMMPEey6PdLSrho1mQ" client="_DbHoQMJTEeycH-sMtUYykQ _AcVAAMMQEey6PdLSrho1mQ"/>
-      <interfaceRealization xmi:id="_hyLMwOpUEeyhIcSmOdzuNQ" client="_DbHoQMJTEeycH-sMtUYykQ _jPeRMOpUEeyhIcSmOdzuNQ" supplier="_baTrwOpUEeyhIcSmOdzuNQ" contract="_baTrwOpUEeyhIcSmOdzuNQ"/>
       <ownedOperation xmi:id="_LzTIAMfhEey97Inx8drAzQ" name="Operation_1"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_CXEOYMMQEey6PdLSrho1mQ" name="MostrarEmergencia"/>
     <packagedElement xmi:type="uml:Interface" xmi:id="_OQNdsOm_EeyWCOsXjtJmJw" name="sincLog"/>
-    <packagedElement xmi:type="uml:Component" xmi:id="_mMNkkOpTEeyhIcSmOdzuNQ" name="Redundancia">
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_81mMQepTEeyhIcSmOdzuNQ" name="RedundanciaPort" type="_mMNkkOpTEeyhIcSmOdzuNQ"/>
-      <ownedConnector xmi:id="_81llMOpTEeyhIcSmOdzuNQ" name="sincronizarEvento_sincronizarEvento_connector">
-        <end xmi:id="_81mMQOpTEeyhIcSmOdzuNQ" role="_AcWOIMMQEey6PdLSrho1mQ"/>
-        <end xmi:id="_81mMQupTEeyhIcSmOdzuNQ" role="_81mMQepTEeyhIcSmOdzuNQ"/>
-      </ownedConnector>
-      <interfaceRealization xmi:id="_7xd1wOpTEeyhIcSmOdzuNQ" client="_mMNkkOpTEeyhIcSmOdzuNQ _81llMOpTEeyhIcSmOdzuNQ" supplier="_vMUTIOpTEeyhIcSmOdzuNQ" contract="_vMUTIOpTEeyhIcSmOdzuNQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_vMUTIOpTEeyhIcSmOdzuNQ" name="sincronizarEvento"/>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_baTrwOpUEeyhIcSmOdzuNQ" name="RealizarSwitch"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_aAYZkMAREeyi7amANyoU0g" name="RegistroReceptor"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_QPQ9cMAUEeyi7amANyoU0g" name="Emisor">
@@ -658,6 +643,4 @@
   <packagedElement xmi:type="uml:Interface" xmi:id="_9c340Om9EeyWCOsXjtJmJw" name="pingServidor"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_1I9scOm-EeyWCOsXjtJmJw" client="_RGxGAOm9EeyWCOsXjtJmJw _30mzUOm-EeyWCOsXjtJmJw" supplier="_9c340Om9EeyWCOsXjtJmJw"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_iNo1cOm_EeyWCOsXjtJmJw" client="_DbHoQMJTEeycH-sMtUYykQ _ocwDEOm_EeyWCOsXjtJmJw" supplier="_OQNdsOm_EeyWCOsXjtJmJw"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_8FJmwOpTEeyhIcSmOdzuNQ" client="_DbHoQMJTEeycH-sMtUYykQ _81llMOpTEeyhIcSmOdzuNQ" supplier="_vMUTIOpTEeyhIcSmOdzuNQ"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_hHG2gOpUEeyhIcSmOdzuNQ" client="_mMNkkOpTEeyhIcSmOdzuNQ _jPeRMOpUEeyhIcSmOdzuNQ" supplier="_baTrwOpUEeyhIcSmOdzuNQ"/>
 </uml:Model>

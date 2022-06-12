@@ -90,23 +90,17 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_QTC_5MfjEey97Inx8drAzQ" elementId="org.eclipse.ui.editorss" selectedElement="_QTC_5cfjEey97Inx8drAzQ">
-      <children xsi:type="basic:PartStack" xmi:id="_QTC_5cfjEey97Inx8drAzQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_D9N4wNlJEeyYQ8YLlJZfUQ">
+      <children xsi:type="basic:PartStack" xmi:id="_QTC_5cfjEey97Inx8drAzQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_OZb70NlQEeyYQ8YLlJZfUQ">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_D9N4wNlJEeyYQ8YLlJZfUQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Secuencia2" iconURI="platform:/plugin/org.eclipse.sirius.diagram.ui/icons/DDiagram.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID&quot; name=&quot;Secuencia2&quot; partName=&quot;Secuencia2&quot; title=&quot;Secuencia2&quot; tooltip=&quot;platform:/resource/antipanico/representations.aird/Secuencia2&quot;>&#xD;&#xA;&lt;input REP_DESC_URI=&quot;platform:/resource/antipanico/representations.aird#_D6Vj4NlJEeyYQ8YLlJZfUQ&quot; SESSION_RESOURCE_URI=&quot;platform:/resource/antipanico/representations.aird&quot; bundle=&quot;org.eclipse.sirius.ui&quot; class=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInput&quot; factoryID=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInputFactory&quot; name=&quot;Secuencia2&quot; uri=&quot;platform:/resource/antipanico/representations.aird#_D68A0dlJEeyYQ8YLlJZfUQ&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID</tags>
-          <tags>removeOnHide</tags>
-          <tags>activeOnClose</tags>
-          <tags>active</tags>
-        </children>
         <children xsi:type="basic:Part" xmi:id="_OZb70NlQEeyYQ8YLlJZfUQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Componentes" iconURI="platform:/plugin/org.eclipse.sirius.diagram.ui/icons/DDiagram.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID&quot; name=&quot;Componentes&quot; partName=&quot;Componentes&quot; title=&quot;Componentes&quot; tooltip=&quot;platform:/resource/antipanico/representations.aird/Componentes&quot;>&#xD;&#xA;&lt;input REP_DESC_URI=&quot;platform:/resource/antipanico/representations.aird#__t1S0MAQEeyi7amANyoU0g&quot; SESSION_RESOURCE_URI=&quot;platform:/resource/antipanico/representations.aird&quot; bundle=&quot;org.eclipse.sirius.ui&quot; class=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInput&quot; factoryID=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInputFactory&quot; name=&quot;Componentes&quot; uri=&quot;platform:/resource/antipanico/representations.aird#__t154cAQEeyi7amANyoU0g&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID</tags>
           <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_eEdqQNlQEeyYQ8YLlJZfUQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="NewModel Package Hierarchy" iconURI="platform:/plugin/org.eclipse.sirius.diagram.ui/icons/DDiagram.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID&quot; name=&quot;NewModel Package Hierarchy&quot; partName=&quot;NewModel Package Hierarchy&quot; title=&quot;NewModel Package Hierarchy&quot; tooltip=&quot;platform:/resource/antipanico/representations.aird/NewModel Package Hierarchy&quot;>&#xD;&#xA;&lt;input REP_DESC_URI=&quot;platform:/resource/antipanico/representations.aird#_9TeI8MgCEeyfz7f7-Vto8g&quot; SESSION_RESOURCE_URI=&quot;platform:/resource/antipanico/representations.aird&quot; bundle=&quot;org.eclipse.sirius.ui&quot; class=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInput&quot; factoryID=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInputFactory&quot; name=&quot;NewModel Package Hierarchy&quot; uri=&quot;platform:/resource/antipanico/representations.aird#_9TewAcgCEeyfz7f7-Vto8g&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -181,7 +175,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_QTFbf8fjEey97Inx8drAzQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_xg2iAOAVEeyt8r52VdDmKw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_QTGEecfjEey97Inx8drAzQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_chcIYOpTEeyhIcSmOdzuNQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_QTGEecfjEey97Inx8drAzQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_QTFbjMfjEey97Inx8drAzQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -199,7 +193,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_QTFbssfjEey97Inx8drAzQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_xg4-QOAVEeyt8r52VdDmKw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_QTGED8fjEey97Inx8drAzQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_chd9kepTEeyhIcSmOdzuNQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_QTGED8fjEey97Inx8drAzQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_QTFbx8fjEey97Inx8drAzQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1699,7 +1693,7 @@
   <addons xmi:id="_QTGFs8fjEey97Inx8drAzQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_QTGFtMfjEey97Inx8drAzQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_QTGFtcfjEey97Inx8drAzQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_cIRacepTEeyhIcSmOdzuNQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_QTGFt8fjEey97Inx8drAzQ" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_QTGFuMfjEey97Inx8drAzQ" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_QTGFucfjEey97Inx8drAzQ" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
