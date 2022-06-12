@@ -61,6 +61,8 @@ public class RedServidor extends Observable implements IRedServidor {
 	
 	private void CambioSecundarioPrimario()
 	{
+		setChanged();
+		notifyObservers("Primario");	
 		primario = true;
 		new Thread(){public void run(){Primario();}}.start();
 	}
@@ -68,7 +70,6 @@ public class RedServidor extends Observable implements IRedServidor {
 	
 	private void Primario()
 	{
-
 		new Thread(){public void run(){RegistroReceptor();}}.start();
 		new Thread(){public void run(){RecibirEmergencia();}}.start();	
 		new Thread(){public void run(){EscucharAlSecundario();}}.start();	
@@ -92,6 +93,8 @@ public class RedServidor extends Observable implements IRedServidor {
 	
 	private void Secundario()
 	{
+		setChanged();
+		notifyObservers("Sincronizar");	
 		boolean aux=true;
 		redEnviar.EnviarMensaje("Conectar");
 		Sincronizacion sincronizacion = redEnviar.RecibirMensaje(); //Sincronizacion de toda la informacion del Primario
@@ -276,5 +279,10 @@ public class RedServidor extends Observable implements IRedServidor {
 	public void setLogs(ArrayList<Log> logs)
 	{
 		this.logs = logs;
+	}
+	
+	public String getEstado()
+	{
+		return primario ==true?"Primario":"Secundario";
 	}
 }

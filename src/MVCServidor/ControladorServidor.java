@@ -21,7 +21,7 @@ public class ControladorServidor implements Observer {
 		this.redServidor.addObserver(this);
 		logs = new ArrayList<Log>();
 		redServidor.setLogs(logs);
-		
+		vista.CambiarEstado(redServidor.getEstado());
 	}
 	
 
@@ -67,6 +67,11 @@ public class ControladorServidor implements Observer {
 				vista.AgregarLog(logSinc);
 			}
 		}
+		else if(arg.equals("Primario")) {
+			this.vista.CambiarEstado("Primario");
+		}
+		else if(arg.equals("Secundario"))
+			this.vista.CambiarEstado("Secundario");
 		else
 		{
 			Log logSinc = (Log)arg;

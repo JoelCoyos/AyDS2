@@ -20,6 +20,7 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 	private JTable tabla_EmergenciasRecibidas;
 	private JScrollPane scrollPane;
 	private DefaultTableModel tabla_Recibidos;
+	private JLabel estadoLabel;
 
 	/**
 	 * Launch the application.
@@ -53,9 +54,9 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
 		
-		JLabel lblSolicitudesDeEmergecias = new JLabel("Solicitudes de Emergencias Recibidas");
-		lblSolicitudesDeEmergecias.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		panelNorte.add(lblSolicitudesDeEmergecias);
+		estadoLabel = new JLabel("Estado:");
+		estadoLabel.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		panelNorte.add(estadoLabel);
 		
 		JPanel panelCentral = new JPanel();
 		contentPane.add(panelCentral, BorderLayout.CENTER);
@@ -90,6 +91,13 @@ public class VistaServidor extends JFrame implements IVistaServidor {
 		this.tabla_Recibidos.addRow(objeto);
 		this.setVisible(true);
 		
+	}
+	
+	@Override
+	public void CambiarEstado(String estado)
+	{
+		this.estadoLabel.setText("Estado: "+estado);
+		this.setVisible(true);
 	}
 
 }
