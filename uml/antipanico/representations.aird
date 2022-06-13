@@ -9254,7 +9254,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_2:BasicMessageMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_Message']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1qFy7OqeEey3z47UPE52dA" name="SincronizarEvent(mensajeSinc)" sourceNode="_JvB9ROqeEey3z47UPE52dA" targetNode="_1qCIZOqeEey3z47UPE52dA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1qFy7OqeEey3z47UPE52dA" name="SincronizarEvento(mensajeSinc)" sourceNode="_JvB9ROqeEey3z47UPE52dA" targetNode="_1qCIZOqeEey3z47UPE52dA">
       <target xmi:type="uml:Message" href="my.uml#_1kv_weqeEey3z47UPE52dA"/>
       <semanticElements xmi:type="uml:Message" href="my.uml#_1kv_weqeEey3z47UPE52dA"/>
       <semanticElements xmi:type="uml:MessageOccurrenceSpecification" href="my.uml#_1kv_xeqeEey3z47UPE52dA"/>
@@ -9467,7 +9467,7 @@
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_D-YXwuqfEey3z47UPE52dA" name="Class130" width="1" height="40" resizeKind="NSEW">
         <target xmi:type="uml:Lifeline" href="my.uml#_DjkEAeqfEey3z47UPE52dA"/>
         <semanticElements xmi:type="uml:Lifeline" href="my.uml#_DjkEAeqfEey3z47UPE52dA"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_Qwbt_uqfEey3z47UPE52dA" name="Operation_1" incomingEdges="_QwcVBuqfEey3z47UPE52dA" width="2" height="3" resizeKind="NORTH_SOUTH">
+        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_Qwbt_uqfEey3z47UPE52dA" incomingEdges="_QwcVBuqfEey3z47UPE52dA" width="2" height="3" resizeKind="NORTH_SOUTH">
           <target xmi:type="uml:BehaviorExecutionSpecification" href="my.uml#_Qwaf1-qfEey3z47UPE52dA"/>
           <semanticElements xmi:type="uml:MessageOccurrenceSpecification" href="my.uml#_Qwaf1eqfEey3z47UPE52dA"/>
           <semanticElements xmi:type="uml:MessageOccurrenceSpecification" href="my.uml#_Qwaf1uqfEey3z47UPE52dA"/>

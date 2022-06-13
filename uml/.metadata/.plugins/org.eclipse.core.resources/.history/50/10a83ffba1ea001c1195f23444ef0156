@@ -1494,7 +1494,7 @@
     <message xmi:id="_OmATM-qeEey3z47UPE52dA" name="Operation_3_reply" messageSort="reply" receiveEvent="_OmATOOqeEey3z47UPE52dA"/>
     <message xmi:id="_nNY4oeqeEey3z47UPE52dA" name="SincronizarEvento(mensajeSinc)" receiveEvent="_nNY4peqeEey3z47UPE52dA" sendEvent="_nNY4pOqeEey3z47UPE52dA" signature="_nNY4oOqeEey3z47UPE52dA"/>
     <message xmi:id="_nNY4o-qeEey3z47UPE52dA" name="Operation_1_reply" messageSort="reply" receiveEvent="_nNY4qOqeEey3z47UPE52dA"/>
-    <message xmi:id="_1kv_weqeEey3z47UPE52dA" name="SincronizarEvento(mensajeSinc)" receiveEvent="_1kv_xeqeEey3z47UPE52dA" sendEvent="_1kv_xOqeEey3z47UPE52dA" signature="_1kv_wOqeEey3z47UPE52dA"/>
+    <message xmi:id="_1kv_weqeEey3z47UPE52dA" name="SincronizarEvent(mensajeSinc)" receiveEvent="_1kv_xeqeEey3z47UPE52dA" sendEvent="_1kv_xOqeEey3z47UPE52dA" signature="_1kv_wOqeEey3z47UPE52dA"/>
     <message xmi:id="_1kv_w-qeEey3z47UPE52dA" name="Operation_2_reply" messageSort="reply"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_WAVosOqcEey3z47UPE52dA" name="VistaEmisor"/>
@@ -1537,7 +1537,7 @@
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_IU2ox-qfEey3z47UPE52dA" name="" covered="_9kuuEeqeEey3z47UPE52dA" finish="_IU2oxuqfEey3z47UPE52dA" start="_IU2oxeqfEey3z47UPE52dA" behavior="_IU2owuqfEey3z47UPE52dA"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Qwaf1OqfEey3z47UPE52dA" name="Operation_1_sender" covered="_9kuuEeqeEey3z47UPE52dA" message="_Qwaf0eqfEey3z47UPE52dA"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Qwaf1eqfEey3z47UPE52dA" name="Operation_1_receiver" covered="_DjkEAeqfEey3z47UPE52dA" message="_Qwaf0eqfEey3z47UPE52dA"/>
-    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_Qwaf1-qfEey3z47UPE52dA" name="" covered="_DjkEAeqfEey3z47UPE52dA" finish="_Qwaf1uqfEey3z47UPE52dA" start="_Qwaf1eqfEey3z47UPE52dA" behavior="_Qwaf0uqfEey3z47UPE52dA"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_Qwaf1-qfEey3z47UPE52dA" name="Operation_1" covered="_DjkEAeqfEey3z47UPE52dA" finish="_Qwaf1uqfEey3z47UPE52dA" start="_Qwaf1eqfEey3z47UPE52dA" behavior="_Qwaf0uqfEey3z47UPE52dA"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Qwaf1uqfEey3z47UPE52dA" name="Operation_1_reply_sender" covered="_DjkEAeqfEey3z47UPE52dA" message="_Qwaf0-qfEey3z47UPE52dA"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_QwbG4OqfEey3z47UPE52dA" name="Operation_1_reply_receiver" covered="_9kuuEeqeEey3z47UPE52dA" message="_Qwaf0-qfEey3z47UPE52dA"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IU2oxuqfEey3z47UPE52dA" name="Operation_1_reply_sender" covered="_9kuuEeqeEey3z47UPE52dA" message="_IU2ow-qfEey3z47UPE52dA"/>
