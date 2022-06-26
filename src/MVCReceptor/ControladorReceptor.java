@@ -24,6 +24,7 @@ public class ControladorReceptor implements Observer{
 		vistaReceptor = new VistaReceptor();
 		redReceptor = new RedReceptor();
 		redReceptor.addObserver(this);
+		this.vistaReceptor.actualizar_ubicacionPuerto(this.redReceptor.ubicacion, this.redReceptor.puerto);
 		try {
 			audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/resources/notificacion.wav"));
 			clip = AudioSystem.getClip();

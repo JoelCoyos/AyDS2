@@ -20,6 +20,7 @@ public class RedReceptor extends Observable implements IRedReceptor {
 	Properties properties;
 	String[] tiposEmergencia;
 	public Integer puerto;
+	public String ubicacion;
 	
 	public RedReceptor() {
 		properties = new Properties();
@@ -32,6 +33,7 @@ public class RedReceptor extends Observable implements IRedReceptor {
 			e.printStackTrace();
 		}
 		tiposEmergencia = properties.getProperty("tipoEmergencia").split(",");
+		ubicacion= properties.getProperty("ubicacion");
 		puerto = Integer.parseInt(properties.getProperty("puerto"));
 		new Thread(){public void run(){Escuchar();}}.start();
 	}

@@ -28,7 +28,7 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 	private Object[] datos;
 	private JTable tablaEmergencias;
 	private DefaultTableModel modeloTabla= new DefaultTableModel();
-
+	private JLabel labelUbicacionPuerto ;
 
 	/**
 	 * Create the frame.
@@ -45,10 +45,24 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		
 		JPanel panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
+		panelNorte.setLayout(new GridLayout(3, 1, 0, 0));
+		
+		JPanel panel_1 = new JPanel();
+		panelNorte.add(panel_1);
+		
+		labelUbicacionPuerto = new JLabel("Ubicacion:   , Puerto");
+		labelUbicacionPuerto.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		panel_1.add(labelUbicacionPuerto);
+		
+		JPanel panel_2 = new JPanel();
+		panelNorte.add(panel_2);
+		
+		JPanel panel = new JPanel();
+		panelNorte.add(panel);
 		
 		JLabel solicitudesLabel = new JLabel("Solicitudes Recibidas");
+		panel.add(solicitudesLabel);
 		solicitudesLabel.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		panelNorte.add(solicitudesLabel);
 		
 		JPanel panelCentral = new JPanel();
 		contentPane.add(panelCentral, BorderLayout.CENTER);
@@ -75,6 +89,13 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		objeto[1]=emergencia.getTipoEmergencia();
 		objeto[2]=emergencia.getUbicacion();
 		this.modeloTabla.addRow(objeto);
+		this.setVisible(true);
+		
+	}
+
+	@Override
+	public void actualizar_ubicacionPuerto(String ubicacion, int puerto) {
+		this.labelUbicacionPuerto.setText("Ubicacion: " + ubicacion + " , Puerto: " +  puerto);
 		this.setVisible(true);
 		
 	}
