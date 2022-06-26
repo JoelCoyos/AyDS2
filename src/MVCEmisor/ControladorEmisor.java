@@ -51,20 +51,21 @@ public class ControladorEmisor implements ActionListener,Observer
 		String ubicacion = properties.getProperty("ubicacion");
 		String tipoEmergencia = vistaEmisor.tipoEmergencia();
 		Emergencia emergencia = new Emergencia(ubicacion,tipoEmergencia);
-		Boolean huboError = false;
+		Boolean seMostro = false;
 		String[] ipPuertos = properties.getProperty("ipReceptor").split(",");
 		for (String k : ipPuertos) {
 			String[] ipPuerto = k.split(" ");
 			String ip = ipPuerto[0];
 			int puerto = Integer.parseInt(ipPuerto[1]);
 			Boolean llego = redEmisor.EnviarEmergencia(emergencia,ip,puerto);
-			if(llego==false)
-				huboError = true;
-				
+			if((seMostro == false) && (llego == true))
+			{
+				vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
+				seMostro = true;
+			}
+
 		}
-		if(!huboError)
-			vistaEmisor.MostrarNotificacion("El mensaje llego correctamente");
-		else
+		if(!seMostro)
 			vistaEmisor.MostrarNotificacion("Hubo un error en el envio de la emergencia");
 	}
 	

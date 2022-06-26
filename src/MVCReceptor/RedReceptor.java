@@ -53,8 +53,6 @@ public class RedReceptor extends Observable implements IRedReceptor {
 					{
 						setChanged();
 						notifyObservers("Emergencia");
-					}
-					else {
 						out.println("Llego");
 					}
 					socket.close();
