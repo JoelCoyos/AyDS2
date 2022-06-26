@@ -246,7 +246,6 @@ public class RedServidor extends Observable implements IRedServidor {
 		for (RegistroReceptor receptor : listaReceptores) {
 			this.registro = receptor;
 			aux = ServicioRed.EnviarObjeto(receptor.ip, receptor.puerto, emergencia);
-
 			if(llego == false && aux!=null &&aux.equals("Llego")) //Si llega un solo envio se toma como que llego
 			{				
 				llego = true;				

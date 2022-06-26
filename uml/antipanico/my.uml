@@ -1243,11 +1243,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hofbwuqVEey3z47UPE52dA" value="2"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_yp_N4OqVEey3z47UPE52dA" name="ServicioRed" visibility="public">
-    <ownedOperation xmi:id="_yp_N4eqVEey3z47UPE52dA" name="EnviarObjeto" isStatic="true"/>
-    <ownedOperation xmi:id="_yp_N4uqVEey3z47UPE52dA" name="RecibirObjeto" isStatic="true"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_zkvl8OqVEey3z47UPE52dA" client="_cLGOgOpfEeydNd2fpKqOHA" supplier="_yp_N4OqVEey3z47UPE52dA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zkvl8OqVEey3z47UPE52dA" client="_cLGOgOpfEeydNd2fpKqOHA"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_Ho6e4OqWEey3z47UPE52dA" name="String"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_KzBqcOqWEey3z47UPE52dA" name="Serializable"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_Sd6SgOqWEey3z47UPE52dA" name="Emergencia" visibility="public">

@@ -1,6 +1,6 @@
-#Sun Jun 12 22:43:57 ART 2022
+#Mon Jun 13 10:50:58 ART 2022
 rulergrid.snaptogeometry=false
-viewport.x=38
+viewport.x=0
 zoom=1.0
 print.margin.right=0.5
 rulergrid.rulerunit=1
@@ -17,4 +17,4 @@ rulergrid.gridlevel=true
 print.margin.top=0.5
 print.useMillim=true
 print.usePortrait=true
-viewport.y=4
+viewport.y=0

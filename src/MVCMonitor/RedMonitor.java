@@ -66,7 +66,7 @@ public class RedMonitor extends Observable implements IRedMonitor {
 			}
 			else {
 				//System.out.println("El servidor en el puerto " + Integer.toString(puerto)+ " esta caido :(");
-				if(getServidorFromPuerto(puerto).getEstado().equals("Primario"))
+				if(getServidorFromPuerto(puerto).getEstado()!=null && getServidorFromPuerto(puerto).getEstado().equals("Primario"))
 				{
 					//System.out.println("Se cayo el primario");
 					elPrimarioCayo=true;					
