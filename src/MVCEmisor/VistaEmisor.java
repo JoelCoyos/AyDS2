@@ -130,6 +130,7 @@ public class VistaEmisor extends JFrame implements IVistaEmisor {
 		panelLabel.add(lblNewLabel);
 		
 		this.setVisible(true);
+		this.setAlwaysOnTop(true);
 	}
 
 	@Override

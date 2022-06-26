@@ -1,10 +1,13 @@
 package MVCReceptor;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.Observable;
 import java.util.Properties;
 
@@ -14,19 +17,29 @@ import clasesComunes.Emergencia;
 public class RedReceptor extends Observable implements IRedReceptor {
 	
 	private static Emergencia emergencia;
+	Properties properties;
+	String[] tiposEmergencia;
+	public Integer puerto;
 	
 	public RedReceptor() {
+		properties = new Properties();
+		FileInputStream configFile;
+		try {
+			configFile = new FileInputStream("configReceptor.properties");
+			properties.load(configFile);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		tiposEmergencia = properties.getProperty("tipoEmergencia").split(",");
+		puerto = Integer.parseInt(properties.getProperty("puerto"));
 		new Thread(){public void run(){Escuchar();}}.start();
 	}
 	
 	public void Escuchar()
 	{
             ServerSocket ss;
-            Properties properties = new Properties();
 			try {
-				FileInputStream configFile= new FileInputStream("configReceptor.properties");
-				properties.load(configFile);
-				int puerto = Integer.parseInt(properties.getProperty("puerto"));
 				ss = new ServerSocket(puerto);
 				while(true)
 				{
@@ -35,13 +48,15 @@ public class RedReceptor extends Observable implements IRedReceptor {
 					InputStream inputStream = socket.getInputStream();
 					ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 					emergencia = (Emergencia) objectInputStream.readObject();
-					//PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-					//BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-					//String msg = in.readLine();
-					//System.out.println(msg);
-					System.out.println("Mensaje recibido");
-					setChanged();
-					notifyObservers("Emergencia");
+					PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+					if( Arrays.asList(tiposEmergencia).contains(emergencia.getTipoEmergencia()) == true)
+					{
+						setChanged();
+						notifyObservers("Emergencia");
+					}
+					else {
+						out.println("Llego");
+					}
 					socket.close();
 				}
 

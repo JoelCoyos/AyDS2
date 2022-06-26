@@ -16,9 +16,9 @@ public class ControladorEmisor implements ActionListener,Observer
 	private RedEmisor redEmisor;
 	public ControladorEmisor()
 	{
+		redEmisor = new RedEmisor();
 		vistaEmisor = new VistaEmisor();
 		vistaEmisor.setActionListener(this);
-		redEmisor = new RedEmisor();
 	}
 	
 	@Override
@@ -47,21 +47,16 @@ public class ControladorEmisor implements ActionListener,Observer
 		} catch (Exception e) {
 			vistaEmisor.MostrarNotificacion("Error en el archivo de configuracion");
 		}
-		int puerto = Integer.parseInt(properties.getProperty("puerto"));
-		String tipoEmergencia = vistaEmisor.tipoEmergencia();
-		String tipoIp = null;
-		if(tipoEmergencia.equals("Seguridad"))
-			tipoIp = "ipSeguridad";
-		else if(tipoEmergencia.equals("Bomberos"))
-			tipoIp = "ipBomberos";
-		else if(tipoEmergencia.equals("Medica"))
-			tipoIp = "ipMedica";
-		String[] ipStrings = properties.getProperty(tipoIp).split(",");
-		String ubicacion = properties.getProperty("ubicacion");
 		
+		String ubicacion = properties.getProperty("ubicacion");
+		String tipoEmergencia = vistaEmisor.tipoEmergencia();
 		Emergencia emergencia = new Emergencia(ubicacion,tipoEmergencia);
 		Boolean huboError = false;
-		for (String ip : ipStrings) {
+		String[] ipPuertos = properties.getProperty("ipReceptor").split(",");
+		for (String k : ipPuertos) {
+			String[] ipPuerto = k.split(" ");
+			String ip = ipPuerto[0];
+			int puerto = Integer.parseInt(ipPuerto[1]);
 			Boolean llego = redEmisor.EnviarEmergencia(emergencia,ip,puerto);
 			if(llego==false)
 				huboError = true;
