@@ -2,8 +2,11 @@ package MVCReceptor;
 
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Properties;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -23,6 +26,10 @@ public class ControladorReceptor implements Observer{
 	public ControladorReceptor() {
 		vistaReceptor = new VistaReceptor();
 		redReceptor = new RedReceptor();
+		try (FileInputStream configFile = new FileInputStream("configReceptor.properties")) {
+		} catch (IOException e) {
+			vistaReceptor.MostrarNotificacion("Error en el archivo de configuracion");
+		}
 		redReceptor.addObserver(this);
 		this.vistaReceptor.actualizar_ubicacionPuerto(this.redReceptor.ubicacion, this.redReceptor.puerto);
 		try {

@@ -13,6 +13,8 @@ import clasesComunes.Emergencia;
 
 import java.awt.GridLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
@@ -98,6 +100,11 @@ public class VistaReceptor extends JFrame implements IVistaReceptor {
 		this.labelUbicacionPuerto.setText("Ubicacion: " + ubicacion + " , Puerto: " +  puerto);
 		this.setVisible(true);
 		
+	}
+	
+	@Override
+	public void MostrarNotificacion(String mensaje) {
+		JOptionPane.showMessageDialog(this, mensaje);
 	}
 
 	

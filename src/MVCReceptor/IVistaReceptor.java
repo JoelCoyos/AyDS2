@@ -6,5 +6,6 @@ public interface IVistaReceptor {
 	
 	public void MostrarEmergencia(Emergencia emergencia);
 	public void actualizar_ubicacionPuerto(String ubicacion, int puerto);
+	public void MostrarNotificacion(String mensaje);
 
 }
